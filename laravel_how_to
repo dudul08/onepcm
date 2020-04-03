@@ -1,0 +1,20 @@
+Route statique : 
+Route::view('/','bonspoints.index');
+
+Créer une ressource et le controller associer :
+dans web.php
+Route::resource('enfants','EnfantController');
+dans artisan :
+php .\artisan make:controller EnfantController --resource   
+
+
+creer un model et un fichier de migration:
+php artisan make:model Enfant --migration
+pour lancer la migration :
+php artisan migrate:refresh
+
+pour ajouter manuellement des données:
+php artisan tinker
+$enfant = new App\Enfant();
+
+

@@ -16,7 +16,7 @@ class EnfantController extends Controller
     {
 
         $enfant =Enfant::all();
-        return view('enfants.index',['enfant'=>$enfant]);
+        return view('enfants.index',compact('enfant',$enfant));
 
     }
 
@@ -61,7 +61,7 @@ class EnfantController extends Controller
     public function edit($id)
     {
         $enfant = Enfant::find($id);
-        return view('enfants.edit',['enfant'=>$enfant]);
+        return view('enfants.edit',compact('enfant',$enfant));
 }
 
     /**

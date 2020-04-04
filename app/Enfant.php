@@ -11,17 +11,11 @@ class Enfant extends Model
         $dateNaissance = new \DateTime($this->date_naissance);
         $dateJour = new \DateTime(date("Y-m-d"));
         $interval =$dateJour->diff($dateNaissance);
-
-
         return $interval->format('%y ans et %m mois');
     }
 
     public function getGenreAttribute($genre)
     {
-        if ($genre==0){
-            return 'Fille';
-        } else {
-            return 'Garçon';
-        }
+        return ['1'=>'Fille','0'=>'Garçon'][$genre];
     }
 }

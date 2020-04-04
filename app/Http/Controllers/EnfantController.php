@@ -38,8 +38,7 @@ class EnfantController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->validate(['nom'=>'required','prenom'=>'required','date_naissance'=>'required', 'genre' => 'required'
-        ]);
+        $data=$request->validate(['nom'=>'required','prenom'=>'required','date_naissance'=>'required', 'genre' => 'required']);
         //
 
         Enfant::create($data);

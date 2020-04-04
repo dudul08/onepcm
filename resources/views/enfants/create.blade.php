@@ -19,7 +19,12 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="nome">Date de naissance : </label>
             <div class="col-sm-2">
-                <input class="form-control " type="date" name="date_naissance" id="">
+                <input class="form-control  @error('date_naissance') is-invalid @enderror" type="date" name="date_naissance" id="">
+                @error('date_naissance')
+                <div class="invalid-feedback">
+                   Ce champ est obligatoire !
+                </div>
+                @enderror
             </div>
         </div>
         <div class="form-group row">

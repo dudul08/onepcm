@@ -40,15 +40,11 @@ class EnfantController extends Controller
     {
         $data=$request->validate(['nom'=>'required','prenom'=>'required','date_naissance'=>'required', 'genre' => 'required'
         ]);
-        //Enfant::created($data);
-        $enfant = new Enfant();
+        //
 
-        $enfant->nom = $data['nom'];
-        $enfant->prenom = $data['prenom'];
-        $enfant->date_naissance = $data['date_naissance'];
-        $enfant->genre = $data['genre'];
-        $enfant->save();
+        Enfant::create($data);
         $enfant =Enfant::all();
+
         return view('enfants.index',compact('enfant',$enfant));
     }
 

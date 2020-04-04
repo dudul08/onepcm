@@ -9,6 +9,8 @@
             <th scope="col">#</th>
             <th scope="col">Prénom</th>
             <th scope="col">Nom</th>
+            <th scope="col">Sexe</th>
+            <th scope="col">Age</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -18,6 +20,8 @@
                 <th scope="row">{{ $enfant->id }}</th>
                 <td>{{ $enfant->prenom }}</td>
                 <td>{{ $enfant->nom }}</td>
+                <td>{{ $enfant->genre }}</td>
+                <td>{{ $enfant->age() }}</td>
                 <td><a class="btn btn-secondary" href="{{ route('enfants.edit',$enfant->id) }}">Editer</a></td>
 
 

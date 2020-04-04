@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <a class="btn btn-primary my-3" href="{{ route('enfants.create') }}">Ajouter un enfant</a>
 
     <table class="table table-hover table-bordered">
         <thead>

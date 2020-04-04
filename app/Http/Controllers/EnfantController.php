@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enfant;
+use App\Http\Requests\EnfantRequest;
 use Illuminate\Http\Request;
 
 class EnfantController extends Controller
@@ -36,11 +37,9 @@ class EnfantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EnfantRequest $request)
     {
-        $data=$request->validate(['nom'=>'required','prenom'=>'required','date_naissance'=>'required', 'genre' => 'required']);
-        //
-
+        $data=$request->all();
         Enfant::create($data);
         $enfant =Enfant::all();
 

@@ -41,9 +41,8 @@ class EnfantController extends Controller
     {
         $data=$request->all();
         Enfant::create($data);
-        $enfant =Enfant::actif();
 
-        return view('enfants.index',compact('enfant',$enfant));
+        return back();
     }
 
     /**

@@ -23,7 +23,7 @@ class EnfantRequest extends FormRequest
      */
     public function rules()
     {
-        return ['nom'=>'required','prenom'=>'required','date_naissance'=>'required', 'genre' => 'integer'];
+        return ['nom'=>'required','prenom'=>'required','date_naissance'=>'required', 'genre' => 'required|integer'];
     }
     public function messages()
     {

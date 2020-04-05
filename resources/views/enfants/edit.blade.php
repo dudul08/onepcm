@@ -1,8 +1,11 @@
 @extends('layout')
 
 @section('content')
-
-    <h1>{{ $enfant->nom }}</h1>
-    <h1>{{ $enfant->prenom }}</h1>
+    <h3 class="my-3">Editer un enfant</h3>
+    <form class="my-3" action="{{ route('enfants.update',$enfant->id) }}" method="post">
+        @csrf
+        @include('enfants.form')
+        <button class="btn btn-secondary" type="submit">Modifier</button>
+    </form>
 
 @endsection

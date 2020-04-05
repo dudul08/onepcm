@@ -16,8 +16,8 @@ class EnfantController extends Controller
     public function index()
     {
 
-        $enfant =Enfant::actif();
-        return view('enfants.index',compact('enfant',$enfant));
+        $enfant = Enfant::actif();
+        return view('enfants.index', compact('enfant', $enfant));
 
     }
 
@@ -30,27 +30,26 @@ class EnfantController extends Controller
     {
         $enfant = new Enfant();
 
-        return view('enfants.create',compact('enfant',$enfant));
+        return view('enfants.create', compact('enfant', $enfant));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(EnfantRequest $request)
     {
-        $data=$request->all();
+        $data = $request->all();
         Enfant::create($data);
-
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -61,35 +60,33 @@ class EnfantController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $enfant = Enfant::find($id);
-        $old=old();
-
-        return view('enfants.edit',compact('enfant',$enfant));
-}
+        return view('enfants.edit', compact('enfant', $enfant));
+    }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(EnfantRequest $request, Enfant $enfant)
     {
-        $data=$request->all();
+        $data = $request->all();
         $enfant->update($data);
-        return view('enfants.edit',compact('enfant',$enfant));
+        return redirect()->route('enfants.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

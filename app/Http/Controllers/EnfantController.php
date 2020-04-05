@@ -77,9 +77,11 @@ class EnfantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EnfantRequest $request, Enfant $enfant)
     {
-        //
+        $data=$request->all();
+        $enfant->update($data);
+        return view('enfants.edit',compact('enfant',$enfant));
     }
 
     /**

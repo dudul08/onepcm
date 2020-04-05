@@ -28,7 +28,9 @@ class EnfantController extends Controller
      */
     public function create()
     {
-        return view('enfants.create');
+        $enfant = new Enfant();
+
+        return view('enfants.create',compact('enfant',$enfant));
     }
 
     /**

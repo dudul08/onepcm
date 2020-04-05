@@ -21,7 +21,7 @@
                 <th scope="row">{{ $enfant->id }}</th>
                 <td>{{ $enfant->prenom }}</td>
                 <td>{{ $enfant->nom }}</td>
-                <td>{{ $enfant->genre }}</td>
+                <td>{{ $enfant->getGenreLibelle() }}</td>
                 <td>{{ $enfant->age() }}</td>
                 <td><a class="btn btn-secondary" href="{{ route('enfants.edit',$enfant->id) }}">Editer</a></td>
 

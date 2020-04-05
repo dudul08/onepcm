@@ -18,8 +18,15 @@ class Enfant extends Model
         return $interval->format('%y ans et %m mois');
     }
 
-    public function getGenreAttribute($genre)
+   /* public function getGenreAttribute($genre)
     {
         return ['0'=>'Fille','1'=>'Garçon'][$genre];
+    }*/
+
+    public function getGenreLibelle(){
+         return $this->getTableauGenre()[$this->genre];
+    }
+    public function getTableauGenre(){
+        return ['0'=>'Fille','1'=>'Garçon'];
     }
 }

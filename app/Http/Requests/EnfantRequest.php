@@ -27,6 +27,6 @@ class EnfantRequest extends FormRequest
     }
     public function messages()
     {
-        return ['nom.required'=>'Le nom est obligatoire !','prenom.required'=>'Le prénom est obligatoire !','date_naissance.required'=>'La date de naissance est obligatoire !','genre.integer'=>'Cette information est obligatoire !'];
+        return ['nom.required'=>'Le nom est obligatoire !','prenom.required'=>'Le prénom est obligatoire !','date_naissance.required'=>'La date de naissance est obligatoire !','genre.integer'=>'Cette information est obligatoire !','genre.required'=>'Cette information est obligatoire !'];
     }
 }

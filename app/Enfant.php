@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Enfant extends Model
 {
     protected $fillable = ['nom','prenom','genre','date_naissance','actif'];
-    protected  $attributes=['genre'=>'0','nom'=>'tes1','prenom'=>'test2'];
+    protected  $attributes=['genre'=>'1','nom'=>'tes1','prenom'=>'test2','date_naissance'=>'2000-01-01'];
     public function scopeActif($query){
         return $query->where('actif',1)->get();
     }

@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Enfant extends Model
 {
-    protected $fillable = ['nom','prenom','genre','date_naissance'];
+    protected $fillable = ['nom','prenom','genre','date_naissance','actif'];
+    public function scopeActif($query){
+        return $query->where('actif',1)->get();
+    }
     public function age()
     {
         $dateNaissance = new \DateTime($this->date_naissance);

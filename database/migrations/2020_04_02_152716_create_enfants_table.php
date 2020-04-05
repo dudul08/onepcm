@@ -20,6 +20,7 @@ class CreateEnfantsTable extends Migration
             $table->string('prenom');
             $table->date('date_naissance');
             $table->integer('genre');
+            $table->integer('actif')->default(1);
 
         });
     }

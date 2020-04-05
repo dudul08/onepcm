@@ -16,7 +16,7 @@ class EnfantController extends Controller
     public function index()
     {
 
-        $enfant =Enfant::all();
+        $enfant =Enfant::actif();
         return view('enfants.index',compact('enfant',$enfant));
 
     }
@@ -41,7 +41,7 @@ class EnfantController extends Controller
     {
         $data=$request->all();
         Enfant::create($data);
-        $enfant =Enfant::all();
+        $enfant =Enfant::actif();
 
         return view('enfants.index',compact('enfant',$enfant));
     }

@@ -1,3 +1,4 @@
+@csrf
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Prénom : </label>
     <div class="col-sm-5">

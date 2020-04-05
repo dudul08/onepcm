@@ -39,6 +39,7 @@
     <label class="col-sm-2 col-form-label" for="nome">Sexe : </label>
     <div class="col-sm-2">
         <select class="custom-select @error('genre') is-invalid @enderror" name="genre">
+
             @foreach($enfant->getTableauGenre() as $id_genre =>$genreLibelle)
                 <option value="{{ $id_genre }}" {{ old('genre')!=null ? (old('genre') == $id_genre ? 'selected' :''):($enfant->genre==$id_genre?'selected':'') }} >{{ $genreLibelle }}</option>
             @endforeach

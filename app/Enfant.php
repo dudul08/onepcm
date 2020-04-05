@@ -29,6 +29,6 @@ class Enfant extends Model
          return $this->getTableauGenre()[$this->genre];
     }
     public function getTableauGenre(){
-        return ['0'=>'Fille','1'=>'Garçon',''=>''];
+        return ['0'=>'Fille','1'=>'Garçon'];
     }
 }

@@ -67,6 +67,8 @@ class EnfantController extends Controller
     public function edit($id)
     {
         $enfant = Enfant::find($id);
+        $old=old();
+
         return view('enfants.edit',compact('enfant',$enfant));
 }
 

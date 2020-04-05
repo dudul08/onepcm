@@ -17,6 +17,6 @@ class Enfant extends Model
 
     public function getGenreAttribute($genre)
     {
-        return ['1'=>'Fille','0'=>'Garçon'][$genre];
+        return ['0'=>'Fille','1'=>'Garçon'][$genre];
     }
 }

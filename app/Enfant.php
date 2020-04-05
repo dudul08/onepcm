@@ -2,19 +2,20 @@
 
 namespace App;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 
 class Enfant extends Model
 {
     protected $fillable = ['nom','prenom','genre','date_naissance','actif'];
-    protected  $attributes=['genre'=>''];
+    protected  $attributes=['genre'=>'0','nom'=>'tes1','prenom'=>'test2'];
     public function scopeActif($query){
         return $query->where('actif',1)->get();
     }
     public function age()
     {
-        $dateNaissance = new \DateTime($this->date_naissance);
-        $dateJour = new \DateTime(date("Y-m-d"));
+        $dateNaissance = new DateTime($this->date_naissance);
+        $dateJour = new DateTime(date("Y-m-d"));
         $interval =$dateJour->diff($dateNaissance);
         return $interval->format('%y ans et %m mois');
     }

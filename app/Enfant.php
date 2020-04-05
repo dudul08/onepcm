@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Enfant extends Model
 {
     protected $fillable = ['nom','prenom','genre','date_naissance','actif'];
+    protected  $attributes=['genre'=>''];
     public function scopeActif($query){
         return $query->where('actif',1)->get();
     }
@@ -27,6 +28,6 @@ class Enfant extends Model
          return $this->getTableauGenre()[$this->genre];
     }
     public function getTableauGenre(){
-        return ['0'=>'Fille','1'=>'Garçon'];
+        return ['0'=>'Fille','1'=>'Garçon',''=>''];
     }
 }

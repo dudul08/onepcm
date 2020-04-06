@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <a class="btn btn-primary my-3" href="{{ route('enfants.create') }}">Ajouter un enfant</a>
+    <a class="btn btn-primary my-3" href="{{ route('enfants.create') }}">Ajouter un enfant <span class="fas fa-child"></span></a>
 
     <table class="table table-hover table-bordered">
         <thead>
@@ -23,7 +23,7 @@
                 <td>{{ $enfant->nom }}</td>
                 <td>{{ $enfant->getGenreLibelle() }}</td>
                 <td>{{ $enfant->age() }}</td>
-                <td><a class="btn btn-secondary" href="{{ route('enfants.edit',$enfant->id) }}">Editer</a></td>
+                <td><a class="btn btn-secondary" href="{{ route('enfants.edit',$enfant->id) }}">Editer <span class="far fa-edit"></span></a></td>
 
 
             </tr>

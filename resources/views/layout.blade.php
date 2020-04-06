@@ -7,6 +7,8 @@
 
     <title>ONEPCM</title>
     <link rel="stylesheet" href="{{ url('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/all.css') }}">
+
 </head>
 
 <body>

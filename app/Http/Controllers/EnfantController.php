@@ -16,7 +16,7 @@ class EnfantController extends Controller
     public function index()
     {
 
-        $enfant = Enfant::actif();
+        $enfant = Enfant::all();
         return view('enfants.index', compact('enfant', $enfant));
 
     }

@@ -91,6 +91,8 @@ class EnfantController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Enfant::where('id', $id)->delete();
+       // Enfant::destroy($id);
+        return back();
     }
 }

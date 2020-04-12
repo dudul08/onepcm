@@ -17,6 +17,6 @@ Route::resource('enfants','EnfantController');
 Route::resource('parents','ParentController');
 Route::resource('taches','TacheController');
 Route::resource('bonspoints','BonPointController');
-Route::resource('test', 'EnfantController');
+
 
 

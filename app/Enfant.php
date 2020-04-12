@@ -4,9 +4,11 @@ namespace App;
 
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDelete;
 
 class Enfant extends Model
 {
+
     protected $fillable = ['nom','prenom','genre','date_naissance','actif'];
     protected  $attributes=['genre'=>'','nom'=>'','prenom'=>'','date_naissance'=>''];
     public function scopeActif($query){

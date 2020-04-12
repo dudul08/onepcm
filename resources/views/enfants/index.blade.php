@@ -23,7 +23,16 @@
                 <td>{{ $enfant->nom }}</td>
                 <td>{{ $enfant->getGenreLibelle() }}</td>
                 <td>{{ $enfant->age() }}</td>
-                <td><a class="btn btn-secondary" href="{{ route('enfants.edit',$enfant->id) }}">Editer <span class="far fa-edit"></span></a></td>
+                <td><a class="btn btn-secondary" href="{{ route('enfants.edit',$enfant->id) }}">Editer <span class="far fa-edit"></span></a>
+                    <form action="{{ route('enfants.destroy',$enfant->id) }}" method="POST" style="display: inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"  >Supprimer <span class="fas fa-eraser"></span></button>
+                    </form>
+
+
+
+                </td>
 
 
             </tr>

@@ -21,6 +21,7 @@ class CreateEnfantsTable extends Migration
             $table->date('date_naissance');
             $table->integer('genre');
             $table->integer('actif')->default(1);
+            $table->softDeletes('deleted_at');
 
         });
     }

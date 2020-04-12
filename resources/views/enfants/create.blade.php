@@ -5,7 +5,7 @@
     <form class="my-3" action="{{ route('enfants.store') }}" method="post">
 
         @include('enfants.form')
-        <button class="btn btn-secondary" type="submit">Ajouter <span class="fas fa-check"></button>
+        <button class="btn btn-primary" type="submit">Ajouter <span class="fas fa-check"></button>
     </form>
 
 @endsection

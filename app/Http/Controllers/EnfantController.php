@@ -93,6 +93,10 @@ class EnfantController extends Controller
     {
         Enfant::where('id', $id)->delete();
        // Enfant::destroy($id);
-        return back();
+        return redirect()->route('enfants.index');
+    }
+    public  function confirmation($id){
+        $enfant = Enfant::find($id);
+        return view('enfants.confirmationSuppression',compact('enfant',$enfant));
     }
 }

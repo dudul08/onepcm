@@ -15,7 +15,7 @@ Route::view('/', 'bonspoints.index');
 Route::resource('enfants', 'EnfantController')->except([
     'show'
 ]);;
-Route::resource('parents', 'ResponsableController')->except([
+Route::resource('responsables', 'ResponsableController')->except([
     'show'
 ]);;;
 Route::resource('taches', 'TacheController')->except([
@@ -25,6 +25,7 @@ Route::resource('bonspoints', 'BonPointController')->except([
     'show'
 ]);;;
 Route::get('enfants/{enfant}/confirmation', 'EnfantController@confirmation')->name('enfants.confirmation');//
+Route::get('enfants/{responsable}/confirmation', 'ResponsableController@confirmation')->name('responsables.confirmation');//
 
 
 

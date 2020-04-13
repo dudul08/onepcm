@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Responsable;
 use Illuminate\Http\Request;
 
 class ResponsableController extends Controller
@@ -13,7 +14,8 @@ class ResponsableController extends Controller
      */
     public function index()
     {
-        //
+        $responsables = Responsable::all();
+        return view('responsables.index', ['responsables'=> $responsables]);
     }
 
     /**
@@ -69,5 +71,10 @@ class ResponsableController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public  function confirmation($id){
+
+        $responsable = Responsable::find($id);
+        return view('enfants.confirmationSuppression',['responsable',$responsable]);
     }
 }

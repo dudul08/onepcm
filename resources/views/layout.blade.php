@@ -29,7 +29,7 @@
                     <a class="nav-link" href="{{ route('enfants.index') }}">Gérer les enfants</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('parents.index') }}">Gérer les parents</a>
+                    <a class="nav-link" href="{{ route('responsables.index') }}">Gérer les parents</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('taches.index') }}">Gérer les tâches</a>

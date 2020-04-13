@@ -50,7 +50,8 @@ class ResponsableController extends Controller
      */
     public function edit($id)
     {
-        //
+        $responsable = Responsable::find($id);
+        return view('responsables.edit', ['responsable'=> $responsable]);
     }
 
     /**
@@ -60,9 +61,11 @@ class ResponsableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,  Responsable $responsable)
     {
-        //
+        $data = $request->all();
+        $responsable->update($data);
+        return redirect()->route('responsables.index');
     }
 
     /**

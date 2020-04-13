@@ -6,7 +6,7 @@
         @method('PATCH')
         @include('enfants.form')
         <button class="btn btn-primary" type="submit"> @include('include.iconeValidation') Modifier </button>
-        @include('include.boutonAnnulation')
+        @include('include.boutonAnnulation',['adresseRetour'=> route('enfants.index')])
 
     </form>
 

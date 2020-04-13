@@ -37,7 +37,9 @@ class ResponsableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Responsable::create($data);
+        return back();
     }
 
     /**

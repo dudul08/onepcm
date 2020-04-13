@@ -6,7 +6,7 @@
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger">@include('include.iconeValidation') Confirmer la suppression </button>
-        @include('include.boutonAnnulation')
+        @include('include.boutonAnnulation',['adresseRetour'=> route('enfants.index')])
     </form>
 
 

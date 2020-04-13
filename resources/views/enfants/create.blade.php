@@ -6,7 +6,7 @@
 
         @include('enfants.form')
         <button class="btn btn-primary" type="submit">@include('include.iconeValidation') Ajouter </button>
-        @include('include.boutonAnnulation')
+        @include('include.boutonAnnulation',['adresseRetour'=> route('enfants.index')])
     </form>
 
 @endsection

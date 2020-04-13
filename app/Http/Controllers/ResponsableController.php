@@ -73,11 +73,13 @@ class ResponsableController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Responsable::where('id', $id)->delete();
+        return redirect()->route('responsables.index');
+
     }
     public  function confirmation($id){
 
         $responsable = Responsable::find($id);
-        return view('enfants.confirmationSuppression',['responsable',$responsable]);
+        return view('responsables.confirmationSuppression',['responsable'=>$responsable]);
     }
 }

@@ -25,7 +25,7 @@ Route::resource('bonspoints', 'BonPointController')->except([
     'show'
 ]);;;
 Route::get('enfants/{enfant}/confirmation', 'EnfantController@confirmation')->name('enfants.confirmation');//
-Route::get('enfants/{responsable}/confirmation', 'ResponsableController@confirmation')->name('responsables.confirmation');//
+Route::get('responsables/{responsable}/confirmation', 'ResponsableController@confirmation')->name('responsables.confirmation');//
 
 
 

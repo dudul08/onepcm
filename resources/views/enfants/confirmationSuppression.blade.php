@@ -5,7 +5,7 @@
     <form action="{{ route('enfants.destroy',$enfant->id) }}" method="POST" style="display: inline">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-danger">Confirmer la suppression <span class="fas fa-check"></span></button>
+        <button type="submit" class="btn btn-danger">@include('include.iconeValidation') Confirmer la suppression </button>
         @include('include.boutonAnnulation')
     </form>
 

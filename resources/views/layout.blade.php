@@ -7,7 +7,8 @@
 
     <title>ONEPCM</title>
     <link rel="stylesheet" href="{{ url('/css/app.css') }}">
-    <link rel="stylesheet" href="{{ url('/css/all.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/fonts//remixicon.css') }}">
+
 
 </head>
 
@@ -49,7 +50,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 </script>
-
+<script>
+    import 'remixicon/fonts/remixicon.css'
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 </body>
 

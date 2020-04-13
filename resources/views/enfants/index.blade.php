@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <a class="btn btn-primary my-3" href="{{ route('enfants.create') }}">Ajouter un enfant <span class="fas fa-baby"></span></a>
+    <a class="btn btn-primary my-3" href="{{ route('enfants.create') }}">@include('include.iconeAjout') Ajouter un enfant <span class="fas fa-baby"></span></a>
 
     <table class="table table-hover table-bordered">
         <thead>
@@ -24,10 +24,9 @@
                 <td>{{ $enfant->getGenreLibelle() }}</td>
                 <td>{{ $enfant->age() }}</td>
                 <td>
-                    <a class="btn btn-secondary" href="{{ route('enfants.edit',$enfant->id) }}">Editer <span class="far fa-edit"></span></a>
-                    <a class="btn btn-danger" href="{{ route('enfants.confirmation',$enfant->id) }}">Supprimer <span class="fas fa-eraser"></span></a>
+                    <a class="btn btn-secondary mb-1" href="{{ route('enfants.edit',$enfant->id) }}"><i class="ri-pencil-line"></i>    </a>
+                    <a class="btn btn-danger mb-1" href="{{ route('enfants.confirmation',$enfant->id) }}"><i class="ri-delete-bin-7-line"></i>  </a>
                 </td>
-
 
             </tr>
         @endforeach

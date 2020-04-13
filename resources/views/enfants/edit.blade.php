@@ -5,7 +5,7 @@
     <form class="my-3" action="{{ route('enfants.update',$enfant->id) }}" method="post">
         @method('PATCH')
         @include('enfants.form')
-        <button class="btn btn-primary" type="submit">Modifier <span class="fas fa-check"/></button>
+        <button class="btn btn-primary" type="submit"> @include('include.iconeValidation') Modifier </button>
         @include('include.boutonAnnulation')
 
     </form>

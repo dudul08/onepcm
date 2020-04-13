@@ -25,7 +25,8 @@ class ResponsableController extends Controller
      */
     public function create()
     {
-        //
+        $responsable = new Responsable();
+        return view('responsables.create',['responsable'=>$responsable]);
     }
 
     /**

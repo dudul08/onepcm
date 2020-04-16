@@ -14,16 +14,19 @@
 Route::view('/', 'bonspoints.index');
 Route::resource('enfants', 'EnfantController')->except([
     'show'
-]);;
+]);
 Route::resource('responsables', 'ResponsableController')->except([
     'show'
-]);;;
+]);
 Route::resource('taches', 'TacheController')->except([
     'show'
-]);;;
+]);
 Route::resource('bonspoints', 'BonPointController')->except([
     'show'
-]);;;
+]);Route::resource('categoriestaches', 'CategorieTacheController')->except([
+    'show'
+]);
+
 Route::get('enfants/{enfant}/confirmation', 'EnfantController@confirmation')->name('enfants.confirmation');//
 Route::get('responsables/{responsable}/confirmation', 'ResponsableController@confirmation')->name('responsables.confirmation');//
 

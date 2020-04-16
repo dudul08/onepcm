@@ -34,6 +34,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('taches.index') }}">Gérer les tâches</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('categoriestaches.index') }}">Gérer les catégories des tâches</a>
+                </li>
             </ul>
         </div>
     </nav>

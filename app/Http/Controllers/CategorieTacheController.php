@@ -73,11 +73,13 @@ class CategorieTacheController extends Controller
      */
     public function destroy($id)
     {
-        //
+        CategorieTache::where('id', $id)->delete();
+
+        return redirect()->route('categoriestaches.index');
     }
     public  function confirmation($id){
 
-        $responsable = Responsable::find($id);
-        return view('responsables.confirmationSuppression',['responsable'=>$responsable]);
+        $categorieTache = CategorieTache::find($id);
+        return view('categoriestaches.confirmationSuppression',['categorieTache'=>$categorieTache]);
     }
 }

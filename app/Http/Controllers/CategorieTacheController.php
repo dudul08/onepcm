@@ -27,7 +27,9 @@ class CategorieTacheController extends Controller
      */
     public function create()
     {
-        //
+        $categorieTache = new CategorieTache();
+
+        return view('categoriestaches.create', ['categorieTache'=>$categorieTache]);
     }
 
     /**
@@ -38,7 +40,9 @@ class CategorieTacheController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        CategorieTache::create($data);
+        return back();
     }
 
 
@@ -50,7 +54,9 @@ class CategorieTacheController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $categorieTache = CategorieTache::find($id);
+        return view('categoriestaches.edit', ['categorieTache'=> $categorieTache]);
     }
 
     /**
@@ -60,9 +66,12 @@ class CategorieTacheController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, CategorieTache $categorieTache)
     {
-        //
+        $data = $request->all();
+        $categorieTache->update($data);
+        return redirect()->route('categoriestaches.index');
+
     }
 
     /**

@@ -71,4 +71,9 @@ class CategorieTacheController extends Controller
     {
         //
     }
+    public  function confirmation($id){
+
+        $responsable = Responsable::find($id);
+        return view('responsables.confirmationSuppression',['responsable'=>$responsable]);
+    }
 }

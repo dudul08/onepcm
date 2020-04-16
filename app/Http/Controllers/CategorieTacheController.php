@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CategorieTache;
 use Illuminate\Http\Request;
 
 class CategorieTacheController extends Controller
@@ -13,7 +14,10 @@ class CategorieTacheController extends Controller
      */
     public function index()
     {
-        //
+       $categoriesTaches= CategorieTache::all();
+
+        return view('categoriestaches.index',['categoriesTaches'=>$categoriesTaches]);
+
     }
 
     /**

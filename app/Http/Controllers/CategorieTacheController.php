@@ -14,9 +14,9 @@ class CategorieTacheController extends Controller
      */
     public function index()
     {
-       $categoriesTaches= CategorieTache::all();
+        $categoriesTaches = CategorieTache::all();
 
-        return view('categoriestaches.index',['categoriesTaches'=>$categoriesTaches]);
+        return view('categoriestaches.index', ['categoriesTaches' => $categoriesTaches]);
 
     }
 
@@ -29,13 +29,13 @@ class CategorieTacheController extends Controller
     {
         $categorieTache = new CategorieTache();
 
-        return view('categoriestaches.create', ['categorieTache'=>$categorieTache]);
+        return view('categoriestaches.create', ['categorieTache' => $categorieTache]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -49,27 +49,27 @@ class CategorieTacheController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
 
         $categorieTache = CategorieTache::find($id);
-        return view('categoriestaches.edit', ['categorieTache'=> $categorieTache]);
+        return view('categoriestaches.edit', ['categorieTache' => $categorieTache]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategorieTache $categorieTache)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $categorieTache->update($data);
+        $data = $request->only(['libelle']);
+        CategorieTache::where('id', $id)->update($data);
         return redirect()->route('categoriestaches.index');
 
     }
@@ -77,7 +77,7 @@ class CategorieTacheController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -86,9 +86,11 @@ class CategorieTacheController extends Controller
 
         return redirect()->route('categoriestaches.index');
     }
-    public  function confirmation($id){
+
+    public function confirmation($id)
+    {
 
         $categorieTache = CategorieTache::find($id);
-        return view('categoriestaches.confirmationSuppression',['categorieTache'=>$categorieTache]);
+        return view('categoriestaches.confirmationSuppression', ['categorieTache' => $categorieTache]);
     }
 }

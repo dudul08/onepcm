@@ -10,5 +10,8 @@ class CategorieTache extends Model
     use SoftDeletes;
     protected $fillable = ['libelle'];
     protected $attributes = ['libelle' => ''];
+    public function  taches(){
+        return $this->hasMany('App\Tache');
+    }
 
 }

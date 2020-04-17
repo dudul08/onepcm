@@ -17,7 +17,9 @@ class CreateTachesTable extends Migration
             $table->id();
             $table->string('libelle');
             $table->softDeletes('deleted_at');
+            $table->unsignedBigInteger('id_categorie_taches')->index();
             $table->timestamps();
+            $table->foreign('id_categorie_taches')->references('id')->on('categorie_taches');
         });
     }
 

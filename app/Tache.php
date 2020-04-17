@@ -10,4 +10,8 @@ class Tache extends Model
     use SoftDeletes;
     protected $fillable = ['libelle'];
     protected $attributes = [ 'libelle' => ''];
+    public static function getAttributsFillable() {
+        $tache = new Tache();
+        return $tache->getFillable();
+    }
 }

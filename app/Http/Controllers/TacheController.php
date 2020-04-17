@@ -52,7 +52,8 @@ class TacheController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tache = Tache::find($id);
+        return view('taches.edit', ['tache' => $tache]);
     }
 
     /**
@@ -64,7 +65,12 @@ class TacheController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $attributsFillable = Tache::getAttributsFillable();
+        $data = $request->only($attributsFillable);
+        Tache::where('id', $id)->update($data);
+
+        return redirect()->route('taches.index');
     }
 
     /**

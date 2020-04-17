@@ -17,7 +17,7 @@
         <select class="custom-select @error('categorie_tache_id') is-invalid @enderror" name="categorie_tache_id">
 
             @foreach($categoriesTaches as $categorieTache)
-                <option value="{{ $categorieTache->id }}" >{{ $categorieTache->libelle }}</option>
+                <option value="{{ $categorieTache->id }}" {{ old('categorie_tache_id')!=null ? (old('categorie_tache_id') == $tache->categorie_tache_id ? 'selected' :''):($tache->categorie_tache_id==$categorieTache->id?'selected':'') }} >{{ $categorieTache->libelle }}</option>
             @endforeach
         </select>
         @error('categorie_tache_id')

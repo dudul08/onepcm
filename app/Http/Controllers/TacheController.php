@@ -56,7 +56,8 @@ class TacheController extends Controller
     public function edit($id)
     {
         $tache = Tache::find($id);
-        return view('taches.edit', ['tache' => $tache]);
+        $categoriesTaches = CategorieTache::all();
+        return view('taches.edit', ['tache' => $tache,'categoriesTaches'=>$categoriesTaches]);
     }
 
     /**

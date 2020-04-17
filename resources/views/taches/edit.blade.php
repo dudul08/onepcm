@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h3 class="my-3">Modifier les informations de la tâche {{ $tache->libelle }} </h3>
+    <h3 class="my-3">Modifier les données de la tâche {{ $tache->libelle }} </h3>
     <form class="my-3" action="{{ route('taches.update',$tache->id) }}" method="post">
         @method('PATCH')
         @include('taches.form')

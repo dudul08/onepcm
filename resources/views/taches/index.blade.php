@@ -9,6 +9,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Libellé</th>
+            <th scope="col">Catégorie</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -17,6 +18,7 @@
             <tr>
                 <th scope="row">{{ $tache->id }}</th>
                 <td>{{ $tache->libelle }}</td>
+                <td>{{ $tache->categorieTache->libelle }}</td>
                 <td>
                     <a class="btn btn-secondary mb-1" href="{{ route('taches.edit',$tache->id) }}"><i
                             class="ri-pencil-line"></i> </a>

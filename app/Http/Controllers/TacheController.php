@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CategorieTache;
 use App\Tache;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class TacheController extends Controller
     public function create()
     {
         $tache = new Tache();
-        return view('taches.create', ['tache' => $tache]);
+        $categoriesTaches = CategorieTache::all();
+        return view('taches.create', ['tache' => $tache,'categoriesTaches'=>$categoriesTaches]);
     }
 
     /**
@@ -39,6 +41,7 @@ class TacheController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
         Tache::create($data);
         return back();
     }

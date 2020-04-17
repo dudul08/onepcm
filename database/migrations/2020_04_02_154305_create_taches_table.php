@@ -15,6 +15,8 @@ class CreateTachesTable extends Migration
     {
         Schema::create('taches', function (Blueprint $table) {
             $table->id();
+            $table->string('libelle');
+            $table->softDeletes('deleted_at');
             $table->timestamps();
         });
     }

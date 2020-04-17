@@ -30,6 +30,7 @@ Route::resource('bonspoints', 'BonPointController')->except([
 Route::get('enfants/{enfant}/confirmation', 'EnfantController@confirmation')->name('enfants.confirmation');//
 Route::get('responsables/{responsable}/confirmation', 'ResponsableController@confirmation')->name('responsables.confirmation');//
 Route::get('categoriestaches/{categorietache}/confirmation', 'CategorieTacheController@confirmation')->name('categoriestaches.confirmation');//
+Route::get('taches/{tache}/confirmation', 'TacheController@confirmation')->name('taches.confirmation');//
 
 
 

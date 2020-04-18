@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CategorieTache;
+use App\Http\Requests\TacheRequest;
 use App\Tache;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,7 @@ class TacheController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TacheRequest $request)
     {
         $data = $request->all();
 
@@ -67,7 +68,7 @@ class TacheController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TacheRequest $request, $id)
     {
 
         $attributsFillable = Tache::getAttributsFillable();

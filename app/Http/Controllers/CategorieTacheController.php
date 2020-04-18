@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CategorieTache;
+use App\Http\Requests\CategorieTacheRequest;
 use Illuminate\Http\Request;
 
 class CategorieTacheController extends Controller
@@ -38,7 +39,7 @@ class CategorieTacheController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategorieTacheRequest $request)
     {
         $data = $request->all();
         CategorieTache::create($data);
@@ -66,7 +67,7 @@ class CategorieTacheController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategorieTacheRequest $request, $id)
     {
         $data = $request->only(['libelle']);
         CategorieTache::where('id', $id)->update($data);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ResponsableRequest;
 use App\Responsable;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class ResponsableController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ResponsableRequest $request)
     {
         $data = $request->all();
         Responsable::create($data);
@@ -61,7 +62,7 @@ class ResponsableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  Responsable $responsable)
+    public function update(ResponsableRequest $request,  Responsable $responsable)
     {
         $data = $request->all();
         $responsable->update($data);

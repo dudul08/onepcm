@@ -55,6 +55,7 @@
 </script>
 <script>
     import 'remixicon/fonts/remixicon.css'
+
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })

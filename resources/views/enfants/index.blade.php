@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <a class="btn btn-primary my-3" href="{{ route('enfants.create') }}">@include('include.iconeAjoutEnfantResponsable') Ajouter un enfant <span class="fas fa-baby"></span></a>
+    <a class="btn btn-primary my-3" href="{{ route('enfants.create') }}">@include('include.iconeAjoutEnfantResponsable') Ajouter un enfant </a>
 
     <table class="table table-hover table-bordered">
         <thead>

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <a class="btn btn-primary my-3" href="{{ route('responsables.create') }}">@include('include.iconeAjoutEnfantResponsable') Ajouter un parent <span class="fas fa-baby"></span></a>
+    <a class="btn btn-primary my-3" href="{{ route('responsables.create') }}">@include('include.iconeAjoutEnfantResponsable') Ajouter un parent </a>
 
     <table class="table table-hover table-bordered">
         <thead>

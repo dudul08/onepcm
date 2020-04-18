@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Tache extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['libelle','categorie_tache_id'];
-    protected $attributes = [ 'libelle' => '','categorie_tache_id'=>''];
+    protected $fillable = ['libelle','categorie_tache_id','nombre_points','nombre_points_bonus'];
+    protected $attributes = [ 'libelle' => '','categorie_tache_id'=>'','nombre_points'=>'','nombre_points_bonus'=>''];
     public static function getAttributsFillable() {
         $tache = new Tache();
         return $tache->getFillable();

@@ -18,6 +18,8 @@ class CreateTachesTable extends Migration
             $table->string('libelle');
             $table->softDeletes('deleted_at');
             $table->unsignedBigInteger('categorie_tache_id')->index();
+            $table->integer('nombre_points');
+            $table->integer('nombre_points_bonus');
             $table->timestamps();
             $table->foreign('categorie_tache_id')->references('id')->on('categorie_taches');
         });

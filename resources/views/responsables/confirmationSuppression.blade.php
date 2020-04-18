@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
     <h3 class="my-3">Supprimer {{ $responsable->prenom . ' ' . $responsable->nom }} de la base de données</h3>

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
     <h3 class="my-3">Modifier les données de la tâche {{ $tache->libelle }} </h3>

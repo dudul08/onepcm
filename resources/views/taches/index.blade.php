@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
     <a class="btn btn-primary my-3" href="{{ route('taches.create') }}"><i class="ri-tools-line"></i> Ajouter une

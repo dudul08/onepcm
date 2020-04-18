@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
     <h3 class="my-3">Modifier les informations de la catégorie {{ $categorieTache->libelle }} </h3>

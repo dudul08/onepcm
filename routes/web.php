@@ -33,6 +33,6 @@ Route::get('categoriestaches/{categorietache}/confirmation', 'CategorieTacheCont
 Route::get('taches/{tache}/confirmation', 'TacheController@confirmation')->name('taches.confirmation');//
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
     <a class="btn btn-primary my-3" href="{{ route('categoriestaches.create') }}"><i class="ri-group-line"></i> Ajouter une catégorie</a>

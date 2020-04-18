@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <a class="btn btn-primary my-3" href="{{ route('categoriestaches.create') }}">@include('include.iconeAjout') Ajouter une catégorie<span class="fas fa-baby"></span></a>
+    <a class="btn btn-primary my-3" href="{{ route('categoriestaches.create') }}"><i class="ri-group-line"></i> Ajouter une catégorie</a>
 
     <table class="table table-hover table-bordered">
         <thead>

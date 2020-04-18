@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <a class="btn btn-primary my-3" href="{{ route('taches.create') }}">@include('include.iconeAjout') Ajouter une
-        tâche <span class="fas fa-baby"></span></a>
+    <a class="btn btn-primary my-3" href="{{ route('taches.create') }}"><i class="ri-tools-line"></i> Ajouter une
+        tâche </a>
 
     <table class="table table-hover table-bordered">
         <thead>

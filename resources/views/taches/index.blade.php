@@ -10,6 +10,8 @@
             <th scope="col">#</th>
             <th scope="col">Libellé</th>
             <th scope="col">Catégorie</th>
+            <th scope="col">Nombre de points</th>
+            <th scope="col">Nombre de points bonus</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -19,6 +21,8 @@
                 <th scope="row">{{ $tache->id }}</th>
                 <td>{{ $tache->libelle }}</td>
                 <td>{{ $tache->categorieTache->libelle }}</td>
+                <td>{{ $tache->nombre_points }}</td>
+                <td>{{ $tache->nombre_points_bonus }}</td>
                 <td>
                     <a class="btn btn-secondary mb-1" href="{{ route('taches.edit',$tache->id) }}"><i
                             class="ri-pencil-line"></i> </a>

@@ -15,12 +15,12 @@ class UserSeeder extends Seeder
         $parent = DB::table('users')->insert([
             'name'=>'admin',
             'email'=>'admin@admin.fr',
-            'password'=>'admin'
+            'password'=>\Illuminate\Support\Facades\Hash::make('admin')
         ]);
         $enfant = DB::table('users')->insert([
             'name'=>'enfant',
             'email'=>'enfant@enfant.fr',
-            'password'=>'enfant'
+            'password'=>\Illuminate\Support\Facades\Hash::make('enfant')
         ]);
     }
 }

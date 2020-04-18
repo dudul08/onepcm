@@ -27,5 +27,28 @@
         @enderror
     </div>
 </div>
-
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="nome">Nombre de points : </label>
+    <div class="col-sm-5">
+        <input class="form-control @error('nombre_points') is-invalid @enderror " type="text" name="nombre_points"
+               value="{{ old('nombre_points') ?? $tache->nombre_points }}">
+        @error('nombre_points')
+        <div class="invalid-feedback">
+            {{ $errors->first('nombre_points') }}
+        </div>
+        @enderror
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="nome">Nombre de points bonus : </label>
+    <div class="col-sm-5">
+        <input class="form-control @error('nombre_points_bonus') is-invalid @enderror " type="text" name="nombre_points_bonus"
+               value="{{ old('nombre_points_bonus') ?? $tache->nombre_points_bonus }}">
+        @error('nombre_points_bonus')
+        <div class="invalid-feedback">
+            {{ $errors->first('nombre_points_bonus') }}
+        </div>
+        @enderror
+    </div>
+</div>
 

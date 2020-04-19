@@ -57,16 +57,18 @@
                             <a class="nav-link" href="{{ route('responsables.index') }}">Gérer les parents</a>
                         </li>
                     @endcan
+                    @can('viewLink',\App\Tache::class)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('taches.index') }}">Gérer les tâches</a>
+                        </li>
+                        @can('viewLink',\App\Tache::class)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('categoriestaches.index') }}">Gérer les catégories
+                                    des
+                                    tâches</a>
+                            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('taches.index') }}">Gérer les tâches</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('categoriestaches.index') }}">Gérer les catégories des
-                            tâches</a>
-                    </li>
-
-                @endauth
+                        @endauth
             </ul>
 
             <!-- Right Side Of Navbar -->

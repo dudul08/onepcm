@@ -11,6 +11,15 @@ use Illuminate\Http\Request;
 class TacheController extends Controller
 {
     /**
+     * TacheController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Tache::class, 'tache');
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -30,7 +39,7 @@ class TacheController extends Controller
     {
         $tache = new Tache();
         $categoriesTaches = CategorieTache::all();
-        return view('taches.create', ['tache' => $tache,'categoriesTaches'=>$categoriesTaches]);
+        return view('taches.create', ['tache' => $tache, 'categoriesTaches' => $categoriesTaches]);
     }
 
     /**
@@ -58,7 +67,7 @@ class TacheController extends Controller
     {
         $tache = Tache::find($id);
         $categoriesTaches = CategorieTache::all();
-        return view('taches.edit', ['tache' => $tache,'categoriesTaches'=>$categoriesTaches]);
+        return view('taches.edit', ['tache' => $tache, 'categoriesTaches' => $categoriesTaches]);
     }
 
     /**

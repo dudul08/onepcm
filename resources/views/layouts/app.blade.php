@@ -17,7 +17,8 @@
     <!-- Styles -->
     <title>ONEPCM</title>
     <link rel="stylesheet" href="{{ url('/css/app.css') }}">
-    <link rel="stylesheet" href="{{ url('/css/fonts//remixicon.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/effet.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/fonts/remixicon.css') }}">
 
 </head>
 <body>

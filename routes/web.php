@@ -11,7 +11,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/', 'bonspoints.index')->name('accueil');
+Route::view('/', 'accueil.index')->name('accueil');
 Route::resource('enfants', 'EnfantController')->except([
     'show'
 ]);

@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <h1a ><spana class="test">On n'est pas</spana>
-        <spana class="test"> chez Mamie !</spana>
-    </h1a>
+    <h1-effet ><span-effet class="font-effet">On n'est pas</span-effet>
+        <span-effet class="font-effet"> chez Mamie !</span-effet>
+    </h1-effet>
 
 @endsection

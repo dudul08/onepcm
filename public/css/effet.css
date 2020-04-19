@@ -2,11 +2,11 @@
 
 
 
-.test {
+.font-effet {
     font-family: "Luckiest Guy", cursive;
 }
 
-h1a {
+h1-effet {
     margin: 0;
     font-size: 8em;
     padding: 0;
@@ -16,15 +16,15 @@ h1a {
     0.05em 0.08em 0 rgba(0, 0, 0, 1), 0px -0.03em 0 rgba(0, 0, 0, 1),
     -0.03em -0.03em 0 rgba(0, 0, 0, 1), -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1)}
 
-spana {
+span-effet {
     transform: scale(0.9);
     display: inline-block;
 }
-spana:first-child {
+span-effet:first-child {
     animation: bop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards infinite
     alternate;
 }
-spana:last-child {
+span-effet:last-child {
     animation: bopB 1s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards
     infinite alternate;
 }

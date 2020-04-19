@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 class CategorieTacheController extends Controller
 {
     /**
+     * CategorieTacheController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(CategorieTache::class, 'categorieTache');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

@@ -61,14 +61,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('taches.index') }}">Gérer les tâches</a>
                         </li>
-                        @can('viewLink',\App\Tache::class)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('categoriestaches.index') }}">Gérer les catégories
-                                    des
-                                    tâches</a>
-                            </li>
-
-                        @endauth
+                    @endcan
+                    @can('viewLink',\App\CategorieTache::class)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categoriestaches.index') }}">Gérer les catégories
+                                des
+                                tâches</a>
+                        </li>
+                    @endcan
+                @endauth
             </ul>
 
             <!-- Right Side Of Navbar -->

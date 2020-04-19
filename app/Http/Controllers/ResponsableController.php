@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 class ResponsableController extends Controller
 {
     /**
+     * ResponsableController constructor.
+     */
+    public function __construct()
+
+    {
+           $this->authorizeResource(Responsable::class, 'responsable');
+
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -16,7 +26,7 @@ class ResponsableController extends Controller
     public function index()
     {
         $responsables = Responsable::all();
-        return view('responsables.index', ['responsables'=> $responsables]);
+        return view('responsables.index', ['responsables' => $responsables]);
     }
 
     /**
@@ -27,13 +37,13 @@ class ResponsableController extends Controller
     public function create()
     {
         $responsable = new Responsable();
-        return view('responsables.create',['responsable'=>$responsable]);
+        return view('responsables.create', ['responsable' => $responsable]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ResponsableRequest $request)
@@ -46,23 +56,23 @@ class ResponsableController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $responsable = Responsable::find($id);
-        return view('responsables.edit', ['responsable'=> $responsable]);
+        return view('responsables.edit', ['responsable' => $responsable]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ResponsableRequest $request,  Responsable $responsable)
+    public function update(ResponsableRequest $request, Responsable $responsable)
     {
         $data = $request->all();
         $responsable->update($data);
@@ -72,7 +82,7 @@ class ResponsableController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -81,9 +91,11 @@ class ResponsableController extends Controller
         return redirect()->route('responsables.index');
 
     }
-    public  function confirmation($id){
+
+    public function confirmation($id)
+    {
 
         $responsable = Responsable::find($id);
-        return view('responsables.confirmationSuppression',['responsable'=>$responsable]);
+        return view('responsables.confirmationSuppression', ['responsable' => $responsable]);
     }
 }

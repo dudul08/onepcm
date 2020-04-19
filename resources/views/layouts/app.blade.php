@@ -10,8 +10,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 
-
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -36,22 +34,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
+
+                    @auth
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('bonspoints.index') }}">Gérer les bons points </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('enfants.index') }}">Gérer les enfants</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('responsables.index') }}">Gérer les parents</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('taches.index') }}">Gérer les tâches</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('categoriestaches.index') }}">Gérer les catégories des
-                            tâches</a>
-                    </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('enfants.index') }}">Gérer les enfants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('responsables.index') }}">Gérer les parents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('taches.index') }}">Gérer les tâches</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categoriestaches.index') }}">Gérer les catégories des
+                                tâches</a>
+                        </li>
+                    @endguest
                 </ul>
 
                 <!-- Right Side Of Navbar -->

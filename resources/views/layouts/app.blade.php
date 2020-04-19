@@ -40,21 +40,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('bonspoints.index') }}">Gérer les bons points </a>
                     </li>
+                        @can('viewLink',\App\Enfant::class)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('enfants.index') }}">Gérer les enfants</a>
+                        </li>
+                        @endcan
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('enfants.index') }}">Gérer les enfants</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('responsables.index') }}">Gérer les parents</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('taches.index') }}">Gérer les tâches</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('categoriestaches.index') }}">Gérer les catégories des
-                            tâches</a>
-                    </li>
-                @endguest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('responsables.index') }}">Gérer les parents</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('taches.index') }}">Gérer les tâches</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categoriestaches.index') }}">Gérer les catégories des
+                                tâches</a>
+                        </li>
+
+                @endauth
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -96,9 +100,9 @@
 </div>
 
 
-    <div class="container">
-        @yield('content')
-    </div>
+<div class="container">
+    @yield('content')
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

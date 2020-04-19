@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 class EnfantController extends Controller
 {
     /**
+     * EnfantController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Enfant::class, 'enfant');
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

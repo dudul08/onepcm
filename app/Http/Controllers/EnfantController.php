@@ -90,8 +90,7 @@ class EnfantController extends Controller
     public function destroy(Enfant $enfant)
     {
         $enfant->delete();
-        //Enfant::where('id', $id)->delete();
-       // Enfant::destroy($id);
+
         return redirect()->route('enfants.index');
     }
     public  function confirmation(Enfant $enfant){

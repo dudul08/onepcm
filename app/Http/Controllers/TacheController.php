@@ -96,15 +96,16 @@ class TacheController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tache $tache)
     {
-        //
+        $tache->delete();
+        return redirect()->route('taches.index');
     }
 
-    public function confirmation($id)
+    public function confirmation(Tache $tache)
     {
 
-        $tache = Responsable::find($id);
+
         return view('taches.confirmationSuppression', ['tache' => $tache]);
     }
 }

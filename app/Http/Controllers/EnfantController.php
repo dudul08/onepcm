@@ -61,9 +61,9 @@ class EnfantController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Enfant $enfant)
     {
-        $enfant = Enfant::find($id);
+        //$enfant = Enfant::find($id);
         return view('enfants.edit', compact('enfant', $enfant));
     }
 
@@ -87,14 +87,15 @@ class EnfantController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Enfant $enfant)
     {
-        Enfant::where('id', $id)->delete();
+        $enfant->delete();
+        //Enfant::where('id', $id)->delete();
        // Enfant::destroy($id);
         return redirect()->route('enfants.index');
     }
-    public  function confirmation($id){
-        $enfant = Enfant::find($id);
+    public  function confirmation(Enfant $enfant){
+
         return view('enfants.confirmationSuppression',compact('enfant',$enfant));
     }
 }

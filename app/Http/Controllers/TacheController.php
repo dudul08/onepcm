@@ -63,9 +63,9 @@ class TacheController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tache $tache)
     {
-        $tache = Tache::find($id);
+      //  $tache = Tache::find($id);
         $categoriesTaches = CategorieTache::all();
         return view('taches.edit', ['tache' => $tache, 'categoriesTaches' => $categoriesTaches]);
     }
@@ -77,12 +77,15 @@ class TacheController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TacheRequest $request, $id)
+    public function update(TacheRequest $request, Tache $tache)
     {
 
-        $attributsFillable = Tache::getAttributsFillable();
-        $data = $request->only($attributsFillable);
-        Tache::where('id', $id)->update($data);
+//        $attributsFillable = Tache::getAttributsFillable();
+//        $data = $request->only($attributsFillable);
+//        Tache::where('id', $id)->update($data);
+        $data = $request->all();
+        $tache->update($data);
+
 
         return redirect()->route('taches.index');
     }

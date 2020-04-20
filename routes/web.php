@@ -21,8 +21,16 @@ Route::group(['middleware' => 'auth'],function (){
         'show'
     ]);
     Route::resource('taches', 'TacheController')->except([
-        'show'
+        'show','edit','update','index'
     ]);
+    Route::get('taches', 'TacheController@index')->name('taches.index');
+    Route::get('taches/{tache}/edit', 'TacheController@edit')->name('taches.edit');
+    Route::patch('taches/{tache}', 'TacheController@update')->name('taches.update');
+
+
+
+
+
     Route::resource('bonspoints', 'BonPointController')->except([
         'show']);
     Route::resource('categoriestaches', 'CategorieTacheController')->except([

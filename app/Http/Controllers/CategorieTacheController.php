@@ -13,7 +13,7 @@ class CategorieTacheController extends Controller
      */
     public function __construct()
     {
-        $this->authorizeResource(CategorieTache::class, 'categorieTache');
+        $this->authorizeResource(CategorieTache::class, 'categoriestach');
     }
 
     /**
@@ -61,10 +61,10 @@ class CategorieTacheController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CategorieTache $categorieTache)
     {
 
-        $categorieTache = CategorieTache::find($id);
+        //$categorieTache = CategorieTache::find($id);
         return view('categoriestaches.edit', ['categorieTache' => $categorieTache]);
     }
 
@@ -75,10 +75,10 @@ class CategorieTacheController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategorieTacheRequest $request, $id)
+    public function update(CategorieTacheRequest $request, CategorieTache $categorieTache)
     {
         $data = $request->only(['libelle']);
-        CategorieTache::where('id', $id)->update($data);
+        CategorieTache::where('id', $categorieTache->id)->update($data);
         return redirect()->route('categoriestaches.index');
 
     }

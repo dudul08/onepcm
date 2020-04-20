@@ -14,7 +14,7 @@ class ResponsableController extends Controller
     public function __construct()
 
     {
-           $this->authorizeResource(Responsable::class, 'responsable');
+           $this->authorizeResource(Responsable::class,'responsable');
 
     }
 
@@ -59,9 +59,10 @@ class ResponsableController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Responsable $responsable)
     {
-        $responsable = Responsable::find($id);
+
+        //$responsable = Responsable::find($id);
         return view('responsables.edit', ['responsable' => $responsable]);
     }
 
@@ -85,17 +86,18 @@ class ResponsableController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Responsable $responsable)
     {
-        Responsable::where('id', $id)->delete();
+
+        Responsable::where('id', $responsable->id)->delete();
         return redirect()->route('responsables.index');
 
     }
 
-    public function confirmation($id)
+    public function confirmation(Responsable $responsable)
     {
 
-        $responsable = Responsable::find($id);
+        //$responsable = Responsable::find($id);
         return view('responsables.confirmationSuppression', ['responsable' => $responsable]);
     }
 }

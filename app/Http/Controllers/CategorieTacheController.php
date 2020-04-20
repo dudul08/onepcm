@@ -13,7 +13,7 @@ class CategorieTacheController extends Controller
      */
     public function __construct()
     {
-        $this->authorizeResource(CategorieTache::class, 'categoriestach');
+        $this->authorizeResource(CategorieTache::class, 'categorieTache');
     }
 
     /**
@@ -77,8 +77,8 @@ class CategorieTacheController extends Controller
      */
     public function update(CategorieTacheRequest $request, CategorieTache $categorieTache)
     {
-        $data = $request->only(['libelle']);
-        CategorieTache::where('id', $categorieTache->id)->update($data);
+        $data = $request->all();
+        $categorieTache->update($data);
         return redirect()->route('categoriestaches.index');
 
     }
@@ -89,17 +89,16 @@ class CategorieTacheController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CategorieTache $categorieTache)
     {
-        CategorieTache::where('id', $id)->delete();
+        $categorieTache->delete();
 
         return redirect()->route('categoriestaches.index');
     }
 
-    public function confirmation($id)
+    public function confirmation(CategorieTache $categorieTache)
     {
 
-        $categorieTache = CategorieTache::find($id);
         return view('categoriestaches.confirmationSuppression', ['categorieTache' => $categorieTache]);
     }
 }

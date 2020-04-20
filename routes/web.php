@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth'],function (){
         'show'
     ]);
     Route::get('enfants/{enfant}/confirmation', 'EnfantController@confirmation')->name('enfants.confirmation');
+
     Route::resource('responsables', 'ResponsableController')->except([
         'show'
     ]);
@@ -37,10 +38,17 @@ Route::group(['middleware' => 'auth'],function (){
     Route::resource('bonspoints', 'BonPointController')->except([
         'show']);
 
-    Route::resource('categoriestaches', 'CategorieTacheController')->except([
-        'show'
-    ]);
-    Route::get('categoriestaches/{categorietache}/confirmation', 'CategorieTacheController@confirmation')->name('categoriestaches.confirmation');
+//    Route::resource('categoriestaches', 'CategorieTacheController')->except([
+//        'show']);
+
+
+    Route::get('categoriestaches', 'CategorieTacheController@index')->name('categoriestaches.index');
+    Route::post('categoriestaches', 'CategorieTacheController@store')->name('categoriestaches.store');
+    Route::get('categoriestaches/create', 'CategorieTacheController@create')->name('categoriestaches.create');
+    Route::get('categoriestaches/{categorieTache}/edit', 'CategorieTacheController@edit')->name('categoriestaches.edit');
+    Route::patch('categoriestaches/{categorieTache}', 'CategorieTacheController@update')->name('categoriestaches.update');
+    Route::delete('categoriestaches/{categorieTache}','CategorieTacheController@destroy')->name('categoriestaches.destroy');
+    Route::get('categoriestaches/{categorieTache}/confirmation', 'CategorieTacheController@confirmation')->name('categoriestaches.confirmation');
 
 
 

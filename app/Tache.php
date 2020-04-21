@@ -45,6 +45,6 @@ class Tache extends Model
         return $tache->getFillable();
     }
     public function categorieTache(){
-        return $this->belongsTo('App\CategorieTache');
+        return $this->belongsTo('App\CategorieTache')->withTrashed();
     }
 }

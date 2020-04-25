@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enfant;
 use App\Http\Requests\EnfantRequest;
+use App\Http\Requests\EnfantRequestUpdate;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -52,8 +53,16 @@ class EnfantController extends Controller
     public function store(EnfantRequest $request)
     {
         $data = $request->all();
-        Enfant::create($data);
-        return back();
+        $user = new User();
+        $user->name = $data['name'];
+        $user->prenom = $data['prenom'];
+        $user->genre = $data['genre'];;
+        $user->date_naissance =  $data['date_naissance'];
+        $user->email = $data['email'];
+        $user->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
+        $user->is_admin=false;
+        $user->save();
+         return back();
     }
 
     /**
@@ -75,7 +84,7 @@ class EnfantController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EnfantRequest $request, Enfant $enfant)
+    public function update(EnfantRequestUpdate $request, User $enfant)
     {
         $data = $request->all();
         $enfant->update($data);

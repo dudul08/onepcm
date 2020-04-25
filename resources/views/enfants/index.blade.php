@@ -20,7 +20,7 @@
             <tr>
                 <th scope="row">{{ $enfant->id }}</th>
                 <td>{{ $enfant->prenom }}</td>
-                <td>{{ $enfant->nom }}</td>
+                <td>{{ $enfant->name }}</td>
                 <td>{{ $enfant->getGenreLibelle() }}</td>
                 <td>{{ $enfant->age() }}</td>
                 <td>

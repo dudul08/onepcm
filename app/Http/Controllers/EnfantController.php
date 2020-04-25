@@ -56,7 +56,7 @@ class EnfantController extends Controller
         $user = new User();
         $user->name = $data['name'];
         $user->prenom = $data['prenom'];
-        $user->genre = $data['genre'];;
+        $user->genre = $data['genre'];
         $user->date_naissance =  $data['date_naissance'];
         $user->email = $data['email'];
         $user->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
@@ -71,9 +71,9 @@ class EnfantController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Enfant $enfant)
+    public function edit(User $enfant)
     {
-        //$enfant = Enfant::find($id);
+        $enfant->password='';
         return view('enfants.edit', compact('enfant', $enfant));
     }
 
@@ -87,7 +87,15 @@ class EnfantController extends Controller
     public function update(EnfantRequestUpdate $request, User $enfant)
     {
         $data = $request->all();
-        $enfant->update($data);
+        $enfant->name = $data['name'];
+        $enfant->prenom = $data['prenom'];
+        $enfant->email = $data['email'];
+        $enfant->genre = $data['genre'];
+        $enfant->date_naissance =  $data['date_naissance'];
+        if ($data['password']!=''){
+            $enfant->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
+        }
+        $enfant->update();
         return redirect()->route('enfants.index');
     }
 

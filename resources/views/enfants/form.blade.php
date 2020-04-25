@@ -14,11 +14,11 @@
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Nom : </label>
     <div class="col-sm-5">
-        <input class="form-control @error('nom') is-invalid @enderror" type="text" name="nom"
-               value="{{ old('nom') ?? $enfant->nom }}">
+        <input class="form-control @error('nom') is-invalid @enderror" type="text" name="name"
+               value="{{ old('name') ?? $enfant->name }}">
         @error('nom')
         <div class="invalid-feedback">
-            {{ $errors->first('nom') }}
+            {{ $errors->first('name') }}
         </div>
         @enderror
     </div>
@@ -47,6 +47,30 @@
         @error('genre')
         <div class="invalid-feedback">
             {{ $errors->first('genre') }}
+        </div>
+        @enderror
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="nome">Email : </label>
+    <div class="col-sm-5">
+        <input class="form-control @error('email') is-invalid @enderror" type="text" name="email"
+               value="{{ old('email') ?? $enfant->email }}">
+        @error('email')
+        <div class="invalid-feedback">
+            {{ $errors->first('email') }}
+        </div>
+        @enderror
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="nome">Mot de passe : </label>
+    <div class="col-sm-5">
+        <input class="form-control @error('password') is-invalid @enderror" type="text" name="password"
+               value="{{ old('password') ?? $enfant->password }}">
+        @error('password')
+        <div class="invalid-feedback">
+            {{ $errors->first('password') }}
         </div>
         @enderror
     </div>

@@ -1,7 +1,7 @@
 @csrf
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Prénom : </label>
-    <div class="col-sm-5">
+    <div class="col-sm-3">
         <input class="form-control @error('prenom') is-invalid @enderror " type="text" name="prenom"
                value="{{ old('prenom') ?? $enfant->prenom }}">
         @error('prenom')
@@ -13,7 +13,7 @@
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Nom : </label>
-    <div class="col-sm-5">
+    <div class="col-sm-3">
         <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
                value="{{ old('name') ?? $enfant->name }}">
         @error('name')
@@ -25,7 +25,7 @@
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Date de naissance : </label>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <input class="form-control  @error('date_naissance') is-invalid @enderror" type="date" name="date_naissance"
                value="{{  old('date_naissance') ?? $enfant->date_naissance }}">
         @error('date_naissance')
@@ -37,7 +37,7 @@
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Sexe : </label>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <select class="custom-select @error('genre') is-invalid @enderror" name="genre">
 
             @foreach($enfant->getTableauGenre() as $id_genre =>$genreLibelle)
@@ -53,7 +53,7 @@
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Email : </label>
-    <div class="col-sm-5">
+    <div class="col-sm-3">
         <input class="form-control @error('email') is-invalid @enderror" type="text" name="email"
                value="{{ old('email') ?? $enfant->email }}">
         @error('email')
@@ -65,7 +65,7 @@
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Mot de passe : </label>
-    <div class="col-sm-5">
+    <div class="col-sm-3">
         <input class="form-control @error('password') is-invalid @enderror" type="text" name="password"
                value="{{ old('password') ?? $enfant->password }}">
         @error('password')

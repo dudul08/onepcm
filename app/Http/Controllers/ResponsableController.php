@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ResponsableRequest;
 use App\Responsable;
+use App\User;
 use Illuminate\Http\Request;
 
 class ResponsableController extends Controller
@@ -36,7 +37,7 @@ class ResponsableController extends Controller
      */
     public function create()
     {
-        $responsable = new Responsable();
+        $responsable = new User();
         return view('responsables.create', ['responsable' => $responsable]);
     }
 
@@ -46,10 +47,18 @@ class ResponsableController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ResponsableRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
-        Responsable::create($data);
+        $user = new User();
+        $user->name = $data['name'];
+        $user->prenom = $data['prenom'];
+        $user->genre = '-1';
+        $user->date_naissance = '1900-01-01';
+        $user->email = $data['email'];
+        $user->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
+        $user->is_admin=true;
+        $user->save();
         return back();
     }
 

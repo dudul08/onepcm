@@ -81,10 +81,16 @@ class ResponsableController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ResponsableRequest $request, Responsable $responsable)
+    public function update(Request $request, User $responsable)
     {
         $data = $request->all();
-        $responsable->update($data);
+        $responsable->name = $data['name'];
+        $responsable->prenom = $data['prenom'];
+        $responsable->email = $data['email'];
+        if ($data['password']!=''){
+            $responsable->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
+        }
+        $responsable->update();
         return redirect()->route('responsables.index');
     }
 
@@ -94,18 +100,14 @@ class ResponsableController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Responsable $responsable)
+    public function destroy(User $responsable)
     {
-
-        Responsable::where('id', $responsable->id)->delete();
+        User::where('id', $responsable->id)->delete();
         return redirect()->route('responsables.index');
-
     }
 
-    public function confirmation(Responsable $responsable)
+    public function confirmation(User $responsable)
     {
-
-        //$responsable = Responsable::find($id);
         return view('responsables.confirmationSuppression', ['responsable' => $responsable]);
     }
 }

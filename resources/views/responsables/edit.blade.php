@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="my-3">Modifier les informations de {{ $responsable->prenom  . ' ' . $responsable->nom }} </h3>
+    <h3 class="my-3">Modifier les informations de {{ $responsable->prenom  . ' ' . $responsable->name }} </h3>
     <form class="my-3" action="{{ route('responsables.update',$responsable->id) }}" method="post">
         @method('PATCH')
         @include('responsables.form')

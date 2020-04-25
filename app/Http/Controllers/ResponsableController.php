@@ -15,7 +15,7 @@ class ResponsableController extends Controller
     public function __construct()
 
     {
-           $this->authorizeResource(Responsable::class,'responsable');
+           $this->authorizeResource(User::class,'responsable');
 
     }
 
@@ -68,10 +68,11 @@ class ResponsableController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Responsable $responsable)
+    public function edit(User $responsable)
     {
 
         //$responsable = Responsable::find($id);
+        $responsable->password='';
         return view('responsables.edit', ['responsable' => $responsable]);
     }
 

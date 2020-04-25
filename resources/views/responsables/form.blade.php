@@ -15,7 +15,7 @@
         <label class="col-sm-2 col-form-label" for="nome">Nom : </label>
         <div class="col-sm-5">
             <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
-                   value="{{ old('name') ?? $responsable->nom }}">
+                   value="{{ old('name') ?? $responsable->name }}">
             @error('name')
             <div class="invalid-feedback">
                 {{ $errors->first('name') }}

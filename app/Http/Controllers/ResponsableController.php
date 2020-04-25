@@ -103,7 +103,7 @@ class ResponsableController extends Controller
      */
     public function destroy(User $responsable)
     {
-        User::where('id', $responsable->id)->delete();
+        $responsable->delete();
         return redirect()->route('responsables.index');
     }
 

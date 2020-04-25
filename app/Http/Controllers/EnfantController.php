@@ -105,13 +105,13 @@ class EnfantController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Enfant $enfant)
+    public function destroy(User $enfant)
     {
         $enfant->delete();
 
         return redirect()->route('enfants.index');
     }
-    public  function confirmation(Enfant $enfant){
+    public  function confirmation(User $enfant){
 
         return view('enfants.confirmationSuppression',compact('enfant',$enfant));
     }

@@ -26,7 +26,7 @@ class ResponsableController extends Controller
      */
     public function index()
     {
-        $responsables = Responsable::all();
+        $responsables = User::all();
         return view('responsables.index', ['responsables' => $responsables]);
     }
 

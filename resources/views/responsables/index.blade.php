@@ -17,7 +17,7 @@
             <tr>
                 <th scope="row">{{ $responsable->id }}</th>
                 <td>{{ $responsable->prenom }}</td>
-                <td>{{ $responsable->nom }}</td>
+                <td>{{ $responsable->name }}</td>
                 <td>
                     <a class="btn btn-secondary mb-1" href="{{ route('responsables.edit',$responsable->id) }}"><i class="ri-pencil-line"></i>    </a>
                     <a class="btn btn-danger mb-1" href="{{ route('responsables.confirmation',$responsable->id) }}"><i class="ri-delete-bin-7-line"></i>  </a>

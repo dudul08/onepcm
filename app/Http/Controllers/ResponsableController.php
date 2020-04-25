@@ -27,7 +27,7 @@ class ResponsableController extends Controller
      */
     public function index()
     {
-        $responsables = User::all();
+        $responsables = User::where('is_admin',true)->get();
         return view('responsables.index', ['responsables' => $responsables]);
     }
 

@@ -23,10 +23,10 @@ class EnfantRequest extends FormRequest
      */
     public function rules()
     {
-        return ['nom'=>'required','prenom'=>'required','date_naissance'=>'required', 'genre' => 'required|integer','password'=>'required','email'=>'required'];
+        return ['name'=>'required','prenom'=>'required','date_naissance'=>'required', 'genre' => 'required|integer','password'=>'required','email'=>'required'];
     }
     public function messages()
     {
-        return ['nom.required'=>'Le nom est obligatoire !','prenom.required'=>'Le prénom est obligatoire !','date_naissance.required'=>'La date de naissance est obligatoire !','genre.integer'=>'Cette information est incorrecte !','genre.required'=>'Cette information est obligatoire !','email.required'=>'L\'email est obligatoire !','password.required'=>'Le mot de passe est oblgatoire'];
+        return ['name.required'=>'Le nom est obligatoire !','prenom.required'=>'Le prénom est obligatoire !','date_naissance.required'=>'La date de naissance est obligatoire !','genre.integer'=>'Cette information est incorrecte !','genre.required'=>'Cette information est obligatoire !','email.required'=>'L\'email est obligatoire !','password.required'=>'Le mot de passe est oblgatoire'];
     }
 }

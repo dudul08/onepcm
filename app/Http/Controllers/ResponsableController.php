@@ -70,8 +70,6 @@ class ResponsableController extends Controller
      */
     public function edit(User $responsable)
     {
-
-        //$responsable = Responsable::find($id);
         $responsable->password='';
         return view('responsables.edit', ['responsable' => $responsable]);
     }

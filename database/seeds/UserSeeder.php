@@ -16,13 +16,20 @@ class UserSeeder extends Seeder
             'name'=>'admin',
             'email'=>'admin@admin.fr',
             'password'=>\Illuminate\Support\Facades\Hash::make('admin'),
-            'is_admin'=>true
+            'is_admin'=>true,
+            'prenom'=>'admin',
+            'date_naissance'=>'1976-10-16',
+            'genre'=>'1'
+
         ]);
         $enfant = DB::table('users')->insert([
             'name'=>'enfant',
             'email'=>'enfant@enfant.fr',
             'password'=>\Illuminate\Support\Facades\Hash::make('enfant'),
-            'is_admin'=>false
+            'is_admin'=>false,
+            'prenom'=>'enfant',
+            'date_naissance'=>'2007-08-20',
+            'genre' => '0'
         ]);
     }
 }

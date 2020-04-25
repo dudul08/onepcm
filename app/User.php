@@ -42,7 +42,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','is_admin'
     ];
 
     /**
@@ -65,7 +65,7 @@ class User extends Authenticatable
 
     public static function isAdmin(User $user){
 
-            return $user->email=='admin@admin.fr';
+            return $user->is_admin;
 
 
     }

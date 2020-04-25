@@ -24,10 +24,10 @@ class ResponsableRequest extends FormRequest
     public function rules()
     {
 
-            return ['nom'=>'required','prenom'=>'required'];
+            return ['name'=>'required','prenom'=>'required','email'=>'required','password'=>'required'];
     }
     public function messages()
     {
-        return ['nom.required'=>'Le nom est obligatoire !','prenom.required'=>'Le prénom est obligatoire !'];
+        return ['name.required'=>'Le nom est obligatoire !','prenom.required'=>'Le prénom est obligatoire !','email.required'=>'L\'email est obligatoire !','password.required'=>'Le mot de passe est oblgatoire'];
     }
 }

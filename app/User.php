@@ -31,18 +31,26 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $prenom
+ * @property string $date_naissance
+ * @property int $genre
+ * @property int $is_admin
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereDateNaissance($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereGenre($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereIsAdmin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePrenom($value)
  */
 class User extends Authenticatable
 {
     use Notifiable;
-
+    protected $attributes = [ 'name' => '', 'prenom' => '','genre' => '', 'date_naissance' => ''];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','is_admin'
+        'name', 'email', 'password','is_admin','prenom','genre'
     ];
 
     /**

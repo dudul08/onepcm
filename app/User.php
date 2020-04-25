@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use DateTime;
 
 /**
  * App\User
@@ -76,5 +77,27 @@ class User extends Authenticatable
             return $user->is_admin;
 
 
+    }
+    public function age()
+    {
+        $dateNaissance = new DateTime($this->date_naissance);
+        $dateJour = new DateTime(date("Y-m-d"));
+        $interval = $dateJour->diff($dateNaissance);
+        return $interval->format('%y ans et %m mois');
+    }
+
+    /* public function getGenreAttribute($genre)
+     {
+         return ['0'=>'Fille','1'=>'Garçon'][$genre];
+     }*/
+
+    public function getGenreLibelle()
+    {
+        return $this->getTableauGenre()[$this->genre];
+    }
+
+    public function getTableauGenre()
+    {
+        return ['0' => 'Fille', '1' => 'Garçon'];
     }
 }

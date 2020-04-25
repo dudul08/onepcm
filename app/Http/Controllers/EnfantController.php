@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enfant;
 use App\Http\Requests\EnfantRequest;
+use App\User;
 use Illuminate\Http\Request;
 
 class EnfantController extends Controller
@@ -13,7 +14,7 @@ class EnfantController extends Controller
      */
     public function __construct()
     {
-        $this->authorizeResource(Enfant::class, 'enfant');
+        $this->authorizeResource(User::class, 'enfant');
     }
 
 
@@ -25,7 +26,7 @@ class EnfantController extends Controller
     public function index()
     {
 
-        $enfant = Enfant::all();
+        $enfant = User::where('is_admin',false)->get();
         return view('enfants.index', compact('enfant', $enfant));
 
     }

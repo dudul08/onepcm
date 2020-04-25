@@ -14,9 +14,9 @@
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Nom : </label>
     <div class="col-sm-5">
-        <input class="form-control @error('nom') is-invalid @enderror" type="text" name="name"
+        <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
                value="{{ old('name') ?? $enfant->name }}">
-        @error('nom')
+        @error('name')
         <div class="invalid-feedback">
             {{ $errors->first('name') }}
         </div>

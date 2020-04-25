@@ -54,8 +54,8 @@ class ResponsableController extends Controller
         $user = new User();
         $user->name = $data['name'];
         $user->prenom = $data['prenom'];
-        $user->genre = '-1';
-        $user->date_naissance = '1900-01-01';
+        $user->genre = null;
+        $user->date_naissance = null;
         $user->email = $data['email'];
         $user->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
         $user->is_admin=true;

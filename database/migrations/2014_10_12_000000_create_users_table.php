@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('prenom');
-            $table->date('date_naissance');
-            $table->integer('genre');
-            $table->string('email')->unique();
+            $table->date('date_naissance')->nullable();
+            $table->integer('genre')->nullable(true);
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_admin');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ResponsableRequest;
+use App\Http\Requests\ResponsableRequestUpdate;
 use App\Responsable;
 use App\User;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class ResponsableController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ResponsableRequest $request)
     {
         $data = $request->all();
         $user = new User();
@@ -81,7 +82,7 @@ class ResponsableController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $responsable)
+    public function update(ResponsableRequestUpdate $request, User $responsable)
     {
         $data = $request->all();
         $responsable->name = $data['name'];

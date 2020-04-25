@@ -6,7 +6,7 @@
             <h2>Liste des Enfants</h2>
         </div>
         <div class="card-body">
-            <a class="btn btn-primary my-3"
+            <a class="btn btn-primary mb-3"
                href="{{ route('enfants.create') }}">@include('include.iconeAjoutEnfantResponsable') Ajouter un
                 enfant </a>
 

@@ -24,6 +24,18 @@
         </div>
 </div>
 <div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="nome">Pseudo : </label>
+    <div class="col-sm-3">
+        <input class="form-control @error('pseudo') is-invalid @enderror" type="text" name="pseudo"
+               value="{{ old('pseudo') ?? $responsable->pseudo }}">
+        @error('pseudo')
+        <div class="invalid-feedback">
+            {{ $errors->first('pseudo') }}
+        </div>
+        @enderror
+    </div>
+</div>
+<div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Email : </label>
     <div class="col-sm-3">
         <input class="form-control @error('email') is-invalid @enderror" type="text" name="email"

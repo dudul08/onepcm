@@ -16,6 +16,11 @@ class CreateBonPointsTable extends Migration
         Schema::create('bon_points', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('responsable_id')->index();
+            $table->unsignedBigInteger('enfant_id')->index();
+            $table->unsignedBigInteger('tache_id')->index();
+            $table->date('date_bonpoint');
+            $table->boolean('is_avec_bonus');
         });
     }
 

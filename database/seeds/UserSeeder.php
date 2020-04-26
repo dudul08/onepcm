@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         $parent = DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'admin@admin.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('admin'),
+            'password' => \Illuminate\Support\Facades\Hash::make('nippusg'),
             'is_admin' => true,
             'prenom' => 'admin',
             'date_naissance' => '1976-10-16',
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
         $parent = DB::table('users')->insert([
             'name' => 'SUPPIN',
             'email' => 'admin@admin.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('admin'),
+            'password' => \Illuminate\Support\Facades\Hash::make('nippusg'),
             'is_admin' => true,
             'prenom' => 'Guillaume',
             'date_naissance' => '1976-10-16',
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
         $parent = DB::table('users')->insert([
             'name' => 'SUPPIN',
             'email' => 'admin@admin.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('admin'),
+            'password' => \Illuminate\Support\Facades\Hash::make('nippusg'),
             'is_admin' => true,
             'prenom' => 'Laure',
             'date_naissance' => '1976-05-16',
@@ -48,7 +48,7 @@ class UserSeeder extends Seeder
         $enfant = DB::table('users')->insert([
             'name' => 'SUPPIN',
             'email' => 'enfant@enfant.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('enfant'),
+            'password' => \Illuminate\Support\Facades\Hash::make('300708@'),
             'is_admin' => false,
             'prenom' => 'Elise',
             'date_naissance' => '2008-07-30',
@@ -58,7 +58,7 @@ class UserSeeder extends Seeder
         $enfant = DB::table('users')->insert([
             'name' => 'SUPPIN',
             'email' => 'enfant@enfant.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('enfant'),
+            'password' => \Illuminate\Support\Facades\Hash::make('200407@'),
             'is_admin' => false,
             'prenom' => 'Baptiste',
             'date_naissance' => '2007-04-20',

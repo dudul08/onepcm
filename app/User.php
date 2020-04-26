@@ -44,14 +44,14 @@ use DateTime;
 class User extends Authenticatable
 {
     use Notifiable;
-    protected $attributes = [ 'name' => '', 'prenom' => '','genre' => '', 'date_naissance' => ''];
+    protected $attributes = [ 'name' => '', 'prenom' => '','genre' => '', 'date_naissance' => '','pseudo'=>''];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','is_admin','prenom','genre'
+        'name', 'email', 'password','is_admin','prenom','genre','pseudo'
     ];
 
     /**

@@ -27,7 +27,7 @@ class EnfantController extends Controller
     public function index()
     {
 
-        $enfant = User::where('is_admin',false)->get();
+        $enfant = User::where('is_admin', false)->get();
         return view('enfants.index', compact('enfant', $enfant));
 
     }
@@ -57,10 +57,11 @@ class EnfantController extends Controller
         $user->name = $data['name'];
         $user->prenom = $data['prenom'];
         $user->genre = $data['genre'];
-        $user->date_naissance =  $data['date_naissance'];
+        $user->date_naissance = $data['date_naissance'];
         $user->email = $data['email'];
-        $user->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
-        $user->is_admin=false;
+        $user->pseudo = $data['pseudo'];
+        $user->password = \Illuminate\Support\Facades\Hash::make($data['password']);
+        $user->is_admin = false;
         $user->save();
          return back();
     }
@@ -73,7 +74,7 @@ class EnfantController extends Controller
      */
     public function edit(User $enfant)
     {
-        $enfant->password='';
+        $enfant->password = '';
         return view('enfants.edit', compact('enfant', $enfant));
     }
 
@@ -91,9 +92,10 @@ class EnfantController extends Controller
         $enfant->prenom = $data['prenom'];
         $enfant->email = $data['email'];
         $enfant->genre = $data['genre'];
-        $enfant->date_naissance =  $data['date_naissance'];
-        if ($data['password']!=''){
-            $enfant->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
+        $enfant->date_naissance = $data['date_naissance'];
+        $enfant->pseudo = $data['pseudo'];
+        if ($data['password'] != '') {
+            $enfant->password = \Illuminate\Support\Facades\Hash::make($data['password']);
         }
         $enfant->update();
         return redirect()->route('enfants.index');
@@ -111,8 +113,10 @@ class EnfantController extends Controller
 
         return redirect()->route('enfants.index');
     }
-    public  function confirmation(User $enfant){
 
-        return view('enfants.confirmationSuppression',compact('enfant',$enfant));
+    public function confirmation(User $enfant)
+    {
+
+        return view('enfants.confirmationSuppression', compact('enfant', $enfant));
     }
 }

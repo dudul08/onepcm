@@ -59,6 +59,7 @@ class ResponsableController extends Controller
         $user->email = $data['email'];
         $user->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
         $user->is_admin=true;
+        $user->pseudo = $data['pseudo'];
         $user->save();
         return back();
     }
@@ -88,6 +89,7 @@ class ResponsableController extends Controller
         $responsable->name = $data['name'];
         $responsable->prenom = $data['prenom'];
         $responsable->email = $data['email'];
+        $responsable->pseudo = $data['pseudo'];
         if ($data['password']!=''){
             $responsable->password =\Illuminate\Support\Facades\Hash::make($data['password']) ;
         }

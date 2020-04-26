@@ -24,6 +24,18 @@
     </div>
 </div>
 <div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="nome">Pseudo : </label>
+    <div class="col-sm-3">
+        <input class="form-control @error('pseudo') is-invalid @enderror" type="text" name="pseudo"
+               value="{{ old('pseudo') ?? $enfant->pseudo }}">
+        @error('pseudo')
+        <div class="invalid-feedback">
+            {{ $errors->first('pseudo') }}
+        </div>
+        @enderror
+    </div>
+</div>
+<div class="form-group row">
     <label class="col-sm-2 col-form-label" for="nome">Date de naissance : </label>
     <div class="col-sm-3">
         <input class="form-control  @error('date_naissance') is-invalid @enderror" type="date" name="date_naissance"
@@ -41,7 +53,8 @@
         <select class="custom-select @error('genre') is-invalid @enderror" name="genre">
 
             @foreach($enfant->getTableauGenre() as $id_genre =>$genreLibelle)
-                <option value="{{ $id_genre }}" {{ old('genre')!=null ? (old('genre') == $id_genre ? 'selected' :''):($enfant->genre==$id_genre?'selected':'') }} >{{ $genreLibelle }}</option>
+                <option
+                    value="{{ $id_genre }}" {{ old('genre')!=null ? (old('genre') == $id_genre ? 'selected' :''):($enfant->genre==$id_genre?'selected':'') }} >{{ $genreLibelle }}</option>
             @endforeach
         </select>
         @error('genre')

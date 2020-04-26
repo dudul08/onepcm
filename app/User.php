@@ -40,6 +40,8 @@ use DateTime;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereGenre($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereIsAdmin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePrenom($value)
+ * @property string $pseudo
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePseudo($value)
  */
 class User extends Authenticatable
 {

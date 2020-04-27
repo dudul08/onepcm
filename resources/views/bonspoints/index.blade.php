@@ -12,9 +12,9 @@
             <table class="table-responsive table-hover table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Libellé</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" class="col-2">#</th>
+                    <th scope="col" class="col-2">Libellé</th>
+                    <th scope="col" class="col-2">Action</th>
                 </tr>
                 </thead>
                 <tbody>

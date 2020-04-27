@@ -9,12 +9,12 @@
             <a class="btn btn-primary mb-3" href="{{ route('categoriestaches.create') }}"><i class="ri-group-line"></i>
                 Ajouter une catégorie</a>
 
-            <table class="table table-hover table-bordered">
+            <table class="table-responsive table-hover table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Libellé</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" class="col-2">#</th>
+                    <th scope="col" class="col-2">Libellé</th>
+                    <th scope="col" class="col-2">Action</th>
                 </tr>
                 </thead>
                 <tbody>

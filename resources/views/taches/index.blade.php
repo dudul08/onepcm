@@ -10,15 +10,15 @@
                 une
                 tâche </a>
 
-            <table class="table table-hover table-bordered">
+            <table class="table-responsive table-hover table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Libellé</th>
-                    <th scope="col">Catégorie</th>
-                    <th scope="col">Nombre de points</th>
-                    <th scope="col">Nombre de points bonus</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" class="col-1">#</th>
+                    <th scope="col" class="col-2">Libellé</th>
+                    <th scope="col" class="col-2">Catégorie</th>
+                    <th scope="col" class="col-2">Nombre de points</th>
+                    <th scope="col" class="col-2">Nombre de points bonus</th>
+                    <th scope="col" class="col-2">Action</th>
                 </tr>
                 </thead>
                 <tbody>

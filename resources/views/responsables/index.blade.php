@@ -7,13 +7,13 @@
         </div>
         <div class="card-body">
             <a class="btn btn-primary mb-3" href="{{ route('responsables.create') }}">@include('include.iconeAjoutEnfantResponsable') Ajouter un parent </a>
-            <table class="table table-hover table-bordered">
+            <table class="table-responsive table-hover table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Prénom</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" class="col-1">#</th>
+                    <th scope="col" class="col-2">Prénom</th>
+                    <th scope="col" class="col-2">Nom</th>
+                    <th scope="col" class="col-2">Action</th>
                 </tr>
                 </thead>
                 <tbody>

@@ -12,8 +12,11 @@
                 <table class="table table-hover table-bordered">
                     <thead>
                     <tr>
-                        <th scope="col" class="col-2">#</th>
-                        <th scope="col" class="col-2">Libellé</th>
+                        <th scope="col" class="col-2">Enfant</th>
+                        <th scope="col" class="col-2">Responsable</th>
+                        <th scope="col" class="col-2">Date</th>
+                        <th scope="col" class="col-2">Tache</th>
+                        <th scope="col" class="col-2">Points</th>
                         <th scope="col" class="col-2">Action</th>
                     </tr>
                     </thead>

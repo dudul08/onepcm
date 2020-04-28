@@ -17,7 +17,7 @@
                         <th scope="col" class="col-2">Tache</th>
                         <th scope="col" class="col-2">Réalisée le</th>
                         <th scope="col" class="col-2">Par</th>
-                        <th scope="col" class="col-2"> Points attribués</th>
+                        <th scope="col" class="col-2"> Bons points attribués</th>
                         <th scope="col" class="col-2">Par</th>
                         <th scope="col" class="col-2">Action</th>
                     </tr>

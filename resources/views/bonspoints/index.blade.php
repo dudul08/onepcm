@@ -12,30 +12,35 @@
                 <table class="table table-hover table-bordered">
                     <thead>
                     <tr>
-                        <th scope="col" class="col-2">Enfant</th>
-                        <th scope="col" class="col-2">Responsable</th>
-                        <th scope="col" class="col-2">Date</th>
+
+
                         <th scope="col" class="col-2">Tache</th>
-                        <th scope="col" class="col-2">Points</th>
+                        <th scope="col" class="col-2">Réalisée le</th>
+                        <th scope="col" class="col-2">Par</th>
+                        <th scope="col" class="col-2"> Points attribués</th>
+                        <th scope="col" class="col-2">Par</th>
                         <th scope="col" class="col-2">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {{--                @foreach ($categoriesTaches as $categorieTache)
-                                        <tr>
-                                            <th scope="row">{{ $categorieTache->id }}</th>
-                                            <td>{{ $categorieTache->libelle }}</td>
-                                            <td>
-                                                <a class="btn btn-secondary mb-1"
-                                                   href="{{ route('bonspoints.edit',$categorieTache->id) }}"><i
-                                                        class="ri-pencil-line"></i> </a>
-                                                <a class="btn btn-danger mb-1"
-                                                   href="{{ route('.confirmation',$categorieTache->id) }}"><i
-                                                        class="ri-delete-bin-7-line"></i> </a>
-                                            </td>
+                    @foreach ($bonsPoints as $bonPoint)
+                        <tr>
+                            <td>{{ $bonPoint->tache->libelle }}</td>
+                            <td>{{ $bonPoint->date() }}</td>
+                            <td>{{ $bonPoint->enfant->prenom }}</td>
+                            <td>{{ $bonPoint->points }}</td>
+                            <td>{{ $bonPoint->responsable->prenom }}</td>
+                            <td>
+                                <a class="btn btn-secondary mb-1"
+                                   href="{{ route('bonspoints.edit',$bonPoint->id) }}"><i
+                                        class="ri-pencil-line"></i> </a>
+                                <a class="btn btn-danger mb-1"
+                                   href="{{ route('bonspoints.confirmation',$bonPoint->id) }}"><i
+                                        class="ri-delete-bin-7-line"></i> </a>
+                            </td>
 
-                                        </tr>
-                                    @endforeach--}}
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

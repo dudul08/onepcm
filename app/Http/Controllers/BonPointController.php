@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BonPoint;
 use Illuminate\Http\Request;
 
 class BonPointController extends Controller
@@ -13,7 +14,8 @@ class BonPointController extends Controller
      */
     public function index()
     {
-        return view('bonspoints.index');
+        $bonsPoints=BonPoint::all();
+        return view('bonspoints.index',['bonsPoints'=>$bonsPoints]);
     }
 
     /**
@@ -80,5 +82,10 @@ class BonPointController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function confirmation()
+    {
+
     }
 }

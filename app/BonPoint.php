@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -34,12 +34,19 @@ use Illuminate\Database\Eloquent\Model;
 class BonPoint extends Model
 {
     public function enfant(){
-        return $this->belongsTo('App\Enfant')->withTrashed();
+        return $this->belongsTo('App\User','enfant_id');
     }
     public function responsable(){
-        return $this->belongsTo('App\Responsable')->withTrashed();
+        return $this->belongsTo('App\User','responsable_id');
     }
     public function tache(){
         return $this->belongsTo('App\Tache')->withTrashed();
+    }
+
+    public function getDateBonPoint()
+    {
+        $dateBonPoint = new DateTime($this->date_bonpoint);
+        return date('d/m/Y', time($dateBonPoint));
+
     }
 }

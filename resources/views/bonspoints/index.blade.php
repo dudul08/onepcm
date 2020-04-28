@@ -26,7 +26,7 @@
                     @foreach ($bonsPoints as $bonPoint)
                         <tr>
                             <td>{{ $bonPoint->tache->libelle }}</td>
-                            <td>{{ $bonPoint->date() }}</td>
+                            <td>{{ $bonPoint->getDateBonPoint() }}</td>
                             <td>{{ $bonPoint->enfant->prenom }}</td>
                             <td>{{ $bonPoint->points }}</td>
                             <td>{{ $bonPoint->responsable->prenom }}</td>

@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'],function (){
 
     Route::resource('bonspoints', 'BonPointController')->except([
         'show']);
+    Route::get('bonspoints/{bonpoint}/confirmation', 'EnfantController@confirmation')->name('bonspoints.confirmation');
 
 //    Route::resource('categoriestaches', 'CategorieTacheController')->except([
 //        'show']);

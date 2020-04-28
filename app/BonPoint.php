@@ -46,7 +46,7 @@ class BonPoint extends Model
     public function getDateBonPoint()
     {
         $dateBonPoint = new DateTime($this->date_bonpoint);
-        return date('d/m/Y', time($dateBonPoint));
+        return $dateBonPoint->format('d/m/Y');
 
     }
 }

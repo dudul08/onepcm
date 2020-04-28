@@ -25,7 +25,8 @@ class BonPointController extends Controller
      */
     public function create()
     {
-        //
+        $bonPoint = new BonPoint();
+        return view('bonspoints.create',['bonPoint'=>$bonPoint]);
     }
 
     /**

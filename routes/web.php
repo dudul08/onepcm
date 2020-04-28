@@ -35,10 +35,12 @@ Route::group(['middleware' => 'auth'],function (){
 
 
 
-    Route::resource('bonspoints', 'BonPointController')->except([
-        'show']);
+//    Route::resource('bonspoints', 'BonPointController')->except([
+//        'show']);
+    Route::get('bonspoints', 'BonPointController@index')->name('bonspoints.index');
+    Route::get('bonspoints/create', 'BonPointController@create')->name('bonspoints.create');
     Route::get('bonspoints/{bonpoint}/confirmation', 'EnfantController@confirmation')->name('bonspoints.confirmation');
-
+    Route::get('bonspoints/{bonpoint}/edit', 'EnfantController@edit')->name('bonspoints.edit');
 //    Route::resource('categoriestaches', 'CategorieTacheController')->except([
 //        'show']);
 

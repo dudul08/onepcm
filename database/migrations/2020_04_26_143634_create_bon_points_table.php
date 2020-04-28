@@ -20,6 +20,7 @@ class CreateBonPointsTable extends Migration
             $table->unsignedBigInteger('enfant_id')->index();
             $table->unsignedBigInteger('tache_id')->index();
             $table->date('date_bonpoint');
+            $table->integer('points');
             $table->boolean('is_avec_bonus');
         });
     }

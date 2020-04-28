@@ -17,8 +17,29 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\BonPoint whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\BonPoint whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $responsable_id
+ * @property int $enfant_id
+ * @property int $tache_id
+ * @property string $date_bonpoint
+ * @property int $is_avec_bonus
+ * @property-read \App\Enfant $enfant
+ * @property-read \App\Responsable $responsable
+ * @property-read \App\Tache $tache
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\BonPoint whereDateBonpoint($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\BonPoint whereEnfantId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\BonPoint whereIsAvecBonus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\BonPoint whereResponsableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\BonPoint whereTacheId($value)
  */
 class BonPoint extends Model
 {
-    //
+    public function enfant(){
+        return $this->belongsTo('App\Enfant')->withTrashed();
+    }
+    public function responsable(){
+        return $this->belongsTo('App\Responsable')->withTrashed();
+    }
+    public function tache(){
+        return $this->belongsTo('App\Tache')->withTrashed();
+    }
 }

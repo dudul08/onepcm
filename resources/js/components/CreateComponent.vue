@@ -7,7 +7,7 @@
             <label class="mr-2" for="id_responsable">Responsable : </label>
             <select class="custom-select mr-2" id="id_responsable" name="responsable">
 
-                <option v-for="responsable in responsables" :key="responsable.id" :value="responsable.id" :selected="userId === responsable.id">
+                <option v-for="responsable in responsables" :key="responsable.id" :value="responsable.id" :selected="userId == responsable.id">
                     {{ responsable.prenom }}
                 </option>
             </select>

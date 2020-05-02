@@ -37538,7 +37538,7 @@ var render = function() {
               key: responsable.id,
               domProps: {
                 value: responsable.id,
-                selected: _vm.userId === responsable.id
+                selected: _vm.userId == responsable.id
               }
             },
             [

@@ -11,15 +11,11 @@
         </select>
         <label class="mr-2" for="id_enfant">Enfant : </label>
         <select class="custom-select mr-2" id="id_enfant" name="enfant">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option v-for="enfant in enfants" :key="enfant.id" value="1">{{ enfant.prenom }}</option>
         </select>
         <label class="mr-2" for="id_tache">Tache : </label>
         <select class="custom-select mr-2" id="id_tache" name="tache">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option v-for="tache in taches" :key="tache.id" value="1">{{ tache.libelle }}</option>
         </select>
         <div class="custom-control custom-checkbox mr-2">
             <input type="checkbox" class="custom-control-input" name="bonus" id="id_bonus">
@@ -35,23 +31,34 @@
     export default {
         data() {
             return {
-                responsable: {
-                    id: '', name: '', prenom: ''
-                },
-                responsables: {}
+                responsables: {},
+                enfants: {},
+                taches: {}
             }
         },
-        props: ['iconValidation','urlListeResponsables'],
+        props: ['iconValidation', 'urlListeResponsables', 'urlListeEnfants', 'urlListeTaches'],
         mounted() {
 
         },
         created() {
-            this.listerResponsable()
+            this.listerResponsables(),
+                this.listerEnfants(),
+                this.listerTaches()
         },
         methods: {
-            listerResponsable: function () {
+            listerResponsables: function () {
                 axios.get(this.urlListeResponsables)
                     .then(response => this.responsables = response.data)
+                    .catch(error => console.log(error));
+            },
+            listerEnfants: function () {
+                axios.get(this.urlListeEnfants)
+                    .then(response => this.enfants = response.data)
+                    .catch(error => console.log(error));
+            },
+            listerTaches: function () {
+                axios.get(this.urlListeTaches)
+                    .then(response => this.taches = response.data)
                     .catch(error => console.log(error));
             }
         }

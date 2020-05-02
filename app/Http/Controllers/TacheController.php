@@ -108,4 +108,8 @@ class TacheController extends Controller
 
         return view('taches.confirmationSuppression', ['tache' => $tache]);
     }
+    public function liste(){
+        $taches = Tache::all();
+        return response()->json($taches);
+    }
 }

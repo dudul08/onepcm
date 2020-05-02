@@ -1937,32 +1937,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      responsable: {
-        id: '',
-        name: '',
-        prenom: ''
-      },
-      responsables: {}
+      responsables: {},
+      enfants: {},
+      taches: {}
     };
   },
-  props: ['iconValidation', 'urlListeResponsables'],
+  props: ['iconValidation', 'urlListeResponsables', 'urlListeEnfants', 'urlListeTaches'],
   mounted: function mounted() {},
   created: function created() {
-    this.listerResponsable();
+    this.listerResponsables(), this.listerEnfants(), this.listerTaches();
   },
   methods: {
-    listerResponsable: function listerResponsable() {
+    listerResponsables: function listerResponsables() {
       var _this = this;
 
       axios.get(this.urlListeResponsables).then(function (response) {
         return _this.responsables = response.data;
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    listerEnfants: function listerEnfants() {
+      var _this2 = this;
+
+      axios.get(this.urlListeEnfants).then(function (response) {
+        return _this2.enfants = response.data;
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    listerTaches: function listerTaches() {
+      var _this3 = this;
+
+      axios.get(this.urlListeTaches).then(function (response) {
+        return _this3.taches = response.data;
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -37521,15 +37532,39 @@ var render = function() {
       _vm._v("Enfant : ")
     ]),
     _vm._v(" "),
-    _vm._m(0),
+    _c(
+      "select",
+      {
+        staticClass: "custom-select mr-2",
+        attrs: { id: "id_enfant", name: "enfant" }
+      },
+      _vm._l(_vm.enfants, function(enfant) {
+        return _c("option", { key: enfant.id, attrs: { value: "1" } }, [
+          _vm._v(_vm._s(enfant.prenom))
+        ])
+      }),
+      0
+    ),
     _vm._v(" "),
     _c("label", { staticClass: "mr-2", attrs: { for: "id_tache" } }, [
       _vm._v("Tache : ")
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _c(
+      "select",
+      {
+        staticClass: "custom-select mr-2",
+        attrs: { id: "id_tache", name: "tache" }
+      },
+      _vm._l(_vm.taches, function(tache) {
+        return _c("option", { key: tache.id, attrs: { value: "1" } }, [
+          _vm._v(_vm._s(tache.libelle))
+        ])
+      }),
+      0
+    ),
     _vm._v(" "),
-    _vm._m(2),
+    _vm._m(0),
     _vm._v(" "),
     _c(
       "button",
@@ -37539,44 +37574,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "select",
-      {
-        staticClass: "custom-select mr-2",
-        attrs: { id: "id_enfant", name: "enfant" }
-      },
-      [
-        _c("option", { attrs: { value: "1" } }, [_vm._v("One")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "2" } }, [_vm._v("Two")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "3" } }, [_vm._v("Three")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "select",
-      {
-        staticClass: "custom-select mr-2",
-        attrs: { id: "id_tache", name: "tache" }
-      },
-      [
-        _c("option", { attrs: { value: "1" } }, [_vm._v("One")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "2" } }, [_vm._v("Two")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "3" } }, [_vm._v("Three")])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

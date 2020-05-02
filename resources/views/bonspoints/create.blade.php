@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
             <div id="app">
-                   <create-component icon-validation="ri-check-line" url-liste-responsables="{{ route('responsables.liste') }}"></create-component>
+                   <create-component icon-validation="ri-check-line" url-liste-taches="{{ route('taches.liste') }}"  url-liste-enfants="{{ route('enfants.liste') }}" url-liste-responsables="{{ route('responsables.liste') }}"/>
             </div>
 
         </div>

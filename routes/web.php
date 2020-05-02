@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth'],function (){
         'show'
     ]);
     Route::get('enfants/{enfant}/confirmation', 'EnfantController@confirmation')->name('enfants.confirmation');
+    Route::get('enfants/liste', 'EnfantController@liste')->name('enfants.liste');
 
     Route::resource('responsables', 'ResponsableController')->except([
         'show'
@@ -34,7 +35,7 @@ Route::group(['middleware' => 'auth'],function (){
     Route::patch('taches/{tache}', 'TacheController@update')->name('taches.update');
     Route::delete('taches/{tache}','TacheController@destroy')->name('taches.destroy');
     Route::get('taches/{tache}/confirmation', 'TacheController@confirmation')->name('taches.confirmation');
-
+    Route::get('taches/liste', 'TacheController@liste')->name('taches.liste');
 
 
 //    Route::resource('bonspoints', 'BonPointController')->except([

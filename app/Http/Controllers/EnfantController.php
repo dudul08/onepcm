@@ -119,4 +119,8 @@ class EnfantController extends Controller
 
         return view('enfants.confirmationSuppression', compact('enfant', $enfant));
     }
+    public function liste(){
+        $enfants = User::where('is_admin',false)->get();
+        return response()->json($enfants);
+    }
 }

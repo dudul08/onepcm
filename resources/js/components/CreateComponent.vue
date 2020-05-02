@@ -2,22 +2,32 @@
 
 
         <form class="form-inline">
-            <label class="mr-2" for="inlineFormInputName2">Date : </label>
-            <input type="date" class="form-control mr-2" id="inlineFormInputName2">
-            <label class="mr-2" for="inlineFormCustomSelectPref">Enfant : </label>
-            <select class="custom-select mr-2" id="inlineFormCustomSelectPref">
-                <option selected>Choose...</option>
+            <label class="mr-2" for="id_name">Date : </label>
+            <input type="date" class="form-control mr-2" id="id_name">
+            <label class="mr-2" for="id_responsable">Responsable : </label>
+            <select class="custom-select mr-2" id="id_responsable" name="responsable">
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
-
+            <label class="mr-2" for="id_enfant">Enfant : </label>
+            <select class="custom-select mr-2" id="id_enfant" name="enfant">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+            <label class="mr-2" for="id_tache">Tache : </label>
+            <select class="custom-select mr-2" id="id_tache" name="tache">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
             <div class="custom-control custom-checkbox mr-2">
-                <input type="checkbox" class="custom-control-input" id="customControlInline">
-                <label class="custom-control-label" for="customControlInline">Bonus</label>
+                <input type="checkbox" class="custom-control-input" name="bonus" id="id_bonus">
+                <label class="custom-control-label" for="id_bonus">Bonus</label>
             </div>
 
-            <button type="submit" class="btn btn-primary ">Submit</button>
+            <button type="submit" class="btn btn-primary ">Ajouter</button>
         </form>
 
 </template>

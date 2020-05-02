@@ -1932,6 +1932,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -37470,32 +37480,64 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("form", { staticClass: "form-inline" }, [
-      _c(
-        "label",
-        { staticClass: "mr-2", attrs: { for: "inlineFormInputName2" } },
-        [_vm._v("Date : ")]
-      ),
+      _c("label", { staticClass: "mr-2", attrs: { for: "id_name" } }, [
+        _vm._v("Date : ")
+      ]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control mr-2",
-        attrs: { type: "date", id: "inlineFormInputName2" }
+        attrs: { type: "date", id: "id_name" }
       }),
       _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "mr-2", attrs: { for: "inlineFormCustomSelectPref" } },
-        [_vm._v("Enfant : ")]
-      ),
+      _c("label", { staticClass: "mr-2", attrs: { for: "id_responsable" } }, [
+        _vm._v("Responsable : ")
+      ]),
       _vm._v(" "),
       _c(
         "select",
         {
           staticClass: "custom-select mr-2",
-          attrs: { id: "inlineFormCustomSelectPref" }
+          attrs: { id: "id_responsable", name: "responsable" }
         },
         [
-          _c("option", { attrs: { selected: "" } }, [_vm._v("Choose...")]),
+          _c("option", { attrs: { value: "1" } }, [_vm._v("One")]),
           _vm._v(" "),
+          _c("option", { attrs: { value: "2" } }, [_vm._v("Two")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "3" } }, [_vm._v("Three")])
+        ]
+      ),
+      _vm._v(" "),
+      _c("label", { staticClass: "mr-2", attrs: { for: "id_enfant" } }, [
+        _vm._v("Enfant : ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          staticClass: "custom-select mr-2",
+          attrs: { id: "id_enfant", name: "enfant" }
+        },
+        [
+          _c("option", { attrs: { value: "1" } }, [_vm._v("One")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "2" } }, [_vm._v("Two")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "3" } }, [_vm._v("Three")])
+        ]
+      ),
+      _vm._v(" "),
+      _c("label", { staticClass: "mr-2", attrs: { for: "id_tache" } }, [
+        _vm._v("Tache : ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          staticClass: "custom-select mr-2",
+          attrs: { id: "id_tache", name: "tache" }
+        },
+        [
           _c("option", { attrs: { value: "1" } }, [_vm._v("One")]),
           _vm._v(" "),
           _c("option", { attrs: { value: "2" } }, [_vm._v("Two")]),
@@ -37507,15 +37549,12 @@ var staticRenderFns = [
       _c("div", { staticClass: "custom-control custom-checkbox mr-2" }, [
         _c("input", {
           staticClass: "custom-control-input",
-          attrs: { type: "checkbox", id: "customControlInline" }
+          attrs: { type: "checkbox", name: "bonus", id: "id_bonus" }
         }),
         _vm._v(" "),
         _c(
           "label",
-          {
-            staticClass: "custom-control-label",
-            attrs: { for: "customControlInline" }
-          },
+          { staticClass: "custom-control-label", attrs: { for: "id_bonus" } },
           [_vm._v("Bonus")]
         )
       ]),
@@ -37523,7 +37562,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary ", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
+        [_vm._v("Ajouter")]
       )
     ])
   }

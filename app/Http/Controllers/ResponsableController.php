@@ -113,4 +113,8 @@ class ResponsableController extends Controller
     {
         return view('responsables.confirmationSuppression', ['responsable' => $responsable]);
     }
+    public function liste(){
+        $responsables = User::where([['is_admin',true],['name','<>','admin']])->get();
+        return response()->json($responsables);
+    }
 }

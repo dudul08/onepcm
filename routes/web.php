@@ -22,7 +22,9 @@ Route::group(['middleware' => 'auth'],function (){
     Route::resource('responsables', 'ResponsableController')->except([
         'show'
     ]);
+
     Route::get('responsables/{responsable}/confirmation', 'ResponsableController@confirmation')->name('responsables.confirmation');
+    Route::get('responsables/liste', 'ResponsableController@liste')->name('responsables.liste');
 
 
     Route::get('taches', 'TacheController@index')->name('taches.index');

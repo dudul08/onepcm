@@ -16,14 +16,14 @@
 
     <!-- Styles -->
     <title>ONEPCM</title>
-    <link rel="stylesheet" href="{{ url('/css/app.css') }}">
-    <link rel="stylesheet" href="{{ url('/css/effet.css') }}">
-    <link rel="stylesheet" href="{{ url('/css/fonts/remixicon.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/effet.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/fonts/remixicon.css') }}">
 
 </head>
 <body>
 
-<div id="app">
+<div>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
         <a class="navbar-brand" href="{{ route('accueil') }}">{{ config('app.name', 'ONEPCM') }} </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -125,6 +125,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 </script>
+<script src="{{ asset('/js/app.js') }}"></script>
 <script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

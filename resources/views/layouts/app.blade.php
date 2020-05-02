@@ -22,7 +22,6 @@
 
 </head>
 <body>
-
 <div>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
         <a class="navbar-brand" href="{{ route('accueil') }}">{{ config('app.name', 'ONEPCM') }} </a>
@@ -85,25 +84,33 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+{{--                    <li class="nav-item dropdown">--}}
+{{--                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"--}}
+{{--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >--}}
+                    <li class="nav-item">
+                        <a class="nav-link">
                             {{ Auth::user()->prenom }} <span class="caret"></span>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Se déconnecter') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Se déconnecter') }}
+                        </a>
+                    </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                        </form>
+
+{{--                        </a>--}}
+
+{{--                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+
+{{--                        </div>--}}
+{{--                    </li>--}}
                 @endguest
             </ul>
         </div>

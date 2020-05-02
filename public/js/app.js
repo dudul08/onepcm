@@ -1937,15 +1937,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       responsables: {},
       enfants: {},
-      taches: {}
+      taches: {},
+      user: {}
     };
   },
-  props: ['iconValidation', 'urlListeResponsables', 'urlListeEnfants', 'urlListeTaches'],
+  props: ['iconValidation', 'urlListeResponsables', 'urlListeEnfants', 'urlListeTaches', 'userId'],
   mounted: function mounted() {},
   created: function created() {
     this.listerResponsables(), this.listerEnfants(), this.listerTaches();
@@ -1974,6 +1977,13 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get(this.urlListeTaches).then(function (response) {
         return _this3.taches = response.data;
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    getUserActif: function getUserActif() {
+      axios.get(this.urlUserActif).then(function (response) {
+        return console.log(response.data);
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -37500,77 +37510,97 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", { staticClass: "form-inline" }, [
-    _c("label", { staticClass: "mr-2", attrs: { for: "id_name" } }, [
-      _vm._v("Date : ")
-    ]),
-    _vm._v(" "),
-    _c("input", {
-      staticClass: "form-control mr-2",
-      attrs: { type: "date", id: "id_name" }
-    }),
-    _vm._v(" "),
-    _c("label", { staticClass: "mr-2", attrs: { for: "id_responsable" } }, [
-      _vm._v("Responsable : ")
-    ]),
-    _vm._v(" "),
-    _c(
-      "select",
-      {
-        staticClass: "custom-select mr-2",
-        attrs: { id: "id_responsable", name: "responsable" }
-      },
-      _vm._l(_vm.responsables, function(responsable) {
-        return _c("option", { key: responsable.id, attrs: { value: "1" } }, [
-          _vm._v(_vm._s(responsable.prenom) + "\n        ")
-        ])
+  return _c("div", [
+    _c("form", { staticClass: "form-inline" }, [
+      _c("label", { staticClass: "mr-2", attrs: { for: "id_name" } }, [
+        _vm._v("Date : ")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control mr-2",
+        attrs: { type: "date", id: "id_name" }
       }),
-      0
-    ),
-    _vm._v(" "),
-    _c("label", { staticClass: "mr-2", attrs: { for: "id_enfant" } }, [
-      _vm._v("Enfant : ")
-    ]),
-    _vm._v(" "),
-    _c(
-      "select",
-      {
-        staticClass: "custom-select mr-2",
-        attrs: { id: "id_enfant", name: "enfant" }
-      },
-      _vm._l(_vm.enfants, function(enfant) {
-        return _c("option", { key: enfant.id, attrs: { value: "1" } }, [
-          _vm._v(_vm._s(enfant.prenom))
-        ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c("label", { staticClass: "mr-2", attrs: { for: "id_tache" } }, [
-      _vm._v("Tache : ")
-    ]),
-    _vm._v(" "),
-    _c(
-      "select",
-      {
-        staticClass: "custom-select mr-2",
-        attrs: { id: "id_tache", name: "tache" }
-      },
-      _vm._l(_vm.taches, function(tache) {
-        return _c("option", { key: tache.id, attrs: { value: "1" } }, [
-          _vm._v(_vm._s(tache.libelle))
-        ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "button",
-      { staticClass: "btn btn-primary ", attrs: { type: "submit" } },
-      [_vm._v("Ajouter")]
-    )
+      _vm._v(" "),
+      _c("label", { staticClass: "mr-2", attrs: { for: "id_responsable" } }, [
+        _vm._v("Responsable : ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          staticClass: "custom-select mr-2",
+          attrs: { id: "id_responsable", name: "responsable" }
+        },
+        _vm._l(_vm.responsables, function(responsable) {
+          return _c(
+            "option",
+            {
+              key: responsable.id,
+              domProps: {
+                value: responsable.id,
+                selected: _vm.userId === responsable.id
+              }
+            },
+            [
+              _vm._v(
+                "\n                " +
+                  _vm._s(responsable.prenom) +
+                  "\n            "
+              )
+            ]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("label", { staticClass: "mr-2", attrs: { for: "id_enfant" } }, [
+        _vm._v("Enfant : ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          staticClass: "custom-select mr-2",
+          attrs: { id: "id_enfant", name: "enfant" }
+        },
+        _vm._l(_vm.enfants, function(enfant) {
+          return _c(
+            "option",
+            { key: enfant.id, domProps: { value: enfant.id } },
+            [_vm._v(_vm._s(enfant.prenom))]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("label", { staticClass: "mr-2", attrs: { for: "id_tache" } }, [
+        _vm._v("Tache : ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          staticClass: "custom-select mr-2",
+          attrs: { id: "id_tache", name: "tache" }
+        },
+        _vm._l(_vm.taches, function(tache) {
+          return _c(
+            "option",
+            { key: tache.id, domProps: { value: tache.id } },
+            [_vm._v(_vm._s(tache.libelle))]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary ", attrs: { type: "submit" } },
+        [_vm._v("Ajouter")]
+      )
+    ])
   ])
 }
 var staticRenderFns = [

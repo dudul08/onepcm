@@ -117,4 +117,5 @@ class ResponsableController extends Controller
         $responsables = User::where([['is_admin',true],['name','<>','admin']])->get();
         return response()->json($responsables);
     }
+
 }

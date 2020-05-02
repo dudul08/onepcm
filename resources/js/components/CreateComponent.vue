@@ -1,30 +1,32 @@
 <template>
+    <div>
 
+        <form class="form-inline">
+            <label class="mr-2" for="id_name">Date : </label>
+            <input type="date" class="form-control mr-2" id="id_name">
+            <label class="mr-2" for="id_responsable">Responsable : </label>
+            <select class="custom-select mr-2" id="id_responsable" name="responsable">
 
-    <form class="form-inline">
-        <label class="mr-2" for="id_name">Date : </label>
-        <input type="date" class="form-control mr-2" id="id_name">
-        <label class="mr-2" for="id_responsable">Responsable : </label>
-        <select class="custom-select mr-2" id="id_responsable" name="responsable">
-            <option v-for="responsable in responsables" :key="responsable.id" value="1">{{ responsable.prenom }}
-            </option>
-        </select>
-        <label class="mr-2" for="id_enfant">Enfant : </label>
-        <select class="custom-select mr-2" id="id_enfant" name="enfant">
-            <option v-for="enfant in enfants" :key="enfant.id" value="1">{{ enfant.prenom }}</option>
-        </select>
-        <label class="mr-2" for="id_tache">Tache : </label>
-        <select class="custom-select mr-2" id="id_tache" name="tache">
-            <option v-for="tache in taches" :key="tache.id" value="1">{{ tache.libelle }}</option>
-        </select>
-        <div class="custom-control custom-checkbox mr-2">
-            <input type="checkbox" class="custom-control-input" name="bonus" id="id_bonus">
-            <label class="custom-control-label" for="id_bonus">Bonus</label>
-        </div>
+                <option v-for="responsable in responsables" :key="responsable.id" :value="responsable.id" :selected="userId === responsable.id">
+                    {{ responsable.prenom }}
+                </option>
+            </select>
+            <label class="mr-2" for="id_enfant">Enfant : </label>
+            <select class="custom-select mr-2" id="id_enfant" name="enfant">
+                <option v-for="enfant in enfants" :key="enfant.id" :value="enfant.id">{{ enfant.prenom }}</option>
+            </select>
+            <label class="mr-2" for="id_tache">Tache : </label>
+            <select class="custom-select mr-2" id="id_tache" name="tache">
+                <option v-for="tache in taches" :key="tache.id" :value="tache.id">{{ tache.libelle }}</option>
+            </select>
+            <div class="custom-control custom-checkbox mr-2">
+                <input type="checkbox" class="custom-control-input" name="bonus" id="id_bonus">
+                <label class="custom-control-label" for="id_bonus">Bonus</label>
+            </div>
 
-        <button type="submit" class="btn btn-primary ">Ajouter</button>
-    </form>
-
+            <button type="submit" class="btn btn-primary ">Ajouter</button>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -33,10 +35,12 @@
             return {
                 responsables: {},
                 enfants: {},
-                taches: {}
+                taches: {},
+                user: {}
+
             }
         },
-        props: ['iconValidation', 'urlListeResponsables', 'urlListeEnfants', 'urlListeTaches'],
+        props: ['iconValidation', 'urlListeResponsables', 'urlListeEnfants', 'urlListeTaches', 'userId'],
         mounted() {
 
         },
@@ -59,6 +63,11 @@
             listerTaches: function () {
                 axios.get(this.urlListeTaches)
                     .then(response => this.taches = response.data)
+                    .catch(error => console.log(error));
+            },
+            getUserActif: function () {
+                axios.get(this.urlUserActif)
+                    .then(response => console.log(response.data))
                     .catch(error => console.log(error));
             }
         }

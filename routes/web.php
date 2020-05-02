@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'],function (){
 
     Route::get('responsables/{responsable}/confirmation', 'ResponsableController@confirmation')->name('responsables.confirmation');
     Route::get('responsables/liste', 'ResponsableController@liste')->name('responsables.liste');
+    Route::get('responsable/actif', 'ResponsableController@getUserActif')->name('responsable.actif');
 
 
     Route::get('taches', 'TacheController@index')->name('taches.index');

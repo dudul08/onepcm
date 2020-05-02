@@ -42,15 +42,14 @@
         },
         props: ['iconValidation'],
         mounted() {
-            console.log('Component mounted.'),
-            this.listerResponsable()
+
         },
         created() {
-
+            this.listerResponsable()
         },
         methods: {
             listerResponsable: function () {
-                axios.get('http://paschezmamie.test/responsables/liste')
+                axios.get('http://localhost/responsables/liste')
                     .then(response => this.responsables =response.data)
                     .catch(error => console.log(error));
             }

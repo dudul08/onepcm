@@ -1952,7 +1952,7 @@ __webpack_require__.r(__webpack_exports__);
       responsables: {}
     };
   },
-  props: ['iconValidation'],
+  props: ['iconValidation', 'urlListeResponsables'],
   mounted: function mounted() {},
   created: function created() {
     this.listerResponsable();
@@ -1961,7 +1961,7 @@ __webpack_require__.r(__webpack_exports__);
     listerResponsable: function listerResponsable() {
       var _this = this;
 
-      axios.get('http://localhost/responsables/liste').then(function (response) {
+      axios.get(this.urlListeResponsables).then(function (response) {
         return _this.responsables = response.data;
       })["catch"](function (error) {
         return console.log(error);

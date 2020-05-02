@@ -41,7 +41,7 @@
                 responsables: {}
             }
         },
-        props: ['iconValidation'],
+        props: ['iconValidation','urlListeResponsables'],
         mounted() {
 
         },
@@ -50,7 +50,7 @@
         },
         methods: {
             listerResponsable: function () {
-                axios.get('http://localhost/responsables/liste')
+                axios.get(this.urlListeResponsables)
                     .then(response => this.responsables = response.data)
                     .catch(error => console.log(error));
             }

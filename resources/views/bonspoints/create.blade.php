@@ -7,9 +7,8 @@
         </div>
         <div class="card-body">
             <div id="app">
-                <example-component></example-component>
+                   <create-component icon-validation="ri-check-line"></create-component>
             </div>
-
 
         </div>
     </div>

@@ -6,7 +6,8 @@
         <input type="date" class="form-control mr-2" id="id_name">
         <label class="mr-2" for="id_responsable">Responsable : </label>
         <select class="custom-select mr-2" id="id_responsable" name="responsable">
-            <option v-for="responsable in responsables"  :key="responsable.id" value="1">{{ responsable.prenom }}</option>
+            <option v-for="responsable in responsables" :key="responsable.id" value="1">{{ responsable.prenom }}
+            </option>
         </select>
         <label class="mr-2" for="id_enfant">Enfant : </label>
         <select class="custom-select mr-2" id="id_enfant" name="enfant">
@@ -50,7 +51,7 @@
         methods: {
             listerResponsable: function () {
                 axios.get('http://localhost/responsables/liste')
-                    .then(response => this.responsables =response.data)
+                    .then(response => this.responsables = response.data)
                     .catch(error => console.log(error));
             }
         }

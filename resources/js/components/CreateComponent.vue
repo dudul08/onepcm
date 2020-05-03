@@ -25,7 +25,7 @@
                 <label class="custom-control-label" for="id_bonus">Bonus</label>
             </div>
 
-            <button class="btn btn-primary">Ajouter</button>
+            <button class="btn btn-primary">Ajouter {{ url }}</button>
         </div>
     </div>
 </template>
@@ -40,7 +40,7 @@
 
             }
         },
-        props: ['iconValidation', 'urlListeResponsables', 'urlListeEnfants', 'urlListeTaches', 'userId'],
+        props: ['iconValidation', 'userId','url'],
         mounted() {
 
         },
@@ -53,18 +53,18 @@
         methods: {
 
             listerResponsables: function () {
-                axios.get(this.urlListeResponsables)
+                axios.get(this.url + '/responsables/liste')
                     .then(response => this.responsables = response.data)
                     .catch(error => console.log(error));
 
             },
             listerEnfants: function () {
-                axios.get(this.urlListeEnfants)
+                axios.get(this.url + '/enfants/liste')
                     .then(response => this.enfants = response.data)
                     .catch(error => console.log(error));
             },
             listerTaches: function () {
-                axios.get(this.urlListeTaches)
+                axios.get(this.url+ '/taches/liste' )
                     .then(response => (this.taches = response.data))
                     .catch(error => console.log(error));
 

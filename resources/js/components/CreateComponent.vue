@@ -26,6 +26,7 @@
             </div>
 
             <button class="btn btn-primary">Ajouter {{ url }}</button>
+            {{ routes }}
         </div>
     </div>
 </template>
@@ -36,22 +37,27 @@
             return {
                 responsables: [],
                 enfants: {},
-                taches: []
+                taches: [],
+                route:{}
 
             }
         },
-        props: ['iconValidation', 'userId','url'],
+        props: ['iconValidation', 'userId','url','routes'],
         mounted() {
 
         },
         created() {
+            this.test();
             this.listerResponsables(),
                 this.listerEnfants(),
                 this.listerTaches()
 
         },
         methods: {
-
+            test: function(){
+                this.route = JSON.parse(this.routes);
+                console.log( this.route.route1)
+            },
             listerResponsables: function () {
                 axios.get(this.url + '/responsables/liste')
                     .then(response => this.responsables = response.data)
@@ -59,7 +65,8 @@
 
             },
             listerEnfants: function () {
-                axios.get(this.url + '/enfants/liste')
+
+                axios.get(this.route.route1)
                     .then(response => this.enfants = response.data)
                     .catch(error => console.log(error));
             },

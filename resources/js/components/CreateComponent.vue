@@ -1,13 +1,14 @@
 <template>
     <div>
 
-        <form class="form-inline">
+        <div class="form-inline">
             <label class="mr-2" for="id_name">Date : </label>
             <input type="date" class="form-control mr-2" id="id_name">
             <label class="mr-2" for="id_responsable">Responsable : </label>
             <select class="custom-select mr-2" id="id_responsable" name="responsable">
 
-                <option v-for="responsable in responsables" :key="responsable.id" :value="responsable.id" :selected="userId == responsable.id">
+                <option v-for="responsable in responsables" :key="responsable.id" :value="responsable.id"
+                        :selected="userId == responsable.id">
                     {{ responsable.prenom }}
                 </option>
             </select>
@@ -24,8 +25,8 @@
                 <label class="custom-control-label" for="id_bonus">Bonus</label>
             </div>
 
-            <button type="submit" class="btn btn-primary ">Ajouter</button>
-        </form>
+            <button class="btn btn-primary">Ajouter</button>
+        </div>
     </div>
 </template>
 
@@ -33,10 +34,9 @@
     export default {
         data() {
             return {
-                responsables: {},
+                responsables: [],
                 enfants: {},
-                taches: {},
-                user: {}
+                taches: []
 
             }
         },
@@ -48,12 +48,15 @@
             this.listerResponsables(),
                 this.listerEnfants(),
                 this.listerTaches()
+
         },
         methods: {
+
             listerResponsables: function () {
                 axios.get(this.urlListeResponsables)
                     .then(response => this.responsables = response.data)
                     .catch(error => console.log(error));
+
             },
             listerEnfants: function () {
                 axios.get(this.urlListeEnfants)
@@ -62,13 +65,9 @@
             },
             listerTaches: function () {
                 axios.get(this.urlListeTaches)
-                    .then(response => this.taches = response.data)
+                    .then(response => (this.taches = response.data))
                     .catch(error => console.log(error));
-            },
-            getUserActif: function () {
-                axios.get(this.urlUserActif)
-                    .then(response => console.log(response.data))
-                    .catch(error => console.log(error));
+
             }
         }
     }

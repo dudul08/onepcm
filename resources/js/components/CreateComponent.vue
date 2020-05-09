@@ -25,8 +25,8 @@
                 <label class="custom-control-label" for="id_bonus">Bonus</label>
             </div>
 
-            <button class="btn btn-primary">Ajouter {{ url }}</button>
-            {{ routes }}
+            <button class="btn btn-primary">Ajouter</button>
+
         </div>
     </div>
 </template>
@@ -38,40 +38,41 @@
                 responsables: [],
                 enfants: {},
                 taches: [],
-                route:{}
+                routes: {}
 
             }
         },
-        props: ['iconValidation', 'userId','url','routes'],
+        props: ['iconValidation', 'userId', 'url', 'tableauRoutes'],
         mounted() {
 
         },
         created() {
-            this.test();
-            this.listerResponsables(),
+            this.initialiserRoutes(),
+                this.listerResponsables(),
                 this.listerEnfants(),
                 this.listerTaches()
 
         },
         methods: {
-            test: function(){
-                this.route = JSON.parse(this.routes);
-                console.log( this.route.route1)
+            initialiserRoutes: function () {
+
+                this.routes = JSON.parse(this.tableauRoutes);
+
             },
             listerResponsables: function () {
-                axios.get(this.url + '/responsables/liste')
+                axios.get(this.routes.responsablesListe)
                     .then(response => this.responsables = response.data)
                     .catch(error => console.log(error));
 
             },
             listerEnfants: function () {
 
-                axios.get(this.route.route1)
+                axios.get(this.routes.enfantsListe)
                     .then(response => this.enfants = response.data)
                     .catch(error => console.log(error));
             },
             listerTaches: function () {
-                axios.get(this.url+ '/taches/liste' )
+                axios.get(this.routes.tachesListe)
                     .then(response => (this.taches = response.data))
                     .catch(error => console.log(error));
 

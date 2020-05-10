@@ -2,37 +2,19 @@
     <div>
 
         <div class="form-inline">
-            <label class="mr-2" for="id_name">Date : </label>
-            <input type="date" class="form-control mr-2" id="id_name">
-            <label class="mr-2" for="id_responsable">Responsable : </label>
-            <select class="custom-select mr-2" id="id_responsable" name="responsable">
+           <champs-component v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
+                             v-bind:user-id="userId"></champs-component>
 
-                <option v-for="responsable in responsables" :key="responsable.id" :value="responsable.id"
-                        :selected="userId == responsable.id">
-                    {{ responsable.prenom }}
-                </option>
-            </select>
-            <label class="mr-2" for="id_enfant">Enfant : </label>
-            <select class="custom-select mr-2" id="id_enfant" name="enfant">
-                <option v-for="enfant in enfants" :key="enfant.id" :value="enfant.id">{{ enfant.prenom }}</option>
-            </select>
-            <label class="mr-2" for="id_tache">Tache : </label>
-            <select class="custom-select mr-2" id="id_tache" name="tache">
-                <option v-for="tache in taches" :key="tache.id" :value="tache.id">{{ tache.libelle }}</option>
-            </select>
-            <div class="custom-control custom-checkbox mr-2">
-                <input type="checkbox" class="custom-control-input" name="bonus" id="id_bonus">
-                <label class="custom-control-label" for="id_bonus">Bonus</label>
-            </div>
-
-            <button class="btn btn-primary">Ajouter</button>
+            <button class="btn btn-primary"><i class="ri-add-line"></i></button>
 
         </div>
     </div>
 </template>
 
 <script>
+    import Champs from "./ChampsComponent";
     export default {
+        components: {Champs},
         data() {
             return {
 

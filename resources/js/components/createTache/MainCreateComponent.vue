@@ -3,24 +3,30 @@
        <ligne v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
                                          v-bind:user-id="userId"></ligne>
 
-        <h5>Tâches à ajouter : </h5>
+        <h5 class="pt-3">Bons points à ajouter : </h5>
 
         <div class="table-responsive pt-2">
             <table class="table tabletable-hover table-bordered ">
                 <tbody>
                 <tr class="pb-2">
-                     <ligne class="pb-2" v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
-                           v-bind:user-id="userId"></ligne>
-
-                </tr>
-                <tr >
-                      <ligne class="pb-2"v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
-                           v-bind:user-id="userId"></ligne>
+                    <div class="form-inline">
+                    <champs-component v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
+                                      v-bind:user-id="userId"></champs-component>  <button class="btn btn-danger mb-1" ><i
+                    class="ri-delete-bin-7-line"></i> </button></div>
 
                 </tr>
                 <tr class="pb-2">
-                    <ligne  class="pb-2" v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
-                           v-bind:user-id="userId"></ligne>
+                    <div class="form-inline"> <champs-component v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
+                                      v-bind:user-id="userId"></champs-component>    <button class="btn btn-danger mb-1" ><i
+                    class="ri-delete-bin-7-line"></i> </button></div>
+
+                </tr>
+
+                <tr class="pb-2">
+                    <div class="form-inline">
+                    <champs-component v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
+                                      v-bind:user-id="userId"></champs-component> <button class="btn btn-danger mb-1" ><i
+                    class="ri-delete-bin-7-line"></i> </button></div>
 
                 </tr>
                 </tbody>

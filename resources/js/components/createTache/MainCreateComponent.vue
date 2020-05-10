@@ -7,27 +7,33 @@
 
         <div class="table-responsive pt-2">
             <table class="table tabletable-hover table-bordered ">
+
                 <tbody>
+
+
                 <tr class="pb-2">
+                    <td>
                     <div class="form-inline">
                     <champs-component v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
                                       v-bind:user-id="userId"></champs-component>  <button class="btn btn-danger mb-1" ><i
                     class="ri-delete-bin-7-line"></i> </button></div>
-
+                    </td>
                 </tr>
                 <tr class="pb-2">
+                    <td>
                     <div class="form-inline"> <champs-component v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
                                       v-bind:user-id="userId"></champs-component>    <button class="btn btn-danger mb-1" ><i
                     class="ri-delete-bin-7-line"></i> </button></div>
-
+                    </td>
                 </tr>
 
                 <tr class="pb-2">
+                    <td>
                     <div class="form-inline">
                     <champs-component v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
                                       v-bind:user-id="userId"></champs-component> <button class="btn btn-danger mb-1" ><i
                     class="ri-delete-bin-7-line"></i> </button></div>
-
+                    </td>
                 </tr>
                 </tbody>
             </table>

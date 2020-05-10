@@ -32,7 +32,7 @@
 
 <script>
 
-    import Ligne from './ligne';
+    import Ligne from './ligne_';
 
     export default {
 

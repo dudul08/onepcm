@@ -1,6 +1,32 @@
 <template>
     <div>
-<ligne v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants" v-bind:user-id="userId"></ligne>
+       <ligne v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
+                                         v-bind:user-id="userId"></ligne>
+
+        <h5>Tâches à ajouter : </h5>
+
+        <div class="table-responsive pt-2">
+            <table class="table tabletable-hover table-bordered ">
+                <tbody>
+                <tr class="pb-2">
+                     <ligne class="pb-2" v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
+                           v-bind:user-id="userId"></ligne>
+
+                </tr>
+                <tr >
+                      <ligne class="pb-2"v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
+                           v-bind:user-id="userId"></ligne>
+
+                </tr>
+                <tr class="pb-2">
+                    <ligne  class="pb-2" v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
+                           v-bind:user-id="userId"></ligne>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
 
     </div>
 </template>
@@ -8,12 +34,13 @@
 <script>
 
     import Ligne from "./LigneCreateComponent";
+
     export default {
         components: {Ligne},
         data() {
             return {
                 responsables: [],
-                enfants: {},
+                enfants: [],
                 taches: [],
                 routes: {}
 

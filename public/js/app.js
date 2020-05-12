@@ -2039,28 +2039,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -37830,76 +37808,34 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "table-responsive pt-2" }, [
         _c("table", { staticClass: "table tabletable-hover table-bordered " }, [
-          _c("tbody", [
-            _c("tr", { staticClass: "pb-2" }, [
-              _c("td", [
-                _c(
-                  "div",
-                  { staticClass: "form-inline" },
-                  [
-                    _c("champs-component", {
-                      attrs: {
-                        responsables: _vm.responsables,
-                        taches: _vm.taches,
-                        enfants: _vm.enfants,
-                        "user-id": _vm.userId,
-                        "bon-point": _vm.bonPoint1
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(0)
-                  ],
-                  1
-                )
+          _c(
+            "tbody",
+            _vm._l(_vm.bonsPoints, function(bonPoint, index) {
+              return _c("tr", { key: index, staticClass: "pb-2" }, [
+                _c("td", [
+                  _c(
+                    "div",
+                    { staticClass: "form-inline" },
+                    [
+                      _c("champs-component", {
+                        attrs: {
+                          responsables: _vm.responsables,
+                          taches: _vm.taches,
+                          enfants: _vm.enfants,
+                          "user-id": _vm.userId,
+                          "bon-point": bonPoint
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(0, true)
+                    ],
+                    1
+                  )
+                ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "pb-2" }, [
-              _c("td", [
-                _c(
-                  "div",
-                  { staticClass: "form-inline" },
-                  [
-                    _c("champs-component", {
-                      attrs: {
-                        responsables: _vm.responsables,
-                        taches: _vm.taches,
-                        enfants: _vm.enfants,
-                        "user-id": _vm.userId,
-                        "bon-point": _vm.bonPoint2
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(1)
-                  ],
-                  1
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "pb-2" }, [
-              _c("td", [
-                _c(
-                  "div",
-                  { staticClass: "form-inline" },
-                  [
-                    _c("champs-component", {
-                      attrs: {
-                        responsables: _vm.responsables,
-                        taches: _vm.taches,
-                        enfants: _vm.enfants,
-                        "user-id": _vm.userId,
-                        "bon-point": _vm.bonPoint3
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(2)
-                  ],
-                  1
-                )
-              ])
-            ])
-          ])
+            }),
+            0
+          )
         ])
       ])
     ],
@@ -37907,22 +37843,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-danger mb-1" }, [
-      _c("i", { staticClass: "ri-delete-bin-7-line" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-danger mb-1" }, [
-      _c("i", { staticClass: "ri-delete-bin-7-line" })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

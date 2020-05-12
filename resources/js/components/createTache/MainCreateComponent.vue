@@ -11,40 +11,18 @@
                 <tbody>
 
 
-                <tr class="pb-2">
+                <tr class="pb-2"  v-for="(bonPoint, index) in bonsPoints" :key="index">
                     <td>
                         <div class="form-inline">
                             <champs-component v-bind:responsables="responsables" v-bind:taches="taches"
                                               v-bind:enfants="enfants"
-                                              v-bind:user-id="userId" v-bind:bon-point="bonPoint1"></champs-component>
-                            <button class="btn btn-danger mb-1"><i
-                                class="ri-delete-bin-7-line"></i></button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="pb-2">
-                    <td>
-                        <div class="form-inline">
-                            <champs-component v-bind:responsables="responsables" v-bind:taches="taches"
-                                              v-bind:enfants="enfants"
-                                              v-bind:user-id="userId" v-bind:bon-point="bonPoint2"></champs-component>
+                                              v-bind:user-id="userId" v-bind:bon-point="bonPoint"></champs-component>
                             <button class="btn btn-danger mb-1"><i
                                 class="ri-delete-bin-7-line"></i></button>
                         </div>
                     </td>
                 </tr>
 
-                <tr class="pb-2">
-                    <td>
-                        <div class="form-inline">
-                            <champs-component v-bind:responsables="responsables" v-bind:taches="taches"
-                                              v-bind:enfants="enfants"
-                                              v-bind:user-id="userId" v-bind:bon-point="bonPoint3"></champs-component>
-                            <button class="btn btn-danger mb-1"><i
-                                class="ri-delete-bin-7-line"></i></button>
-                        </div>
-                    </td>
-                </tr>
                 </tbody>
             </table>
         </div>

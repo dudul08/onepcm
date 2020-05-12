@@ -3,9 +3,9 @@
 
         <div class="form-inline">
            <champs-component v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
-                             v-bind:user-id="userId"></champs-component>
+                             v-bind:user-id="userId" v-bind:bon-point="bonPoint"></champs-component>
 
-            <button class="btn btn-primary"><i class="ri-add-line"></i></button>
+            <button class="btn btn-primary" v-on:click="ajouterBonPoint()"><i class="ri-add-line"></i></button>
 
         </div>
     </div>
@@ -21,7 +21,7 @@
 
             }
         },
-        props: ['responsables','enfants','taches','userId'],
+        props: ['responsables','enfants','taches','userId','bonsPoints','bonPoint','creerBonPoint'],
         mounted() {
 
         },
@@ -29,7 +29,11 @@
 
 
         },
-        methods: {
+        methods: {ajouterBonPoint : function () {
+                let bonPointNouveau = this.creerBonPoint.get(this.bonPoint);
+
+                this.bonsPoints.push(bonPointNouveau);
+            }
 
         }
     }

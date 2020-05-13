@@ -10,7 +10,7 @@
                             <champs-component v-bind:responsables="responsables" v-bind:taches="taches"
                                               v-bind:enfants="enfants"
                                               v-bind:user-id="userId" v-bind:bon-point="bonPoint"></champs-component>
-                            <button class="btn btn-danger mb-1" v-on:click="supprimerBonPoint(index)"><i
+                            <button v-if="testNombreBonPoint()" class="btn btn-danger mb-1" v-on:click="supprimerBonPoint(index)"><i
                                 class="ri-delete-bin-7-line"></i></button>
                             <button class="btn btn-primary mb-1 ml-1" v-on:click="ajouterBonPoint()"><i
                                 class="ri-add-line"></i></button>
@@ -110,6 +110,16 @@
                 if (this.bonsPoints.length > 1) {
                     this.bonsPoints.splice(index, 1);
                 }
+
+            },
+            testNombreBonPoint: function (index) {
+
+                if (this.bonsPoints.length > 1) {
+                    return true;
+                } else {
+                    return false;
+                }
+
 
             }
         }

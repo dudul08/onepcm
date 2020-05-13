@@ -2120,6 +2120,13 @@ __webpack_require__.r(__webpack_exports__);
       if (this.bonsPoints.length > 1) {
         this.bonsPoints.splice(index, 1);
       }
+    },
+    testNombreBonPoint: function testNombreBonPoint(index) {
+      if (this.bonsPoints.length > 1) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 });
@@ -37812,18 +37819,20 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger mb-1",
-                        on: {
-                          click: function($event) {
-                            return _vm.supprimerBonPoint(index)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "ri-delete-bin-7-line" })]
-                    ),
+                    _vm.testNombreBonPoint()
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger mb-1",
+                            on: {
+                              click: function($event) {
+                                return _vm.supprimerBonPoint(index)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "ri-delete-bin-7-line" })]
+                        )
+                      : _vm._e(),
                     _vm._v(" "),
                     _c(
                       "button",

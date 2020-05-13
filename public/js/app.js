@@ -2037,13 +2037,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2061,7 +2054,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['iconValidation', 'userId', 'tableauRoutes'],
   mounted: function mounted() {},
   created: function created() {
-    this.initialiserRoutes(), this.listerResponsables(), this.listerEnfants(), this.listerTaches();
+    this.initialiserRoutes(), this.listerResponsables(), this.listerEnfants(), this.listerTaches(), this.ajouterBonPoint();
   },
   methods: {
     initialiserRoutes: function initialiserRoutes() {
@@ -2095,8 +2088,28 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     ajouterBonPoint: function ajouterBonPoint() {
+      var d = new Date();
+      var jour = d.getDate();
+      var mois = d.getMonth();
+      var annee = d.getFullYear();
+      mois = mois + 1;
+
+      if (mois < 10) {
+        mois = "0" + mois.toString();
+      } else {
+        mois = mois.toString();
+      }
+
+      if (jour < 10) {
+        jour = "0" + jour.toString();
+      } else {
+        jour = jour.toString();
+      }
+
+      var dateDuJour = annee + "-" + mois + "-" + jour;
+      console.log(dateDuJour);
       var bonPoint = {
-        dateBonPoint: "",
+        dateBonPoint: dateDuJour,
         responsable: this.userId,
         enfant: "",
         tache: "",
@@ -37774,19 +37787,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-primary",
-        on: {
-          click: function($event) {
-            return _vm.ajouterBonPoint()
-          }
-        }
-      },
-      [_c("i", { staticClass: "ri-add-line" }), _vm._v("Ajouter un bon point")]
-    ),
-    _vm._v(" "),
     _c("div", { staticClass: "table-responsive pt-2" }, [
       _c("table", { staticClass: "table tabletable-hover table-bordered " }, [
         _c(
@@ -37808,7 +37808,20 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm._m(0, true)
+                    _vm._m(0, true),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary mb-1 ml-1",
+                        on: {
+                          click: function($event) {
+                            return _vm.ajouterBonPoint()
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "ri-add-line" })]
+                    )
                   ],
                   1
                 )

@@ -1,18 +1,10 @@
 <template>
     <div>
-        <!--<ligne v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
-               v-bind:user-id="userId" v-bind:bons-points="bonsPoints" v-bind:bon-point="bonPoint" v-bind:creer-bon-point="creerBonPoint"></ligne>-->
-
-
-       <button class="btn btn-primary" v-on:click="ajouterBonPoint()"><i class="ri-add-line"></i>Ajouter un bon point</button>
 
         <div class="table-responsive pt-2">
             <table class="table tabletable-hover table-bordered ">
-
                 <tbody>
-
-
-                <tr class="pb-2"  v-for="(bonPoint, index) in bonsPoints" :key="index">
+                <tr class="pb-2" v-for="(bonPoint, index) in bonsPoints" :key="index">
                     <td>
                         <div class="form-inline">
                             <champs-component v-bind:responsables="responsables" v-bind:taches="taches"
@@ -20,10 +12,11 @@
                                               v-bind:user-id="userId" v-bind:bon-point="bonPoint"></champs-component>
                             <button class="btn btn-danger mb-1"><i
                                 class="ri-delete-bin-7-line"></i></button>
+                            <button class="btn btn-primary mb-1 ml-1" v-on:click="ajouterBonPoint()"><i
+                                class="ri-add-line"></i></button>
                         </div>
                     </td>
                 </tr>
-
                 </tbody>
             </table>
         </div>
@@ -56,8 +49,8 @@
             this.initialiserRoutes(),
                 this.listerResponsables(),
                 this.listerEnfants(),
-                this.listerTaches()
-
+                this.listerTaches(),
+                this.ajouterBonPoint()
         },
         methods: {
             initialiserRoutes: function () {
@@ -83,13 +76,31 @@
                     .catch(error => console.log(error));
 
             },
-            ajouterBonPoint : function () {
-                let bonPoint =  {
-                    dateBonPoint:"",
-                    responsable:this.userId,
-                    enfant:"",
-                    tache:"",
-                    isBonus:false
+            ajouterBonPoint: function () {
+                let d = new Date();
+                let jour = d.getDate();
+                let mois = d.getMonth();
+                let annee = d.getFullYear();
+                mois = mois + 1;
+                if (mois < 10) {
+                    mois = "0" + mois.toString()
+                } else {
+                    mois = mois.toString()
+                }
+                if (jour < 10) {
+                    jour = "0" + jour.toString()
+                } else {
+                    jour = jour.toString()
+                }
+
+                let dateDuJour = annee + "-" + mois + "-" + jour;
+                console.log(dateDuJour);
+                let bonPoint = {
+                    dateBonPoint: dateDuJour,
+                    responsable: this.userId,
+                    enfant: "",
+                    tache: "",
+                    isBonus: false
                 };
 
                 this.bonsPoints.push(bonPoint);

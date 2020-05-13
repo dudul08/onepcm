@@ -1,9 +1,10 @@
 <template>
     <div>
-        <ligne v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
-               v-bind:user-id="userId" v-bind:bons-points="bonsPoints" v-bind:bon-point="bonPoint" v-bind:creer-bon-point="creerBonPoint"></ligne>
+        <!--<ligne v-bind:responsables="responsables" v-bind:taches="taches" v-bind:enfants="enfants"
+               v-bind:user-id="userId" v-bind:bons-points="bonsPoints" v-bind:bon-point="bonPoint" v-bind:creer-bon-point="creerBonPoint"></ligne>-->
 
-        <h5 class="pt-3">Bons points à ajouter : </h5>
+
+       <button class="btn btn-primary" v-on:click="ajouterBonPoint()"><i class="ri-add-line"></i>Ajouter un bon point</button>
 
         <div class="table-responsive pt-2">
             <table class="table tabletable-hover table-bordered ">
@@ -43,31 +44,8 @@
                 enfants: [],
                 taches: [],
                 bonsPoints: [],
-                routes: {},
-                bonPoint1: {
-                    dateBonPoint: "2020-12-14"
-                }, bonPoint2: {
-                    dateBonPoint: "2020-12-19"
-                }, bonPoint3: {
-                    dateBonPoint: "2020-12-18"
-                },
-                bonPoint:{
-                    dateBonPoint:"",
-                    responsable:this.userId,
-                    enfant:"",
-                    tache:"",
-                    isBonus:false
-                },
-                creerBonPoint:{
-                    get:function (bonPoint) {
-                    let bonPointcree= {dateBonPoint:bonPoint.dateBonPoint,
-                        responsable:bonPoint.responsable,
-                        enfant:bonPoint.enfant,
-                        tache:bonPoint.tache,
-                        isBonus:bonPoint.isBonus};
-                        return bonPointcree;
-                    }
-                }
+                routes: {}
+
             }
         },
         props: ['iconValidation', 'userId', 'tableauRoutes'],
@@ -104,6 +82,17 @@
                     .then(response => (this.taches = response.data))
                     .catch(error => console.log(error));
 
+            },
+            ajouterBonPoint : function () {
+                let bonPoint =  {
+                    dateBonPoint:"",
+                    responsable:this.userId,
+                    enfant:"",
+                    tache:"",
+                    isBonus:false
+                };
+
+                this.bonsPoints.push(bonPoint);
             }
         }
     }

@@ -32,6 +32,7 @@
         methods: {ajouterBonPoint : function () {
                 let bonPointNouveau = this.creerBonPoint.get(this.bonPoint);
 
+                //debugger
                 this.bonsPoints.push(bonPointNouveau);
             }
 

@@ -20,9 +20,12 @@
             <select class="custom-select mr-2" id="id_tache" name="tache" v-model="bonPoint.tache">
                 <option v-for="tache in taches" :key="tache.id" :value="tache.id">{{ tache.libelle }}</option>
             </select>
-            <div class="custom-control custom-checkbox mr-2">
-                <input type="checkbox" class="custom-control-input" name="bonus" id="id_bonus" v-model="bonPoint.isBonus">
-                <label class="custom-control-label" for="id_bonus">Bonus</label>
+            <div class="custom-control-inline  mr-2">
+<!--                <input type="checkbox"  id="is_bonus"  v-model="dateTache">-->
+                <input type="checkbox" value="isBonus" id="idbonus" v-model="bonPoint.isBonus">
+                <label class="ml-1" for="idbonus">Bonus</label>
+
+
             </div>
         </div>
     </div>

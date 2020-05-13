@@ -1938,6 +1938,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1988,7 +1991,8 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {},
   methods: {
     ajouterBonPoint: function ajouterBonPoint() {
-      var bonPointNouveau = this.creerBonPoint.get(this.bonPoint);
+      var bonPointNouveau = this.creerBonPoint.get(this.bonPoint); //debugger
+
       this.bonsPoints.push(bonPointNouveau);
     }
   }
@@ -2039,6 +2043,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2050,35 +2055,7 @@ __webpack_require__.r(__webpack_exports__);
       enfants: [],
       taches: [],
       bonsPoints: [],
-      routes: {},
-      bonPoint1: {
-        dateBonPoint: "2020-12-14"
-      },
-      bonPoint2: {
-        dateBonPoint: "2020-12-19"
-      },
-      bonPoint3: {
-        dateBonPoint: "2020-12-18"
-      },
-      bonPoint: {
-        dateBonPoint: "",
-        responsable: this.userId,
-        enfant: "",
-        tache: "",
-        isBonus: false
-      },
-      creerBonPoint: {
-        get: function get(bonPoint) {
-          var bonPointcree = {
-            dateBonPoint: bonPoint.dateBonPoint,
-            responsable: bonPoint.responsable,
-            enfant: bonPoint.enfant,
-            tache: bonPoint.tache,
-            isBonus: bonPoint.isBonus
-          };
-          return bonPointcree;
-        }
-      }
+      routes: {}
     };
   },
   props: ['iconValidation', 'userId', 'tableauRoutes'],
@@ -2116,6 +2093,16 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         return console.log(error);
       });
+    },
+    ajouterBonPoint: function ajouterBonPoint() {
+      var bonPoint = {
+        dateBonPoint: "",
+        responsable: this.userId,
+        enfant: "",
+        tache: "",
+        isBonus: false
+      };
+      this.bonsPoints.push(bonPoint);
     }
   }
 });
@@ -37561,9 +37548,9 @@ var render = function() {
             { key: responsable.id, domProps: { value: responsable.id } },
             [
               _vm._v(
-                "\n                " +
+                "\n                    " +
                   _vm._s(responsable.prenom) +
-                  "\n            "
+                  "\n                "
               )
             ]
           )
@@ -37661,7 +37648,7 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "custom-control custom-checkbox mr-2" }, [
+      _c("div", { staticClass: "custom-control-inline  mr-2" }, [
         _c("input", {
           directives: [
             {
@@ -37671,11 +37658,10 @@ var render = function() {
               expression: "bonPoint.isBonus"
             }
           ],
-          staticClass: "custom-control-input",
-          attrs: { type: "checkbox", name: "bonus", id: "id_bonus" },
+          attrs: { type: "checkbox", value: "isBonus", id: "idbonus" },
           domProps: {
             checked: Array.isArray(_vm.bonPoint.isBonus)
-              ? _vm._i(_vm.bonPoint.isBonus, null) > -1
+              ? _vm._i(_vm.bonPoint.isBonus, "isBonus") > -1
               : _vm.bonPoint.isBonus
           },
           on: {
@@ -37684,7 +37670,7 @@ var render = function() {
                 $$el = $event.target,
                 $$c = $$el.checked ? true : false
               if (Array.isArray($$a)) {
-                var $$v = null,
+                var $$v = "isBonus",
                   $$i = _vm._i($$a, $$v)
                 if ($$el.checked) {
                   $$i < 0 &&
@@ -37704,11 +37690,9 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "custom-control-label", attrs: { for: "id_bonus" } },
-          [_vm._v("Bonus")]
-        )
+        _c("label", { staticClass: "ml-1", attrs: { for: "idbonus" } }, [
+          _vm._v("Bonus")
+        ])
       ])
     ])
   ])
@@ -37789,58 +37773,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("ligne", {
-        attrs: {
-          responsables: _vm.responsables,
-          taches: _vm.taches,
-          enfants: _vm.enfants,
-          "user-id": _vm.userId,
-          "bons-points": _vm.bonsPoints,
-          "bon-point": _vm.bonPoint,
-          "creer-bon-point": _vm.creerBonPoint
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary",
+        on: {
+          click: function($event) {
+            return _vm.ajouterBonPoint()
+          }
         }
-      }),
-      _vm._v(" "),
-      _c("h5", { staticClass: "pt-3" }, [_vm._v("Bons points à ajouter : ")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "table-responsive pt-2" }, [
-        _c("table", { staticClass: "table tabletable-hover table-bordered " }, [
-          _c(
-            "tbody",
-            _vm._l(_vm.bonsPoints, function(bonPoint, index) {
-              return _c("tr", { key: index, staticClass: "pb-2" }, [
-                _c("td", [
-                  _c(
-                    "div",
-                    { staticClass: "form-inline" },
-                    [
-                      _c("champs-component", {
-                        attrs: {
-                          responsables: _vm.responsables,
-                          taches: _vm.taches,
-                          enfants: _vm.enfants,
-                          "user-id": _vm.userId,
-                          "bon-point": bonPoint
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(0, true)
-                    ],
-                    1
-                  )
-                ])
+      },
+      [_c("i", { staticClass: "ri-add-line" }), _vm._v("Ajouter un bon point")]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "table-responsive pt-2" }, [
+      _c("table", { staticClass: "table tabletable-hover table-bordered " }, [
+        _c(
+          "tbody",
+          _vm._l(_vm.bonsPoints, function(bonPoint, index) {
+            return _c("tr", { key: index, staticClass: "pb-2" }, [
+              _c("td", [
+                _c(
+                  "div",
+                  { staticClass: "form-inline" },
+                  [
+                    _c("champs-component", {
+                      attrs: {
+                        responsables: _vm.responsables,
+                        taches: _vm.taches,
+                        enfants: _vm.enfants,
+                        "user-id": _vm.userId,
+                        "bon-point": bonPoint
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(0, true)
+                  ],
+                  1
+                )
               ])
-            }),
-            0
-          )
-        ])
+            ])
+          }),
+          0
+        )
       ])
-    ],
-    1
-  )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {

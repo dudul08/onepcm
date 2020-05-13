@@ -2107,7 +2107,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       var dateDuJour = annee + "-" + mois + "-" + jour;
-      console.log(dateDuJour);
       var bonPoint = {
         dateBonPoint: dateDuJour,
         responsable: this.userId,
@@ -2116,6 +2115,11 @@ __webpack_require__.r(__webpack_exports__);
         isBonus: false
       };
       this.bonsPoints.push(bonPoint);
+    },
+    supprimerBonPoint: function supprimerBonPoint(index) {
+      if (this.bonsPoints.length > 1) {
+        this.bonsPoints.splice(index, 1);
+      }
     }
   }
 });
@@ -37808,7 +37812,18 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm._m(0, true),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger mb-1",
+                        on: {
+                          click: function($event) {
+                            return _vm.supprimerBonPoint(index)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "ri-delete-bin-7-line" })]
+                    ),
                     _vm._v(" "),
                     _c(
                       "button",
@@ -37834,16 +37849,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-danger mb-1" }, [
-      _c("i", { staticClass: "ri-delete-bin-7-line" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

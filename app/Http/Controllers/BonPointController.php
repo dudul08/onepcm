@@ -38,13 +38,16 @@ class BonPointController extends Controller
      */
     public function store(Request $request)
     {
-
         $data = $request->all();
+
         $bonPointData = $data['bonPoint'];
         $tache_id =  $bonPointData['tache'];;
-        $tache = Tache::find($tache_id);
         $is_avec_bonus = $bonPointData['isBonus'];
+
+        $tache = Tache::find($tache_id);
+
         $points = SELF::calculerPoint($tache,$is_avec_bonus);
+
         $bonPoint = new BonPoint();
         $bonPoint->responsable_id = $bonPointData['responsable'];
         $bonPoint->enfant_id = $bonPointData['enfant'];

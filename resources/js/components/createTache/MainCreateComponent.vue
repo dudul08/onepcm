@@ -2,6 +2,8 @@
     <div>
 
         <div class="table-responsive pt-2">
+            <button class="btn btn-primary mb-1 ml-1" v-on:click="store()"><i
+                class="ri-add-line"></i></button>
             <table class="table tabletable-hover table-bordered ">
                 <tbody>
                 <tr class="pb-2" v-for="(bonPoint, index) in bonsPoints" :key="index">
@@ -121,7 +123,13 @@
                 }
 
 
+            },
+            store:function () {
+                axios.post(this.routes.bonsPointsStore,{bonPoint :this.bonsPoints[0]})
+                    .then(response => console.log(response))
+                    .catch(error => console.log(error));
             }
+
         }
     }
 </script>

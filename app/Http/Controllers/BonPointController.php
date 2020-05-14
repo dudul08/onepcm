@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BonPoint;
+use App\Tache;
 use Illuminate\Http\Request;
 
 class BonPointController extends Controller
@@ -37,16 +38,24 @@ class BonPointController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->all();
         $bonPointData = $data['bonPoint'];
-
+        $tache_id =  $bonPointData['tache'];;
+        $tache = Tache::find($tache_id);
+        $points = $tache->nombre_points;
+        $pointsBonus = $tache->nombre_points_bonus;
+        $is_avec_bonus = $bonPointData['isBonus'];
+        if($is_avec_bonus){
+            $points=$points+$pointsBonus;
+        }
         $bonPoint = new BonPoint();
         $bonPoint->responsable_id = $bonPointData['responsable'];
         $bonPoint->enfant_id = $bonPointData['enfant'];
         $bonPoint->date_bonpoint = $bonPointData['dateBonPoint'];
-        $bonPoint->tache_id = $bonPointData['tache'];
-        $bonPoint->is_avec_bonus = $bonPointData['isBonus'];
-        $bonPoint->points = 12;
+        $bonPoint->tache_id = $tache_id ;
+        $bonPoint->is_avec_bonus = $is_avec_bonus;
+        $bonPoint->points = $points;
         $bonPoint->save();
     }
 

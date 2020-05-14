@@ -2037,6 +2037,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2127,6 +2129,15 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return false;
       }
+    },
+    store: function store() {
+      axios.post(this.routes.bonsPointsStore, {
+        bonPoint: this.bonsPoints[0]
+      }).then(function (response) {
+        return console.log(response);
+      })["catch"](function (error) {
+        return console.log(error);
+      });
     }
   }
 });
@@ -37799,6 +37810,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "table-responsive pt-2" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary mb-1 ml-1",
+          on: {
+            click: function($event) {
+              return _vm.store()
+            }
+          }
+        },
+        [_c("i", { staticClass: "ri-add-line" })]
+      ),
+      _vm._v(" "),
       _c("table", { staticClass: "table tabletable-hover table-bordered " }, [
         _c(
           "tbody",

@@ -43,8 +43,9 @@ Route::group(['middleware' => 'auth'],function (){
 //        'show']);
     Route::get('bonspoints', 'BonPointController@index')->name('bonspoints.index');
     Route::get('bonspoints/create', 'BonPointController@create')->name('bonspoints.create');
-    Route::get('bonspoints/{bonpoint}/confirmation', 'EnfantController@confirmation')->name('bonspoints.confirmation');
-    Route::get('bonspoints/{bonpoint}/edit', 'EnfantController@edit')->name('bonspoints.edit');
+    Route::get('bonspoints/{bonpoint}/confirmation', 'BonPointController@confirmation')->name('bonspoints.confirmation');
+    Route::get('bonspoints/{bonpoint}/edit', 'BonPointController@edit')->name('bonspoints.edit');
+    Route::post('bonspoints', 'BonPointController@store')->name('bonspoints.store');
 //    Route::resource('categoriestaches', 'CategorieTacheController')->except([
 //        'show']);
 

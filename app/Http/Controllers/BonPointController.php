@@ -14,8 +14,8 @@ class BonPointController extends Controller
      */
     public function index()
     {
-        $bonsPoints=BonPoint::all();
-        return view('bonspoints.index',['bonsPoints'=>$bonsPoints]);
+        $bonsPoints = BonPoint::all();
+        return view('bonspoints.index', ['bonsPoints' => $bonsPoints]);
     }
 
     /**
@@ -26,24 +26,34 @@ class BonPointController extends Controller
     public function create()
     {
         $bonPoint = new BonPoint();
-        return view('bonspoints.create',['bonPoint'=>$bonPoint]);
+        return view('bonspoints.create', ['bonPoint' => $bonPoint]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $bonPointData = $data['bonPoint'];
+
+        $bonPoint = new BonPoint();
+        $bonPoint->responsable_id = $bonPointData['responsable'];
+        $bonPoint->enfant_id = $bonPointData['enfant'];
+        $bonPoint->date_bonpoint = $bonPointData['dateBonPoint'];
+        $bonPoint->tache_id = $bonPointData['tache'];
+        $bonPoint->is_avec_bonus = $bonPointData['isBonus'];
+        $bonPoint->points = 12;
+        $bonPoint->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -54,7 +64,7 @@ class BonPointController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -65,8 +75,8 @@ class BonPointController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -77,7 +87,7 @@ class BonPointController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

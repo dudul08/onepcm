@@ -2131,13 +2131,19 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     store: function store() {
-      axios.post(this.routes.bonsPointsStore, {
-        bonPoint: this.bonsPoints[0]
-      }).then(function (response) {
-        return console.log(response);
-      })["catch"](function (error) {
-        return console.log(error);
+      var _this4 = this;
+
+      this.bonsPoints.forEach(function (item) {
+        axios.post(_this4.routes.bonsPointsStore, {
+          bonPoint: item
+        }).then(function (response) {
+          return console.log(response);
+        })["catch"](function (error) {
+          return console.log(error);
+        });
       });
+      this.bonsPoints = [];
+      this.ajouterBonPoint();
     }
   }
 });

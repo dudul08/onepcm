@@ -125,9 +125,15 @@
 
             },
             store:function () {
-                axios.post(this.routes.bonsPointsStore,{bonPoint :this.bonsPoints[0]})
-                    .then(response => console.log(response))
-                    .catch(error => console.log(error));
+
+                    this.bonsPoints.forEach((item)=>{
+                    axios.post(this.routes.bonsPointsStore,{bonPoint :item})
+                        .then(response => console.log(response))
+                        .catch(error => console.log(error));
+                });
+
+                this.bonsPoints = [];
+                this.ajouterBonPoint();
             }
 
         }

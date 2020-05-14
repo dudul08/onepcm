@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
             <div id="app">
-                   <main-create-component tableau-routes={{ json_encode(['enfantsListe'=>route('enfants.liste'),'tachesListe'=>route('taches.liste'),'responsablesListe'=>route('responsables.liste'),'bonsPointsStore'=>route('bonspoints.store')]) }} icon-validation="ri-check-line"  user-id="{{ Auth::user()->id }}" />
+                   <main-create-component tableau-routes={{ json_encode(['enfantsListe'=>route('enfants.liste'),'tachesListe'=>route('taches.liste'),'responsablesListe'=>route('responsables.liste'),'bonsPointsStore'=>route('bonspoints.store'),'bonsPointsListe'=>route('bonspoints.index')]) }} icon-validation="ri-check-line"  user-id="{{ Auth::user()->id }}" />
             </div>
 
         </div>

@@ -43,12 +43,8 @@ class BonPointController extends Controller
         $bonPointData = $data['bonPoint'];
         $tache_id =  $bonPointData['tache'];;
         $tache = Tache::find($tache_id);
-        $points = $tache->nombre_points;
-        $pointsBonus = $tache->nombre_points_bonus;
         $is_avec_bonus = $bonPointData['isBonus'];
-        if($is_avec_bonus){
-            $points=$points+$pointsBonus;
-        }
+        $points = SELF::calculerPoint($tache,$is_avec_bonus);
         $bonPoint = new BonPoint();
         $bonPoint->responsable_id = $bonPointData['responsable'];
         $bonPoint->enfant_id = $bonPointData['enfant'];
@@ -58,7 +54,14 @@ class BonPointController extends Controller
         $bonPoint->points = $points;
         $bonPoint->save();
     }
-
+    private function calculerPoint(Tache $tache,$is_avec_bonus){
+        $points = $tache->nombre_points;
+        $pointsBonus = $tache->nombre_points_bonus;
+        if($is_avec_bonus){
+            $points=$points+$pointsBonus;
+        }
+        return $points;
+    }
     /**
      * Display the specified resource.
      *

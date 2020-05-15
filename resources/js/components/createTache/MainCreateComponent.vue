@@ -2,8 +2,12 @@
     <div>
 
         <div class="table-responsive pt-2">
-            <button class="btn btn-primary mb-1 ml-1" v-on:click="store()"><i
-                class="ri-add-line"></i></button>
+
+            <button class="btn btn-primary mb-1 ml-1" v-on:click="store()"><i class="ri-save-line"></i>
+                Sauvegarder les ajouts</button>
+
+
+
             <table class="table tabletable-hover table-bordered ">
                 <tbody>
                 <tr class="pb-2" v-for="(bonPoint, index) in bonsPoints" :key="index">
@@ -12,10 +16,11 @@
                             <champs-component v-bind:responsables="responsables" v-bind:taches="taches"
                                               v-bind:enfants="enfants"
                                               v-bind:user-id="userId" v-bind:bon-point="bonPoint"></champs-component>
-                            <button v-if="testNombreBonPoint()" class="btn btn-danger mb-1" v-on:click="supprimerBonPoint(index)"><i
-                                class="ri-delete-bin-7-line"></i></button>
-                            <button class="btn btn-primary mb-1 ml-1" v-on:click="ajouterBonPoint()"><i
+
+                            <button class="btn btn-primary mb-1 " v-on:click="ajouterBonPoint()"><i
                                 class="ri-add-line"></i></button>
+                            <button v-if="testNombreBonPoint()" class="btn btn-danger mb-1 ml-1" v-on:click="supprimerBonPoint(index)"><i
+                            class="ri-delete-bin-7-line"></i></button>
                         </div>
                     </td>
                 </tr>
@@ -30,6 +35,7 @@
 <script>
 
     import Ligne from "./LigneCreateComponent";
+    import {Coucou76} from "../../classes/test";
 
     export default {
         components: {Ligne},
@@ -134,6 +140,7 @@
 
                 this.bonsPoints = [];
                 this.ajouterBonPoint();
+
             }
 
         }

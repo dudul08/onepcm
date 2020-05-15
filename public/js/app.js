@@ -2010,6 +2010,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LigneCreateComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LigneCreateComponent */ "./resources/js/components/createTache/LigneCreateComponent.vue");
+/* harmony import */ var _classes_test__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../classes/test */ "./resources/js/classes/test.js");
 //
 //
 //
@@ -2039,6 +2040,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -37826,7 +37833,10 @@ var render = function() {
             }
           }
         },
-        [_c("i", { staticClass: "ri-add-line" })]
+        [
+          _c("i", { staticClass: "ri-save-line" }),
+          _vm._v("\n            Sauvegarder les ajouts")
+        ]
       ),
       _vm._v(" "),
       _c("table", { staticClass: "table tabletable-hover table-bordered " }, [
@@ -37849,11 +37859,24 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary mb-1 ",
+                        on: {
+                          click: function($event) {
+                            return _vm.ajouterBonPoint()
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "ri-add-line" })]
+                    ),
+                    _vm._v(" "),
                     _vm.testNombreBonPoint()
                       ? _c(
                           "button",
                           {
-                            staticClass: "btn btn-danger mb-1",
+                            staticClass: "btn btn-danger mb-1 ml-1",
                             on: {
                               click: function($event) {
                                 return _vm.supprimerBonPoint(index)
@@ -37862,20 +37885,7 @@ var render = function() {
                           },
                           [_c("i", { staticClass: "ri-delete-bin-7-line" })]
                         )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary mb-1 ml-1",
-                        on: {
-                          click: function($event) {
-                            return _vm.ajouterBonPoint()
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "ri-add-line" })]
-                    )
+                      : _vm._e()
                   ],
                   1
                 )
@@ -50074,6 +50084,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  *
  * Eg. ./components/MainCreateComponent.vue -> <example-component></example-component>
  */
+//import { Coucou76 } from './classes/test'
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
@@ -50134,6 +50145,39 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/classes/test.js":
+/*!**************************************!*\
+  !*** ./resources/js/classes/test.js ***!
+  \**************************************/
+/*! exports provided: Coucou76 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Coucou76", function() { return Coucou76; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Coucou76 = /*#__PURE__*/function () {
+  function Coucou76() {
+    _classCallCheck(this, Coucou76);
+  }
+
+  _createClass(Coucou76, [{
+    key: "test",
+    value: function test() {
+      return "Coucou76";
+    }
+  }]);
+
+  return Coucou76;
+}();
 
 /***/ }),
 

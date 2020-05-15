@@ -15,12 +15,13 @@ window.Vue = require('vue');
  *
  * Eg. ./components/MainCreateComponent.vue -> <example-component></example-component>
  */
-
+//import { Coucou76 } from './classes/test'
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 Vue.component('main-create-component', require('./components/createTache/MainCreateComponent.vue').default);
 Vue.component('ligne-create-component', require('./components/createTache/LigneCreateComponent.vue').default);
 Vue.component('champs-component', require('./components/createTache/ChampsComponent.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

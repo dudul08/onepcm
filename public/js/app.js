@@ -2045,6 +2045,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2129,6 +2132,17 @@ __webpack_require__.r(__webpack_exports__);
       if (this.bonsPoints.length > 1) {
         this.bonsPoints.splice(index, 1);
       }
+    },
+    dupliquerBonPoint: function dupliquerBonPoint(index) {
+      var bonPointSource = this.bonsPoints[index];
+      var bonPointDuplique = {
+        dateBonPoint: bonPointSource.dateBonPoint,
+        responsable: bonPointSource.responsable,
+        enfant: bonPointSource.enfant,
+        tache: bonPointSource.tache,
+        isBonus: bonPointSource.isBonus
+      };
+      this.bonsPoints.push(bonPointDuplique);
     },
     testNombreBonPoint: function testNombreBonPoint(index) {
       if (this.bonsPoints.length > 1) {
@@ -37862,7 +37876,7 @@ var render = function() {
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary mb-1 ",
+                        staticClass: "btn btn-primary mb-1 mr-1",
                         on: {
                           click: function($event) {
                             return _vm.ajouterBonPoint()
@@ -37872,11 +37886,24 @@ var render = function() {
                       [_c("i", { staticClass: "ri-add-line" })]
                     ),
                     _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary mb-1 mr-1",
+                        on: {
+                          click: function($event) {
+                            return _vm.dupliquerBonPoint(index)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "ri-file-copy-line" })]
+                    ),
+                    _vm._v(" "),
                     _vm.testNombreBonPoint()
                       ? _c(
                           "button",
                           {
-                            staticClass: "btn btn-danger mb-1 ml-1",
+                            staticClass: "btn btn-danger mb-1 ",
                             on: {
                               click: function($event) {
                                 return _vm.supprimerBonPoint(index)

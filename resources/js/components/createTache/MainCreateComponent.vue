@@ -17,9 +17,12 @@
                                               v-bind:enfants="enfants"
                                               v-bind:user-id="userId" v-bind:bon-point="bonPoint"></champs-component>
 
-                            <button class="btn btn-primary mb-1 " v-on:click="ajouterBonPoint()"><i
+                            <button class="btn btn-primary mb-1 mr-1" v-on:click="ajouterBonPoint()"><i
                                 class="ri-add-line"></i></button>
-                            <button v-if="testNombreBonPoint()" class="btn btn-danger mb-1 ml-1" v-on:click="supprimerBonPoint(index)"><i
+                            <button class="btn btn-primary mb-1 mr-1" v-on:click="dupliquerBonPoint(index)"><i
+                                class="ri-file-copy-line"></i></button>
+
+                            <button v-if="testNombreBonPoint()" class="btn btn-danger mb-1 " v-on:click="supprimerBonPoint(index)"><i
                             class="ri-delete-bin-7-line"></i></button>
                         </div>
                     </td>
@@ -118,6 +121,20 @@
                 if (this.bonsPoints.length > 1) {
                     this.bonsPoints.splice(index, 1);
                 }
+
+            },
+            dupliquerBonPoint: function (index) {
+                let bonPointSource = this.bonsPoints[index];
+
+                let bonPointDuplique={
+                    dateBonPoint: bonPointSource.dateBonPoint,
+                    responsable: bonPointSource.responsable,
+                    enfant: bonPointSource.enfant,
+                    tache: bonPointSource.tache,
+                    isBonus: bonPointSource.isBonus
+                }
+                this.bonsPoints.push(bonPointDuplique);
+
 
             },
             testNombreBonPoint: function (index) {

@@ -2067,7 +2067,7 @@ __webpack_require__.r(__webpack_exports__);
       taches: [],
       bonsPoints: [],
       routes: {},
-      erreur: false
+      erreurSaisie: false
     };
   },
   props: ['iconValidation', 'userId', 'tableauRoutes'],
@@ -2167,10 +2167,9 @@ __webpack_require__.r(__webpack_exports__);
     store: function store() {
       var _this4 = this;
 
-      this.erreur = false;
       this.testSaisie();
 
-      if (!this.erreur) {
+      if (!this.erreurSaisie) {
         this.bonsPoints.forEach(function (item) {
           axios.post(_this4.routes.bonsPointsStore, {
             bonPoint: item
@@ -2187,20 +2186,21 @@ __webpack_require__.r(__webpack_exports__);
     testSaisie: function testSaisie() {
       var _this5 = this;
 
+      this.erreurSaisie = false;
       this.bonsPoints.forEach(function (item) {
         if (item.enfant == "") {
           item.enfantIsNonSaisi = true;
-          _this5.erreur = true;
+          _this5.erreurSaisie = true;
         }
 
         if (item.tache == "") {
           item.tacheIsNonSaisie = true;
-          _this5.erreur = true;
+          _this5.erreurSaisie = true;
         }
 
         if (item.dateBonPoint == "") {
           item.dateTacheIsNonSaisie = true;
-          _this5.erreur = true;
+          _this5.erreurSaisie = true;
         }
       });
     }
@@ -37896,10 +37896,13 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      this.erreur
+      this.erreurSaisie
         ? _c(
             "div",
-            { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+            {
+              staticClass: "alert alert-danger mt-1",
+              attrs: { role: "alert" }
+            },
             [
               _vm._v(
                 "\n            Tous les champs ne sont pas saisis !\n        "

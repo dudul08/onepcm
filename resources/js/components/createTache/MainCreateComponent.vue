@@ -6,7 +6,7 @@
             <button class="btn btn-primary mb-1 ml-1" v-on:click="store()"><i class="ri-save-line"></i>
                 Sauvegarder les ajouts
             </button>
-            <div v-if="this.erreur" class="alert alert-danger" role="alert">
+            <div v-if="this.erreurSaisie" class="alert alert-danger mt-1" role="alert">
                 Tous les champs ne sont pas saisis !
             </div>
 
@@ -52,7 +52,7 @@
                 taches: [],
                 bonsPoints: [],
                 routes: {},
-                erreur:false
+                erreurSaisie:false
             }
         },
         props: ['iconValidation', 'userId', 'tableauRoutes'],
@@ -158,10 +158,10 @@
             },
             store: function () {
 
-                this.erreur=false;
+
                 this.testSaisie();
 
-                if (!this.erreur) {
+                if (!this.erreurSaisie) {
                     this.bonsPoints.forEach((item) => {
 
                         axios.post(this.routes.bonsPointsStore, {bonPoint: item})
@@ -175,18 +175,19 @@
 
             },
             testSaisie:function(){
+                this.erreurSaisie=false;
                 this.bonsPoints.forEach((item) => {
                     if (item.enfant == "") {
                         item.enfantIsNonSaisi = true;
-                        this.erreur = true;
+                        this.erreurSaisie = true;
                     }
                     if (item.tache == "") {
                         item.tacheIsNonSaisie = true;
-                        this.erreur = true;
+                        this.erreurSaisie = true;
                     }
                     if (item.dateBonPoint == "") {
                         item.dateTacheIsNonSaisie = true;
-                        this.erreur = true;
+                        this.erreurSaisie = true;
                     }
                 });
 

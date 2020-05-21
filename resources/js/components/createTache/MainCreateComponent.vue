@@ -4,9 +4,11 @@
         <div class="table-responsive pt-2">
 
             <button class="btn btn-primary mb-1 ml-1" v-on:click="store()"><i class="ri-save-line"></i>
-                Sauvegarder les ajouts</button>
-
-
+                Sauvegarder les ajouts
+            </button>
+            <div v-if="this.erreur" class="alert alert-danger" role="alert">
+                Tous les champs ne sont pas saisis !
+            </div>
 
             <table class="table tabletable-hover table-bordered ">
                 <tbody>
@@ -22,8 +24,9 @@
                             <button class="btn btn-primary mb-1 mr-1" v-on:click="dupliquerBonPoint(index)"><i
                                 class="ri-file-copy-line"></i></button>
 
-                            <button v-if="testNombreBonPoint()" class="btn btn-danger mb-1 " v-on:click="supprimerBonPoint(index)"><i
-                            class="ri-delete-bin-7-line"></i></button>
+                            <button v-if="testNombreBonPoint()" class="btn btn-danger mb-1 "
+                                    v-on:click="supprimerBonPoint(index)"><i
+                                class="ri-delete-bin-7-line"></i></button>
                         </div>
                     </td>
                 </tr>
@@ -48,8 +51,8 @@
                 enfants: [],
                 taches: [],
                 bonsPoints: [],
-                routes: {}
-
+                routes: {},
+                erreur:false
             }
         },
         props: ['iconValidation', 'userId', 'tableauRoutes'],
@@ -111,7 +114,10 @@
                     responsable: this.userId,
                     enfant: "",
                     tache: "",
-                    isBonus: false
+                    isBonus: false,
+                    enfantIsNonSaisi: false,
+                    tacheIsNonSaisie:false,
+                    dateTacheIsNonSaisie:false
                 };
 
                 this.bonsPoints.push(bonPoint);
@@ -126,12 +132,15 @@
             dupliquerBonPoint: function (index) {
                 let bonPointSource = this.bonsPoints[index];
 
-                let bonPointDuplique={
+                let bonPointDuplique = {
                     dateBonPoint: bonPointSource.dateBonPoint,
                     responsable: bonPointSource.responsable,
                     enfant: bonPointSource.enfant,
                     tache: bonPointSource.tache,
-                    isBonus: bonPointSource.isBonus
+                    isBonus: bonPointSource.isBonus,
+                    enfantIsNonSaisi: bonPointSource.enfantIsNonSaisi,
+                    tacheIsNonSaisie: bonPointSource.tacheIsNonSaisie,
+                    dateTacheIsNonSaisie: bonPointSource.dateTacheIsNonSaisie
                 }
                 this.bonsPoints.push(bonPointDuplique);
 
@@ -147,16 +156,39 @@
 
 
             },
-            store:function () {
+            store: function () {
 
-                    this.bonsPoints.forEach((item)=>{
-                    axios.post(this.routes.bonsPointsStore,{bonPoint :item})
-                        .then(response => console.log(response))
-                        .catch(error => console.log(error));
+                this.erreur=false;
+                this.testSaisie();
+
+                if (!this.erreur) {
+                    this.bonsPoints.forEach((item) => {
+
+                        axios.post(this.routes.bonsPointsStore, {bonPoint: item})
+                            .then(response => console.log(response))
+                            .catch(error => console.log(error));
+                    });
+                    this.bonsPoints = [];
+                    this.ajouterBonPoint();
+                }
+
+
+            },
+            testSaisie:function(){
+                this.bonsPoints.forEach((item) => {
+                    if (item.enfant == "") {
+                        item.enfantIsNonSaisi = true;
+                        this.erreur = true;
+                    }
+                    if (item.tache == "") {
+                        item.tacheIsNonSaisie = true;
+                        this.erreur = true;
+                    }
+                    if (item.dateBonPoint == "") {
+                        item.dateTacheIsNonSaisie = true;
+                        this.erreur = true;
+                    }
                 });
-
-                this.bonsPoints = [];
-                this.ajouterBonPoint();
 
             }
 

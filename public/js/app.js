@@ -1941,6 +1941,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2048,6 +2051,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2060,7 +2066,8 @@ __webpack_require__.r(__webpack_exports__);
       enfants: [],
       taches: [],
       bonsPoints: [],
-      routes: {}
+      routes: {},
+      erreur: false
     };
   },
   props: ['iconValidation', 'userId', 'tableauRoutes'],
@@ -2124,7 +2131,10 @@ __webpack_require__.r(__webpack_exports__);
         responsable: this.userId,
         enfant: "",
         tache: "",
-        isBonus: false
+        isBonus: false,
+        enfantIsNonSaisi: false,
+        tacheIsNonSaisie: false,
+        dateTacheIsNonSaisie: false
       };
       this.bonsPoints.push(bonPoint);
     },
@@ -2140,7 +2150,10 @@ __webpack_require__.r(__webpack_exports__);
         responsable: bonPointSource.responsable,
         enfant: bonPointSource.enfant,
         tache: bonPointSource.tache,
-        isBonus: bonPointSource.isBonus
+        isBonus: bonPointSource.isBonus,
+        enfantIsNonSaisi: bonPointSource.enfantIsNonSaisi,
+        tacheIsNonSaisie: bonPointSource.tacheIsNonSaisie,
+        dateTacheIsNonSaisie: bonPointSource.dateTacheIsNonSaisie
       };
       this.bonsPoints.push(bonPointDuplique);
     },
@@ -2154,17 +2167,42 @@ __webpack_require__.r(__webpack_exports__);
     store: function store() {
       var _this4 = this;
 
-      this.bonsPoints.forEach(function (item) {
-        axios.post(_this4.routes.bonsPointsStore, {
-          bonPoint: item
-        }).then(function (response) {
-          return console.log(response);
-        })["catch"](function (error) {
-          return console.log(error);
+      this.erreur = false;
+      this.testSaisie();
+
+      if (!this.erreur) {
+        this.bonsPoints.forEach(function (item) {
+          axios.post(_this4.routes.bonsPointsStore, {
+            bonPoint: item
+          }).then(function (response) {
+            return console.log(response);
+          })["catch"](function (error) {
+            return console.log(error);
+          });
         });
+        this.bonsPoints = [];
+        this.ajouterBonPoint();
+      }
+    },
+    testSaisie: function testSaisie() {
+      var _this5 = this;
+
+      this.bonsPoints.forEach(function (item) {
+        if (item.enfant == "") {
+          item.enfantIsNonSaisi = true;
+          _this5.erreur = true;
+        }
+
+        if (item.tache == "") {
+          item.tacheIsNonSaisie = true;
+          _this5.erreur = true;
+        }
+
+        if (item.dateBonPoint == "") {
+          item.dateTacheIsNonSaisie = true;
+          _this5.erreur = true;
+        }
       });
-      this.bonsPoints = [];
-      this.ajouterBonPoint();
     }
   }
 });
@@ -37557,6 +37595,7 @@ var render = function() {
           }
         ],
         staticClass: "form-control mr-2",
+        class: { "is-invalid": _vm.bonPoint.dateTacheIsNonSaisie },
         attrs: { type: "date", id: "id_name" },
         domProps: { value: _vm.bonPoint.dateBonPoint },
         on: {
@@ -37620,50 +37659,53 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _c("label", { staticClass: "mr-2", attrs: { for: "id_enfant" } }, [
-        _vm._v("Enfant : ")
+      _c("div", { staticClass: "form-inline" }, [
+        _c("label", { staticClass: "mr-2", attrs: { for: "id_enfant" } }, [
+          _vm._v("Enfant : ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.bonPoint.enfant,
+                expression: "bonPoint.enfant"
+              }
+            ],
+            staticClass: "custom-select mr-2 ",
+            class: { "is-invalid": _vm.bonPoint.enfantIsNonSaisi },
+            attrs: { id: "id_enfant", name: "enfant" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.bonPoint,
+                  "enfant",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          _vm._l(_vm.enfants, function(enfant) {
+            return _c(
+              "option",
+              { key: enfant.id, domProps: { value: enfant.id } },
+              [_vm._v(_vm._s(enfant.prenom))]
+            )
+          }),
+          0
+        )
       ]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.bonPoint.enfant,
-              expression: "bonPoint.enfant"
-            }
-          ],
-          staticClass: "custom-select mr-2",
-          attrs: { id: "id_enfant", name: "enfant" },
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.$set(
-                _vm.bonPoint,
-                "enfant",
-                $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-              )
-            }
-          }
-        },
-        _vm._l(_vm.enfants, function(enfant) {
-          return _c(
-            "option",
-            { key: enfant.id, domProps: { value: enfant.id } },
-            [_vm._v(_vm._s(enfant.prenom))]
-          )
-        }),
-        0
-      ),
       _vm._v(" "),
       _c("label", { staticClass: "mr-2", attrs: { for: "id_tache" } }, [
         _vm._v("Tache : ")
@@ -37681,6 +37723,7 @@ var render = function() {
             }
           ],
           staticClass: "custom-select mr-2",
+          class: { "is-invalid": _vm.bonPoint.tacheIsNonSaisie },
           attrs: { id: "id_tache", name: "tache" },
           on: {
             change: function($event) {
@@ -37849,9 +37892,21 @@ var render = function() {
         },
         [
           _c("i", { staticClass: "ri-save-line" }),
-          _vm._v("\n            Sauvegarder les ajouts")
+          _vm._v("\n            Sauvegarder les ajouts\n        ")
         ]
       ),
+      _vm._v(" "),
+      this.erreur
+        ? _c(
+            "div",
+            { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+            [
+              _vm._v(
+                "\n            Tous les champs ne sont pas saisis !\n        "
+              )
+            ]
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c("table", { staticClass: "table tabletable-hover table-bordered " }, [
         _c(

@@ -114,4 +114,8 @@ class BonPointController extends Controller
     {
 
     }
+    public function voirStatistiques()
+    {
+        return view('bonspoints.statistiques');
+    }
 }

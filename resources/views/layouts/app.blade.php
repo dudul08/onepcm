@@ -40,6 +40,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('bonspoints.index') }}">Gérer les bons points </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('bonspoints.statistiques') }}">Voir les statistiques </a>
+                        </li>
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('bonspoints.index') }}">Voir les bons points </a>

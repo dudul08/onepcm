@@ -11,6 +11,15 @@ class CategorieTacheSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\CategorieTache', 15)->create();
+       // factory('App\CategorieTache', 15)->create();
+        $categorie_tache = DB::table('categorie_taches')->insert([
+            'libelle' => 'Entretien extérieur'
+        ]);
+        $categorie_tache = DB::table('categorie_taches')->insert([
+            'libelle' => 'Ménage'
+        ]);
+        $categorie_tache = DB::table('categorie_taches')->insert([
+            'libelle' => 'Rangement'
+        ]);
     }
 }

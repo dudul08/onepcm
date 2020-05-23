@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         $parent = DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'admin@admin.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('nippusg'),
+            'password' => \Illuminate\Support\Facades\Hash::make('1234@'),
             'is_admin' => true,
             'prenom' => 'admin',
             'date_naissance' => '1976-10-16',
@@ -24,46 +24,36 @@ class UserSeeder extends Seeder
 
         ]);
         $parent = DB::table('users')->insert([
-            'name' => 'SUPPIN',
+            'name' => 'DUPONT',
             'email' => 'admin@admin.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('nippusg'),
+            'password' => \Illuminate\Support\Facades\Hash::make('1234@'),
             'is_admin' => true,
-            'prenom' => 'Guillaume',
+            'prenom' => 'Bernard',
             'date_naissance' => '1976-10-16',
             'genre' => '1',
-            'pseudo' => 'papounet'
+            'pseudo' => 'papa'
 
         ]);
-        $parent = DB::table('users')->insert([
-            'name' => 'SUPPIN',
-            'email' => 'admin@admin.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('nippusg'),
-            'is_admin' => true,
-            'prenom' => 'Laure',
-            'date_naissance' => '1976-05-16',
-            'genre' => '0',
-            'pseudo' => 'mamounette'
 
-        ]);
         $enfant = DB::table('users')->insert([
-            'name' => 'SUPPIN',
+            'name' => 'DUPONT',
             'email' => 'enfant@enfant.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('300708@'),
+            'password' => \Illuminate\Support\Facades\Hash::make('1234@'),
             'is_admin' => false,
-            'prenom' => 'Elise',
+            'prenom' => 'Hildegarde',
             'date_naissance' => '2008-07-30',
             'genre' => '0',
-            'pseudo' => 'lili'
+            'pseudo' => 'enfant1'
         ]);
         $enfant = DB::table('users')->insert([
-            'name' => 'SUPPIN',
+            'name' => 'DUPONT',
             'email' => 'enfant@enfant.fr',
-            'password' => \Illuminate\Support\Facades\Hash::make('200407@'),
+            'password' => \Illuminate\Support\Facades\Hash::make('1234@'),
             'is_admin' => false,
-            'prenom' => 'Baptiste',
+            'prenom' => 'Bjorn',
             'date_naissance' => '2007-04-20',
             'genre' => '1',
-            'pseudo' => 'baptou'
+            'pseudo' => 'enfant2'
         ]);
     }
 }

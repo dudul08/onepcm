@@ -148,7 +148,7 @@ class BonPointController extends Controller
 
         }
 
-        return dd($data);
+        return response()->json($data);
     }
 
 }

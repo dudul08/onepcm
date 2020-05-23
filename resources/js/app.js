@@ -21,6 +21,8 @@ window.Vue = require('vue');
 Vue.component('main-create-component', require('./components/createTache/MainCreateComponent.vue').default);
 Vue.component('ligne-create-component', require('./components/createTache/LigneCreateComponent.vue').default);
 Vue.component('champs-component', require('./components/createTache/ChampsComponent.vue').default);
+Vue.component('main-statistiques-component', require('./components/statistiques/MainStatistiquesComponent.vue').default);
+Vue.component('graphique-component', require('./components/statistiques/graphiqueComponent').default);
 
 
 /**

@@ -5,10 +5,8 @@
         <div class="card-header text-center">
             <h2>Statistiques</h2>
         </div>
-        <div class="card-body table-responsive">
-            <div class="table-responsive">
-
-            </div>
+        <div id="app">
+            <main-statistiques-component></main-statistiques-component>
         </div>
     </div>
 @endsection

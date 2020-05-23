@@ -140,7 +140,7 @@ class BonPointController extends Controller
                 ->groupBy('enfant_id','mois', 'annee')
                 ->get();
             foreach ($statistiques as $item){
-                $dataEnfant[$item->mois] = $item->points;
+                $dataEnfant[$item->mois] = $item->total;
             }
 
             $data[$i] = $dataEnfant;

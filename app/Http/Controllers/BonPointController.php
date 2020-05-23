@@ -129,19 +129,25 @@ class BonPointController extends Controller
     {
         $enfants = User::where('is_admin', false)->get();
         $data=array();
+
         $i=0;
         foreach ($enfants as $enfant) {
-
+            $dataEnfant=array("1"=>0,"2"=>0,"3"=>0,"4"=>0,"5"=>0,"6"=>0,"7"=>0,"8"=>0,"9"=>0,"10"=>0,"11"=>0,"12"=>0);
             $enfantId = $enfant->id;
             $statistiques = DB::table('bon_points')
                 ->selectRaw('month(date_bonpoint) as mois,year(date_bonpoint) as annee,sum(points) as total')
                 ->where('enfant_id','=',$enfantId)
                 ->groupBy('enfant_id','mois', 'annee')
                 ->get();
-            $data[$i] = $statistiques;
+            foreach ($statistiques as $item){
+                $dataEnfant[$item->mois] = $item->points;
+            }
+
+            $data[$i] = $dataEnfant;
             $i = $i+1;
 
         }
+
         return dd($data);
     }
 

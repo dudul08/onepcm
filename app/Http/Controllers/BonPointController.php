@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\BonPoint;
 use App\Tache;
+use App\User;
 use Illuminate\Http\Request;
+use DB;
 
 class BonPointController extends Controller
 {
@@ -41,30 +43,33 @@ class BonPointController extends Controller
         $data = $request->all();
 
         $bonPointData = $data['bonPoint'];
-        $tache_id =  $bonPointData['tache'];;
+        $tache_id = $bonPointData['tache'];;
         $is_avec_bonus = $bonPointData['isBonus'];
 
         $tache = Tache::find($tache_id);
 
-        $points = SELF::calculerPoint($tache,$is_avec_bonus);
+        $points = SELF::calculerPoint($tache, $is_avec_bonus);
 
         $bonPoint = new BonPoint();
         $bonPoint->responsable_id = $bonPointData['responsable'];
         $bonPoint->enfant_id = $bonPointData['enfant'];
         $bonPoint->date_bonpoint = $bonPointData['dateBonPoint'];
-        $bonPoint->tache_id = $tache_id ;
+        $bonPoint->tache_id = $tache_id;
         $bonPoint->is_avec_bonus = $is_avec_bonus;
         $bonPoint->points = $points;
         $bonPoint->save();
     }
-    private function calculerPoint(Tache $tache,$is_avec_bonus){
+
+    private function calculerPoint(Tache $tache, $is_avec_bonus)
+    {
         $points = $tache->nombre_points;
         $pointsBonus = $tache->nombre_points_bonus;
-        if($is_avec_bonus){
-            $points=$points+$pointsBonus;
+        if ($is_avec_bonus) {
+            $points = $points + $pointsBonus;
         }
         return $points;
     }
+
     /**
      * Display the specified resource.
      *
@@ -114,8 +119,30 @@ class BonPointController extends Controller
     {
 
     }
+
     public function voirStatistiques()
     {
         return view('bonspoints.statistiques');
     }
+
+    public function calcul()
+    {
+        $enfants = User::where('is_admin', false)->get();
+        $data=array();
+        $i=0;
+        foreach ($enfants as $enfant) {
+
+            $enfantId = $enfant->id;
+            $statistiques = DB::table('bon_points')
+                ->selectRaw('month(date_bonpoint) as mois,year(date_bonpoint) as annee,sum(points) as total')
+                ->where('enfant_id','=',$enfantId)
+                ->groupBy('enfant_id','mois', 'annee')
+                ->get();
+            $data[$i] = $statistiques;
+            $i = $i+1;
+
+        }
+        return dd($data);
+    }
+
 }

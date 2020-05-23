@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'],function (){
     Route::get('bonspoints/{bonpoint}/edit', 'BonPointController@edit')->name('bonspoints.edit');
     Route::post('bonspoints', 'BonPointController@store')->name('bonspoints.store');
     Route::get('bonspoints/statistiques', 'BonPointController@voirStatistiques')->name('bonspoints.statistiques');
+    Route::get('bonspoints/statistiques/calcul', 'BonPointController@calcul')->name('bonspoints.calcul');
 //    Route::resource('categoriestaches', 'CategorieTacheController')->except([
 //        'show']);
 

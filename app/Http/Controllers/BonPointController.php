@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BonPoint;
+use App\Enfant;
 use App\Tache;
 use App\User;
 use Illuminate\Http\Request;
@@ -129,10 +130,10 @@ class BonPointController extends Controller
     {
         $enfants = User::where('is_admin', false)->get();
         $data = array();
-        $arrayMois = array('1' => 'janvier', '2' => 'fevrier', '3' => 'mars', '4' => 'avril', '5' => 'mai', '6' => 'juin', '7' => 'juillet', '8' => 'aout', '9' => 'septembre', '10' => 'octobre', '11' => 'novembre', '12' => 'decembre',);
+        $arrayMois = array('1' => 'janvier', '2' => 'février', '3' => 'mars', '4' => 'avril', '5' => 'mai', '6' => 'juin', '7' => 'juillet', '8' => 'aout', '9' => 'septembre', '10' => 'octobre', '11' => 'novembre', '12' => 'décembre',);
         $i = 0;
         foreach ($enfants as $enfant) {
-            $dataEnfant = array();
+            $dataEnfant = array(['mois' => 1, 'annee' => 2020, 'total' => 0],['mois' => 2, 'annee' => 2020, 'total' => 0], ['mois' => 3, 'annee' => 2020, 'total' => 0], ['mois' => 4, 'annee' => 2020, 'total' => 0],['mois' => 5, 'annee' => 2020, 'total' => 0],['mois' => 6, 'annee' => 2020, 'total' => 0],  ['mois' => 7, 'annee' => 2020, 'total' => 0], ['mois' => 8, 'annee' => 2020, 'total' => 0],  ['mois' => 9, 'annee' => 2020, 'total' => 0],  ['mois' => 10, 'annee' => 2020, 'total' => 0],  ['mois' => 11, 'annee' => 2020, 'total' => 0],  ['mois' => 12, 'annee' => 2020, 'total' => 0]);
             $enfantId = $enfant->id;
             $statistiques = DB::table('bon_points')
                 ->selectRaw('month(date_bonpoint) as mois,year(date_bonpoint) as annee,sum(points) as total')
@@ -141,11 +142,15 @@ class BonPointController extends Controller
                 ->get();
             $j = 0;
             foreach ($statistiques as $item) {
-                $numeroMois = $item->mois;
-                $item->mois = $arrayMois[$numeroMois];
-                $dataEnfant[$j] = $item;
+                $indiceMois = $item->mois;
+                $item->mois = $arrayMois[$indiceMois];
+                $dataEnfant[$indiceMois-1]['mois']= $item->mois;
+                $dataEnfant[$indiceMois-1]['total']= $item->total;
+
                 $j++;
             }
+
+
             $arrayDonneesEnfant = array('enfant' => $enfant->prenom, 'donnees' => $dataEnfant);
             $data[$i] = $arrayDonneesEnfant;
             $i = $i + 1;
@@ -155,7 +160,8 @@ class BonPointController extends Controller
                   ];*/
 
         }
-        return $data[0];
+        $valeur = response()->json($data);
+        return $valeur;
     }
 
 }

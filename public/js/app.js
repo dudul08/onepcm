@@ -2277,18 +2277,27 @@ var reactiveData = vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["mixins"].reactiveDa
       axios.get('http://paschezmamie.test/bonspoints/statistiques/calcul').then(function (response) {
         // JSON responses are automatically parsed.
         var responseData = response.data;
+
+        var dynamicColors = function dynamicColors() {
+          var r = Math.floor(Math.random() * 255);
+          var g = Math.floor(Math.random() * 255);
+          var b = Math.floor(Math.random() * 255);
+          return "rgb(" + r + "," + g + "," + b + ")";
+        };
+
         _this.chartData = {
-          labels: responseData.donnees.map(function (item) {
-            return item.mois;
-          }),
-          datasets: [{
-            label: responseData.enfant,
-            backgroundColor: '#f87979',
-            data: responseData.donnees.map(function (item) {
+          labels: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novemnbre', 'décembre'],
+          datasets: []
+        };
+        responseData.forEach(function (dataEnfant) {
+          _this.chartData.datasets.push({
+            label: dataEnfant.enfant,
+            backgroundColor: dynamicColors(),
+            data: dataEnfant.donnees.map(function (item) {
               return item.total;
             })
-          }]
-        };
+          });
+        });
       })["catch"](function (error) {
         return console.log(error);
       });

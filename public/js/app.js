@@ -2278,13 +2278,13 @@ var reactiveData = vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["mixins"].reactiveDa
         // JSON responses are automatically parsed.
         var responseData = response.data;
         _this.chartData = {
-          labels: responseData.map(function (item) {
+          labels: responseData.donnees.map(function (item) {
             return item.mois;
           }),
           datasets: [{
-            label: 'Daily Students',
+            label: responseData.enfant,
             backgroundColor: '#f87979',
-            data: responseData.map(function (item) {
+            data: responseData.donnees.map(function (item) {
               return item.total;
             })
           }]

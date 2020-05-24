@@ -6,14 +6,15 @@
 </template>-->
 
 <script>
-    import {Bar,mixins } from 'vue-chartjs';
-    const { reactiveData } = mixins;
+    import {Bar, mixins} from 'vue-chartjs';
+
+    const {reactiveData} = mixins;
     export default {
         mixins: [reactiveData],
         extends: Bar,
         data() {
             return {
-                chartData:{},
+                chartData: {},
                 options: {
                     responsive: true,
                     maintainAspectRatio: false
@@ -30,24 +31,22 @@
         created() {
 
 
-
-
         },
         methods: {
             recupererData: function () {
 
                 axios.get('http://paschezmamie.test/bonspoints/statistiques/calcul')
-                    .then(response =>{
+                    .then(response => {
                         // JSON responses are automatically parsed.
                         const responseData = response.data
                         this.chartData = {
-                            labels: responseData.map(item => item.mois),
+                            labels: responseData.donnees.map(item => item.mois),
                             datasets: [{
-                                label: 'Daily Students',
-                            backgroundColor: '#f87979',
-                            data: responseData.map(item => item.total)}
-                    ]
-                    }
+                                label: responseData.enfant,
+                                backgroundColor: '#f87979',
+                                data: responseData.donnees.map(item => item.total)
+                            }]
+                        }
                     })
 
                     .catch(error => console.log(error));

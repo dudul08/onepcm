@@ -128,27 +128,34 @@ class BonPointController extends Controller
     public function calcul()
     {
         $enfants = User::where('is_admin', false)->get();
-        $data=array();
+        $data = array();
+        $arrayMois=array('1'=>'janvier','2'=>'fevrier','3'=>'mars','4'=>'avril','5'=>'mai','6'=>'juin','7'=>'juillet','8'=>'aout','9'=>'septembre','10'=>'octobre','11'=>'novembre','12'=>'decembre',);
+        $i = 0;
+         foreach ($enfants as $enfant) {
+             $dataEnfant = array();
+             $enfantId = $enfant->id;
+             $statistiques = DB::table('bon_points')
+                 ->selectRaw('month(date_bonpoint) as mois,year(date_bonpoint) as annee,sum(points) as total')
+                 ->where('enfant_id', '=', $enfantId)
+                 ->groupBy('enfant_id', 'mois', 'annee')
+                 ->get();
+             $j = 0;
+             foreach ($statistiques as $item) {
+                 $numeroMois=$item->mois;
+                 $item->mois=$arrayMois[$numeroMois];
+                 $dataEnfant[$j] = $item;
+                 $j++;
+             }
 
-        $i=0;
-        foreach ($enfants as $enfant) {
-            $dataEnfant=array("1"=>0,"2"=>0,"3"=>0,"4"=>0,"5"=>0,"6"=>0,"7"=>0,"8"=>0,"9"=>0,"10"=>0,"11"=>0,"12"=>0);
-            $enfantId = $enfant->id;
-            $statistiques = DB::table('bon_points')
-                ->selectRaw('month(date_bonpoint) as mois,year(date_bonpoint) as annee,sum(points) as total')
-                ->where('enfant_id','=',$enfantId)
-                ->groupBy('enfant_id','mois', 'annee')
-                ->get();
-            foreach ($statistiques as $item){
-                $dataEnfant[$item->mois] = $item->total;
-            }
+             $data[$i] = $dataEnfant;
+             $i = $i + 1;
 
-            $data[$i] = $dataEnfant;
-            $i = $i+1;
+             /*      $data = [
+                       ['day' => 'Wednesday', 'totalStudents' => 201], ['day' => 'Tuesday', 'totalStudents' => 1000], ['day' => 'Thursday', 'totalStudents' => 150], ['day' => 'Friday', 'totalStudents' => 120]
+                   ];*/
 
-        }
-
-        return response()->json($data);
+         }
+        return $data[0];
     }
 
 }

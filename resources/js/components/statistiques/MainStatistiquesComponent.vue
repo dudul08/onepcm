@@ -1,47 +1,61 @@
-<template>
+<!--<template>
     <div>
-        <graphique-component v-bind:chartdata="this.chartdata" v-bind:options="options"></graphique-component>
+       <graphique-component v-bind:chartdata="this.chartData" v-bind:options="options"></graphique-component>
+
     </div>
-</template>
+</template>-->
 
 <script>
-    import GraphiqueComponent from "./GraphiqueComponent";
-
+    import {Bar,mixins } from 'vue-chartjs';
+    const { reactiveData } = mixins;
     export default {
-        components: {GraphiqueComponent},
+        mixins: [reactiveData],
+        extends: Bar,
         data() {
             return {
-                chartdata: {
-                    labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-                    datasets: [
-                        {
-                            label: 'Baptiste',
-                            backgroundColor: '#f87979',
-                            data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
-                        },
-                        {
-                            label: 'Elise',
-                            backgroundColor: '#f87416',
-                            data: [40, 20, 102, 39, 10, 10, 39, 80, 40, 20, 12, 11]
-                        }
-                    ]
-                },
+                chartData:{},
                 options: {
                     responsive: true,
                     maintainAspectRatio: false
                 }
             }
-
-
         },
         props: [],
         mounted() {
+            this.recupererData();
+            this.renderChart(this.chartData, this.options)
 
         },
+
         created() {
 
 
+
+
         },
-        methods: {}
+        methods: {
+            recupererData: function () {
+
+                axios.get('http://paschezmamie.test/bonspoints/statistiques/calcul')
+                    .then(response =>{
+                        // JSON responses are automatically parsed.
+                        const responseData = response.data
+                        this.chartData = {
+                            labels: responseData.map(item => item.mois),
+                            datasets: [{
+                                label: 'Daily Students',
+                            backgroundColor: '#f87979',
+                            data: responseData.map(item => item.total)}
+                    ]
+                    }
+                    })
+
+                    .catch(error => console.log(error));
+
+            },
+            test: function () {
+                // console.log(this.dataStat[0]);
+            }
+        }
     }
 </script>

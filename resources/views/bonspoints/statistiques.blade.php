@@ -6,7 +6,7 @@
             <h2>Statistiques</h2>
         </div>
         <div id="app">
-            <main-statistiques-component></main-statistiques-component>
+            <main-statistiques-component tableau-routes={{json_encode(['calcul'=>route('bonspoints.calcul')]) }}></main-statistiques-component>
         </div>
     </div>
 @endsection

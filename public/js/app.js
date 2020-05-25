@@ -2257,6 +2257,7 @@ var reactiveData = vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["mixins"].reactiveDa
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   data: function data() {
     return {
+      routes: {},
       chartData: {},
       options: {
         responsive: true,
@@ -2264,17 +2265,21 @@ var reactiveData = vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["mixins"].reactiveDa
       }
     };
   },
-  props: [],
+  props: ['tableauRoutes'],
   mounted: function mounted() {
+    this.initialiserRoutes();
     this.recupererData();
     this.renderChart(this.chartData, this.options);
   },
   created: function created() {},
   methods: {
+    initialiserRoutes: function initialiserRoutes() {
+      this.routes = JSON.parse(this.tableauRoutes);
+    },
     recupererData: function recupererData() {
       var _this = this;
 
-      axios.get('http://paschezmamie.test/bonspoints/statistiques/calcul').then(function (response) {
+      axios.get(this.routes.calcul).then(function (response) {
         // JSON responses are automatically parsed.
         var responseData = response.data;
 

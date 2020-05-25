@@ -14,6 +14,7 @@
         extends: Bar,
         data() {
             return {
+                routes: {},
                 chartData: {},
                 options: {
                     responsive: true,
@@ -21,10 +22,11 @@
                 }
             }
         },
-        props: [],
+        props: ['tableauRoutes'],
         mounted() {
+            this.initialiserRoutes();
             this.recupererData();
-            this.renderChart(this.chartData, this.options)
+            this.renderChart(this.chartData, this.options);
 
         },
 
@@ -33,9 +35,12 @@
 
         },
         methods: {
+            initialiserRoutes: function () {
+                this.routes = JSON.parse(this.tableauRoutes);
+            },
             recupererData: function () {
 
-                axios.get('http://paschezmamie.test/bonspoints/statistiques/calcul')
+                axios.get(this.routes.calcul)
                     .then(response => {
                         // JSON responses are automatically parsed.
                         const responseData = response.data;

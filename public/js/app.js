@@ -1944,6 +1944,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2014,12 +2018,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LigneCreateComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LigneCreateComponent */ "./resources/js/components/createTache/LigneCreateComponent.vue");
 /* harmony import */ var _classes_test__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../classes/test */ "./resources/js/classes/test.js");
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -75451,7 +75449,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "form-inline" }, [
+    _c("span", { staticClass: "card-body" }, [
       _c("label", { staticClass: "mr-2", attrs: { for: "id_name" } }, [
         _vm._v("Date : ")
       ]),
@@ -75750,58 +75748,57 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "table-responsive pt-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary mb-1 ml-1",
-          on: {
-            click: function($event) {
-              return _vm.store()
-            }
-          }
-        },
-        [
-          _c("i", { staticClass: "ri-save-line" }),
-          _vm._v("\n            Sauvegarder les ajouts\n        ")
-        ]
-      ),
-      _vm._v(" "),
-      this.erreurSaisie
-        ? _c(
-            "div",
+    _c(
+      "div",
+      { staticClass: "text-center" },
+      [
+        _c("div", { staticClass: "mb-2" }, [
+          _c(
+            "button",
             {
-              staticClass: "alert alert-danger mt-1",
-              attrs: { role: "alert" }
+              staticClass: "btn btn-primary mb-1 ml-1",
+              on: {
+                click: function($event) {
+                  return _vm.store()
+                }
+              }
             },
             [
-              _vm._v(
-                "\n            Tous les champs ne sont pas saisis !\n        "
-              )
+              _c("i", { staticClass: "ri-save-line" }),
+              _vm._v("\n            Sauvegarder les ajouts\n        ")
             ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c("table", { staticClass: "table tabletable-hover table-bordered " }, [
-        _c(
-          "tbody",
-          _vm._l(_vm.bonsPoints, function(bonPoint, index) {
-            return _c("tr", { key: index, staticClass: "pb-2" }, [
-              _c("td", [
-                _c(
-                  "div",
-                  { staticClass: "form-inline" },
-                  [
-                    _c("champs-component", {
-                      attrs: {
-                        responsables: _vm.responsables,
-                        taches: _vm.taches,
-                        enfants: _vm.enfants,
-                        "user-id": _vm.userId,
-                        "bon-point": bonPoint
-                      }
-                    }),
-                    _vm._v(" "),
+          ),
+          _vm._v(" "),
+          this.erreurSaisie
+            ? _c(
+                "div",
+                {
+                  staticClass: "alert alert-danger mt-1",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _vm._v(
+                    "\n            Tous les champs ne sont pas saisis !\n        "
+                  )
+                ]
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.bonsPoints, function(bonPoint, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "card  pb-2 ml-2 mb-2",
+              staticStyle: { display: "inline-block" }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "text-left" },
+                [
+                  _c("div", { staticClass: "card-header" }, [
                     _c(
                       "button",
                       {
@@ -75842,16 +75839,26 @@ var render = function() {
                           [_c("i", { staticClass: "ri-delete-bin-7-line" })]
                         )
                       : _vm._e()
-                  ],
-                  1
-                )
-              ])
-            ])
-          }),
-          0
-        )
-      ])
-    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("champs-component", {
+                    attrs: {
+                      responsables: _vm.responsables,
+                      taches: _vm.taches,
+                      enfants: _vm.enfants,
+                      "user-id": _vm.userId,
+                      "bon-point": bonPoint
+                    }
+                  })
+                ],
+                1
+              )
+            ]
+          )
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []

@@ -1,40 +1,34 @@
 <template>
     <div>
-
-        <div class="table-responsive pt-2">
-
+        <div class="text-center">
+        <div class="mb-2">
             <button class="btn btn-primary mb-1 ml-1" v-on:click="store()"><i class="ri-save-line"></i>
                 Sauvegarder les ajouts
             </button>
             <div v-if="this.erreurSaisie" class="alert alert-danger mt-1" role="alert">
                 Tous les champs ne sont pas saisis !
             </div>
-
-            <table class="table tabletable-hover table-bordered ">
-                <tbody>
-                <tr class="pb-2" v-for="(bonPoint, index) in bonsPoints" :key="index">
-                    <td>
-                        <div class="form-inline">
-                            <champs-component v-bind:responsables="responsables" v-bind:taches="taches"
-                                              v-bind:enfants="enfants"
-                                              v-bind:user-id="userId" v-bind:bon-point="bonPoint"></champs-component>
-
-                            <button class="btn btn-primary mb-1 mr-1" v-on:click="ajouterBonPoint()"><i
-                                class="ri-add-line"></i></button>
-                            <button class="btn btn-primary mb-1 mr-1" v-on:click="dupliquerBonPoint(index)"><i
-                                class="ri-file-copy-line"></i></button>
-
-                            <button v-if="testNombreBonPoint()" class="btn btn-danger mb-1 "
-                                    v-on:click="supprimerBonPoint(index)"><i
-                                class="ri-delete-bin-7-line"></i></button>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
         </div>
 
+            <div class="card  pb-2 ml-2 mb-2" v-for="(bonPoint, index) in bonsPoints" :key="index" style="display: inline-block">
+                <div class="text-left">
+                    <div class="card-header">
+                        <button class="btn btn-primary mb-1 mr-1" v-on:click="ajouterBonPoint()"><i
+                            class="ri-add-line"></i></button>
+                        <button class="btn btn-primary mb-1 mr-1" v-on:click="dupliquerBonPoint(index)"><i
+                            class="ri-file-copy-line"></i></button>
 
+                        <button v-if="testNombreBonPoint()" class="btn btn-danger mb-1 "
+                                v-on:click="supprimerBonPoint(index)"><i
+                            class="ri-delete-bin-7-line"></i></button>
+                    </div>
+                    <champs-component v-bind:responsables="responsables" v-bind:taches="taches"
+                                      v-bind:enfants="enfants"
+                                      v-bind:user-id="userId" v-bind:bon-point="bonPoint"></champs-component>
+                </div>
+
+            </div>
+        </div>
     </div>
 </template>
 
@@ -52,7 +46,7 @@
                 taches: [],
                 bonsPoints: [],
                 routes: {},
-                erreurSaisie:false
+                erreurSaisie: false
             }
         },
         props: ['iconValidation', 'userId', 'tableauRoutes'],
@@ -116,8 +110,8 @@
                     tache: "",
                     isBonus: false,
                     enfantIsNonSaisi: false,
-                    tacheIsNonSaisie:false,
-                    dateTacheIsNonSaisie:false
+                    tacheIsNonSaisie: false,
+                    dateTacheIsNonSaisie: false
                 };
 
                 this.bonsPoints.push(bonPoint);
@@ -174,8 +168,8 @@
 
 
             },
-            testSaisie:function(){
-                this.erreurSaisie=false;
+            testSaisie: function () {
+                this.erreurSaisie = false;
                 this.bonsPoints.forEach((item) => {
                     if (item.enfant == "") {
                         item.enfantIsNonSaisi = true;

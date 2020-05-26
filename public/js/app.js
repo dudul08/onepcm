@@ -1948,6 +1948,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -75449,223 +75461,250 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("span", { staticClass: "card-body" }, [
-      _c("label", { staticClass: "mr-2", attrs: { for: "id_name" } }, [
-        _vm._v("Date : ")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.bonPoint.dateBonPoint,
-            expression: "bonPoint.dateBonPoint"
-          }
-        ],
-        staticClass: "form-control mr-2",
-        class: { "is-invalid": _vm.bonPoint.dateTacheIsNonSaisie },
-        attrs: { type: "date", id: "id_name" },
-        domProps: { value: _vm.bonPoint.dateBonPoint },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.bonPoint, "dateBonPoint", $event.target.value)
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "mr-2", attrs: { for: "id_responsable" } }, [
-        _vm._v("Responsable : ")
-      ]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.bonPoint.responsable,
-              expression: "bonPoint.responsable"
-            }
-          ],
-          staticClass: "custom-select mr-2",
-          attrs: { id: "id_responsable", name: "responsable" },
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.$set(
-                _vm.bonPoint,
-                "responsable",
-                $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-              )
-            }
-          }
-        },
-        _vm._l(_vm.responsables, function(responsable) {
-          return _c(
-            "option",
-            { key: responsable.id, domProps: { value: responsable.id } },
-            [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(responsable.prenom) +
-                  "\n                "
-              )
-            ]
-          )
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-inline" }, [
-        _c("label", { staticClass: "mr-2", attrs: { for: "id_enfant" } }, [
-          _vm._v("Enfant : ")
-        ]),
-        _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "form-group row" }, [
         _c(
-          "select",
-          {
+          "label",
+          { staticClass: "col-sm-6 col-form-label", attrs: { for: "id_date" } },
+          [_vm._v("Date : ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c("input", {
             directives: [
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.bonPoint.enfant,
-                expression: "bonPoint.enfant"
+                value: _vm.bonPoint.dateBonPoint,
+                expression: "bonPoint.dateBonPoint"
               }
             ],
-            staticClass: "custom-select mr-2 ",
-            class: { "is-invalid": _vm.bonPoint.enfantIsNonSaisi },
-            attrs: { id: "id_enfant", name: "enfant" },
+            staticClass: "form-control mr-2",
+            class: { "is-invalid": _vm.bonPoint.dateTacheIsNonSaisie },
+            attrs: { type: "date", id: "id_date" },
+            domProps: { value: _vm.bonPoint.dateBonPoint },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.bonPoint, "dateBonPoint", $event.target.value)
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group row" }, [
+        _c(
+          "label",
+          {
+            staticClass: "col-sm-6 col-form-label",
+            attrs: { for: "id_responsable" }
+          },
+          [_vm._v("Responsable : ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.bonPoint.responsable,
+                  expression: "bonPoint.responsable"
+                }
+              ],
+              staticClass: "custom-select mr-2",
+              attrs: { id: "id_responsable", name: "responsable" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.bonPoint,
+                    "responsable",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            _vm._l(_vm.responsables, function(responsable) {
+              return _c(
+                "option",
+                { key: responsable.id, domProps: { value: responsable.id } },
+                [_vm._v(_vm._s(responsable.prenom) + "\n                    ")]
+              )
+            }),
+            0
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group row" }, [
+        _c(
+          "label",
+          {
+            staticClass: "col-sm-6 col-form-label",
+            attrs: { for: "id_enfant" }
+          },
+          [_vm._v("Enfant : ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.bonPoint.enfant,
+                  expression: "bonPoint.enfant"
+                }
+              ],
+              staticClass: "custom-select mr-2 ",
+              class: { "is-invalid": _vm.bonPoint.enfantIsNonSaisi },
+              attrs: { id: "id_enfant", name: "enfant" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.bonPoint,
+                    "enfant",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            _vm._l(_vm.enfants, function(enfant) {
+              return _c(
+                "option",
+                { key: enfant.id, domProps: { value: enfant.id } },
+                [_vm._v(_vm._s(enfant.prenom) + "\n                    ")]
+              )
+            }),
+            0
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group row" }, [
+        _c(
+          "label",
+          {
+            staticClass: "col-sm-3 col-form-label",
+            attrs: { for: "id_tache" }
+          },
+          [_vm._v("Tache : ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-9" }, [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.bonPoint.tache,
+                  expression: "bonPoint.tache"
+                }
+              ],
+              staticClass: "custom-select mr-2",
+              class: { "is-invalid": _vm.bonPoint.tacheIsNonSaisie },
+              attrs: { id: "id_tache", name: "tache" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.bonPoint,
+                    "tache",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            _vm._l(_vm.taches, function(tache) {
+              return _c(
+                "option",
+                { key: tache.id, domProps: { value: tache.id } },
+                [_vm._v(_vm._s(tache.libelle))]
+              )
+            }),
+            0
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group row" }, [
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.bonPoint.isBonus,
+                expression: "bonPoint.isBonus"
+              }
+            ],
+            attrs: { type: "checkbox", value: "isBonus", id: "idbonus" },
+            domProps: {
+              checked: Array.isArray(_vm.bonPoint.isBonus)
+                ? _vm._i(_vm.bonPoint.isBonus, "isBonus") > -1
+                : _vm.bonPoint.isBonus
+            },
             on: {
               change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.$set(
-                  _vm.bonPoint,
-                  "enfant",
-                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                )
-              }
-            }
-          },
-          _vm._l(_vm.enfants, function(enfant) {
-            return _c(
-              "option",
-              { key: enfant.id, domProps: { value: enfant.id } },
-              [_vm._v(_vm._s(enfant.prenom))]
-            )
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("label", { staticClass: "mr-2", attrs: { for: "id_tache" } }, [
-        _vm._v("Tache : ")
-      ]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.bonPoint.tache,
-              expression: "bonPoint.tache"
-            }
-          ],
-          staticClass: "custom-select mr-2",
-          class: { "is-invalid": _vm.bonPoint.tacheIsNonSaisie },
-          attrs: { id: "id_tache", name: "tache" },
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.$set(
-                _vm.bonPoint,
-                "tache",
-                $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-              )
-            }
-          }
-        },
-        _vm._l(_vm.taches, function(tache) {
-          return _c(
-            "option",
-            { key: tache.id, domProps: { value: tache.id } },
-            [_vm._v(_vm._s(tache.libelle))]
-          )
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "custom-control-inline  mr-2" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.bonPoint.isBonus,
-              expression: "bonPoint.isBonus"
-            }
-          ],
-          attrs: { type: "checkbox", value: "isBonus", id: "idbonus" },
-          domProps: {
-            checked: Array.isArray(_vm.bonPoint.isBonus)
-              ? _vm._i(_vm.bonPoint.isBonus, "isBonus") > -1
-              : _vm.bonPoint.isBonus
-          },
-          on: {
-            change: function($event) {
-              var $$a = _vm.bonPoint.isBonus,
-                $$el = $event.target,
-                $$c = $$el.checked ? true : false
-              if (Array.isArray($$a)) {
-                var $$v = "isBonus",
-                  $$i = _vm._i($$a, $$v)
-                if ($$el.checked) {
-                  $$i < 0 &&
-                    _vm.$set(_vm.bonPoint, "isBonus", $$a.concat([$$v]))
+                var $$a = _vm.bonPoint.isBonus,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = "isBonus",
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 &&
+                      _vm.$set(_vm.bonPoint, "isBonus", $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      _vm.$set(
+                        _vm.bonPoint,
+                        "isBonus",
+                        $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                      )
+                  }
                 } else {
-                  $$i > -1 &&
-                    _vm.$set(
-                      _vm.bonPoint,
-                      "isBonus",
-                      $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                    )
+                  _vm.$set(_vm.bonPoint, "isBonus", $$c)
                 }
-              } else {
-                _vm.$set(_vm.bonPoint, "isBonus", $$c)
               }
             }
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { staticClass: "ml-1", attrs: { for: "idbonus" } }, [
-          _vm._v("Bonus")
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "ml-1", attrs: { for: "idbonus" } }, [
+            _vm._v("Bonus")
+          ])
         ])
       ])
     ])

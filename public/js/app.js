@@ -2063,7 +2063,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -75829,7 +75828,7 @@ var render = function() {
             "div",
             {
               key: index,
-              staticClass: "card  pb-2 ml-2 mb-2",
+              staticClass: "card  pb-2 ml-2 mb-2 border border-primary",
               staticStyle: { display: "inline-block" }
             },
             [

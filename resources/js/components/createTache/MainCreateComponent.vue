@@ -9,8 +9,7 @@
                 Tous les champs ne sont pas saisis !
             </div>
         </div>
-
-            <div class="card  pb-2 ml-2 mb-2" v-for="(bonPoint, index) in bonsPoints" :key="index" style="display: inline-block">
+            <div class="card  pb-2 ml-2 mb-2 border border-primary" v-for="(bonPoint, index) in bonsPoints" :key="index" style="display: inline-block">
                 <div class="text-left">
                     <div class="card-header">
                         <button class="btn btn-primary mb-1 mr-1" v-on:click="ajouterBonPoint()"><i
